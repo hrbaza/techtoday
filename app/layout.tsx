@@ -1,3 +1,48 @@
-import type {Metadata} from "next";import "./globals.css";import "./fonts.css";
-export const metadata:Metadata={title:"TechToday — AI agents explained",description:"Simple explanations of AI agents and the technology shaping our world.",icons:{icon:"/favicon.svg"},openGraph:{title:"TechToday — AI agents are the next big step in computing",description:"A clear guide to AI agents, how they work, and what they mean for people.",images:[{url:"/og.png",width:1536,height:1024,alt:"TechToday guide to AI agents"}]},twitter:{card:"summary_large_image",title:"TechToday — AI agents explained",description:"A clear guide to AI agents, how they work, and what they mean for people.",images:["/og.png"]}};
-export default function Layout({children}:{children:React.ReactNode}){return <html lang="en"><body>{children}</body></html>}
+import type { Metadata } from "next";
+import "./globals.css";
+import "./fonts.css";
+import SiteHeader from "./components/SiteHeader";
+import SiteFooter from "./components/SiteFooter";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/content/site";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — Technology explained clearly`,
+    template: `%s — ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  icons: { icon: "/favicon.svg" },
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} — Technology explained clearly`,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/og.png",
+        width: 1536,
+        height: 1024,
+        alt: `${SITE_NAME} — technology explained clearly`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} — Technology explained clearly`,
+    description: SITE_DESCRIPTION,
+    images: ["/og.png"],
+  },
+};
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </body>
+    </html>
+  );
+}
