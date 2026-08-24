@@ -5,6 +5,7 @@ import {
   getAllSlugs,
   getArticleBySlug,
   getRelatedArticles,
+  wordCount,
 } from "@/content/articles";
 import { AUTHOR_NAME, SITE_NAME, SITE_URL } from "@/content/site";
 import ArticleBody from "../../components/ArticleBody";
@@ -30,6 +31,9 @@ export async function generateMetadata({
     title: article.title,
     description: article.excerpt,
     alternates: { canonical: url },
+    authors: [{ name: AUTHOR_NAME, url: `${SITE_URL}/about` }],
+    category: article.category,
+    keywords: [article.category, "technology", "explained", SITE_NAME],
     openGraph: {
       type: "article",
       title: article.title,
@@ -57,22 +61,53 @@ export default async function ArticlePage({
   if (!article) notFound();
 
   const related = getRelatedArticles(slug);
+  const canonical = `${SITE_URL}/blog/${article.slug}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: article.title,
     description: article.excerpt,
     image: article.image,
     datePublished: article.date,
     dateModified: article.date,
     articleSection: article.category,
-    author: { "@type": "Person", name: AUTHOR_NAME },
-    publisher: { "@type": "Organization", name: SITE_NAME },
+    inLanguage: "en",
+    wordCount: wordCount(article),
+    keywords: [article.category, "technology", SITE_NAME].join(", "),
+    url: canonical,
+    author: {
+      "@type": "Person",
+      name: AUTHOR_NAME,
+      url: `${SITE_URL}/about`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/og.png`,
+      },
+    },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${SITE_URL}/blog/${article.slug}`,
+      "@id": canonical,
     },
+  };
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Articles",
+        item: `${SITE_URL}/blog`,
+      },
+      { "@type": "ListItem", position: 3, name: article.title, item: canonical },
+    ],
   };
 
   return (
@@ -80,6 +115,10 @@ export default async function ArticlePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       <article className="article-section">
@@ -94,7 +133,7 @@ export default async function ArticlePage({
             <div className="byline">
               <span className="byline-author">By {AUTHOR_NAME}</span>
               <span className="byline-sep">·</span>
-              <span>{article.dateLabel}</span>
+              <time dateTime={article.date}>{article.dateLabel}</time>
               <span className="byline-sep">·</span>
               <span>{article.readTime}</span>
               <span className="byline-sep">·</span>
@@ -104,6 +143,8 @@ export default async function ArticlePage({
               className="article-image"
               src={article.image}
               alt={article.imageAlt}
+              width={1600}
+              height={900}
             />
             <ArticleBody blocks={article.body} />
 

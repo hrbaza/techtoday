@@ -6,7 +6,13 @@ export default function ArticleCard({ article }: { article: Article }) {
   return (
     <article className="story-card">
       <Link href={href} aria-label={article.title}>
-        <img src={article.image} alt={article.imageAlt} loading="lazy" />
+        <img
+          src={article.image}
+          alt={article.imageAlt}
+          width={800}
+          height={420}
+          loading="lazy"
+        />
       </Link>
       <div className="story-content">
         <span>{article.category}</span>
