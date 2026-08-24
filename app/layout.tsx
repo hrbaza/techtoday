@@ -3,10 +3,18 @@ import "./globals.css";
 import "./fonts.css";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/content/site";
+import {
+  GOOGLE_SITE_VERIFICATION,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+} from "@/content/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  ...(GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: GOOGLE_SITE_VERIFICATION } }
+    : {}),
   title: {
     default: `${SITE_NAME} — Technology explained clearly`,
     template: `%s — ${SITE_NAME}`,
