@@ -1,7 +1,7 @@
-// Central site configuration. Change SITE_URL to your final custom domain
-// (or set NEXT_PUBLIC_SITE_URL in the environment / Vercel project settings).
+// Central site configuration. The live domain is techtoday.space; override it
+// per-environment by setting NEXT_PUBLIC_SITE_URL in Vercel if it ever changes.
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL || "https://techtoday.vercel.app"
+  process.env.NEXT_PUBLIC_SITE_URL || "https://techtoday.space"
 ).replace(/\/$/, "");
 
 export const SITE_NAME = "TechToday";
