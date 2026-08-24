@@ -1,0 +1,3 @@
+import type {Metadata} from "next";import "./globals.css";import "./fonts.css";
+export const metadata:Metadata={title:"SIGNAL° — The web is learning to act",description:"An independent technology briefing about AI agents and the systems shaping what comes next.",icons:{icon:"/favicon.svg"},openGraph:{title:"SIGNAL° — The web is learning to act",description:"AI agents, decoded.",images:[{url:"/og.png",width:1536,height:1024,alt:"SIGNAL° — The web is learning to act"}]},twitter:{card:"summary_large_image",title:"SIGNAL° — The web is learning to act",description:"AI agents, decoded.",images:["/og.png"]}};
+export default function Layout({children}:{children:React.ReactNode}){return <html lang="en"><body>{children}</body></html>}
