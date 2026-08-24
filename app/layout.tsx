@@ -46,6 +46,15 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {/* Monetag Multitag ad script (zone 272780) */}
+        <script
+          src="https://quge5.com/88/tag.min.js"
+          data-zone="272780"
+          data-cfasync="false"
+          async
+        />
+      </head>
       <body>
         <SiteHeader />
         {children}
