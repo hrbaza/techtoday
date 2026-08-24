@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE_NAME } from "@/content/site";
+import { AUTHOR_NAME, SITE_NAME } from "@/content/site";
+import AuthorBio from "../components/AuthorBio";
 
 export const metadata: Metadata = {
   title: "About",
@@ -61,13 +62,14 @@ export default function AboutPage() {
             cycle.
           </p>
 
-          <h2>Who we are</h2>
+          <h2>Who writes {SITE_NAME}</h2>
           <p>
-            {SITE_NAME} is an independent technology blog run by a small team of
-            writers who love explaining how things work. We are not affiliated
-            with any of the companies or products we write about, and we cover
-            technology on its merits.
+            {SITE_NAME} is an independent technology blog founded and written by{" "}
+            {AUTHOR_NAME}. Every article is researched and written by hand — we
+            are not affiliated with any of the companies or products we cover,
+            and we write about technology strictly on its merits.
           </p>
+          <AuthorBio />
 
           <h2>Get in touch</h2>
           <p>

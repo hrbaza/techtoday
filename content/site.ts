@@ -12,6 +12,20 @@ export const SITE_DESCRIPTION =
 // Contact address shown on the Contact / legal pages.
 export const CONTACT_EMAIL = "techtoday@gmail.com";
 
+// The person behind the site. This is the byline shown on every article and on
+// the About page — a real, named author is an important trust signal for both
+// readers and for programs like Google AdSense.
+//
+// NOTE: `name` is a best guess from the account email — please change it to
+// your real name (and adjust the bio) so the byline is accurate.
+export const AUTHOR_NAME = "Hamza Rashid";
+export const AUTHOR_ROLE = "Founder & Editor, TechToday";
+export const AUTHOR_BIO =
+  "Hamza is the founder and editor of TechToday. He writes about artificial " +
+  "intelligence, computing, and the technology shaping everyday life, with a " +
+  "focus on explaining complex ideas in plain, honest language. He started " +
+  "TechToday to give curious readers clear answers without the hype.";
+
 // Optional: paste the code from Google Search Console's "HTML tag" verification
 // method here, or set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel. Leave
 // empty to skip (e.g. if you verify by DNS instead).

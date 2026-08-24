@@ -1,10 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import { CONTACT_EMAIL, SITE_NAME } from "@/content/site";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+
+  function handleSubscribe(event: React.FormEvent) {
+    event.preventDefault();
+    if (!email) return;
+    // No mailing-list backend is configured, so we open a real, pre-addressed
+    // email to the site inbox rather than pretending to store the address.
+    const subject = encodeURIComponent(`${SITE_NAME} newsletter signup`);
+    const body = encodeURIComponent(
+      `Please add this address to the ${SITE_NAME} newsletter: ${email}`,
+    );
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    setSubscribed(true);
+  }
 
   return (
     <section className="newsletter" id="newsletter">
@@ -16,16 +30,14 @@ export default function Newsletter() {
         </div>
         {subscribed ? (
           <div className="thanks" role="status">
-            <strong>Thank you for subscribing!</strong>
-            <p>Your first issue will arrive next Friday.</p>
+            <strong>Almost there!</strong>
+            <p>
+              Your email app should open with a pre-filled signup message — just
+              hit send and we&rsquo;ll add you to the list.
+            </p>
           </div>
         ) : (
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              if (email) setSubscribed(true);
-            }}
-          >
+          <form onSubmit={handleSubscribe}>
             <label htmlFor="email">Email address</label>
             <div>
               <input

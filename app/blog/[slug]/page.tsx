@@ -6,8 +6,9 @@ import {
   getArticleBySlug,
   getRelatedArticles,
 } from "@/content/articles";
-import { SITE_NAME, SITE_URL } from "@/content/site";
+import { AUTHOR_NAME, SITE_NAME, SITE_URL } from "@/content/site";
 import ArticleBody from "../../components/ArticleBody";
+import AuthorBio from "../../components/AuthorBio";
 
 type Params = { slug: string };
 
@@ -66,7 +67,7 @@ export default async function ArticlePage({
     datePublished: article.date,
     dateModified: article.date,
     articleSection: article.category,
-    author: { "@type": "Organization", name: SITE_NAME },
+    author: { "@type": "Person", name: AUTHOR_NAME },
     publisher: { "@type": "Organization", name: SITE_NAME },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -90,10 +91,14 @@ export default async function ArticlePage({
               {article.category}
             </p>
             <h1 className="article-title">{article.title}</h1>
-            <div className="article-meta">
-              <span>{article.category}</span>
+            <div className="byline">
+              <span className="byline-author">By {AUTHOR_NAME}</span>
+              <span className="byline-sep">·</span>
               <span>{article.dateLabel}</span>
+              <span className="byline-sep">·</span>
               <span>{article.readTime}</span>
+              <span className="byline-sep">·</span>
+              <span>{article.category}</span>
             </div>
             <img
               className="article-image"
@@ -101,6 +106,8 @@ export default async function ArticlePage({
               alt={article.imageAlt}
             />
             <ArticleBody blocks={article.body} />
+
+            <AuthorBio />
 
             <div className="article-cta">
               <Link className="primary-button" href="/blog">

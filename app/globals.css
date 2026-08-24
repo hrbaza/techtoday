@@ -97,6 +97,19 @@ footer { padding:48px 0 28px; background:#fff; }
 .article-title { color:var(--navy); font-size:clamp(32px,4.4vw,46px); line-height:1.12; letter-spacing:-1.4px; margin:0 0 18px; }
 .article-cta { margin-top:44px; padding-top:30px; border-top:1px solid var(--border); }
 
+/* Article byline */
+.byline { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:0 0 30px; color:var(--muted); font-size:14px; }
+.byline-author { color:var(--navy); font-weight:700; }
+.byline-sep { color:var(--border); }
+
+/* Author bio box (article foot + about page) */
+.author-bio { display:flex; gap:18px; align-items:flex-start; margin:46px 0 0; padding:26px; background:var(--light); border:1px solid var(--border); border-radius:10px; }
+.author-avatar { flex:none; width:56px; height:56px; border-radius:50%; background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; font-size:19px; font-weight:800; letter-spacing:.5px; }
+.author-name { margin:0; color:var(--navy); font-size:18px; font-weight:800; font-family:Arial,Helvetica,sans-serif; }
+.author-role { margin:2px 0 10px; color:var(--blue); font-size:13px; font-weight:700; font-family:Arial,Helvetica,sans-serif; }
+.author-text { margin:0; font-family:Arial,Helvetica,sans-serif; font-size:15px; line-height:1.7; color:#4a566b; }
+.prose .author-bio { margin-top:10px; }
+
 @media (max-width:850px) {
   .hero-grid,.article-layout,.newsletter-inner { grid-template-columns:1fr; }
   .hero-grid { gap:35px; }
