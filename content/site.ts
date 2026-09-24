@@ -10,14 +10,11 @@ export const SITE_DESCRIPTION =
   "TechToday explains AI, robotics, cloud, security and the technology shaping our world in clear, useful language — one story at a time.";
 
 // Contact address shown on the Contact / legal pages.
-export const CONTACT_EMAIL = "techtoday@gmail.com";
+export const CONTACT_EMAIL = "hamzaarashid00@gmail.com";
 
 // The person behind the site. This is the byline shown on every article and on
 // the About page — a real, named author is an important trust signal for both
 // readers and for programs like Google AdSense.
-//
-// NOTE: `name` is a best guess from the account email — please change it to
-// your real name (and adjust the bio) so the byline is accurate.
 export const AUTHOR_NAME = "Hamza Rashid";
 export const AUTHOR_ROLE = "Founder & Editor, TechToday";
 export const AUTHOR_BIO =
@@ -31,3 +28,11 @@ export const AUTHOR_BIO =
 // empty to skip (e.g. if you verify by DNS instead).
 export const GOOGLE_SITE_VERIFICATION =
   process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "";
+
+// Google AdSense publisher ID, e.g. "ca-pub-1234567890123456". Set
+// NEXT_PUBLIC_ADSENSE_CLIENT in Vercel. When set, the AdSense script and the
+// google-adsense-account meta tag are added to every page and /ads.txt is
+// served; when empty, none of them are.
+export const ADSENSE_CLIENT = (
+  process.env.NEXT_PUBLIC_ADSENSE_CLIENT || ""
+).trim();

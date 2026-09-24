@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
         <div className="container">
           <span className="tag">Legal</span>
           <h1>Privacy Policy</h1>
-          <p className="lead">Last updated: August 24, 2026</p>
+          <p className="lead">Last updated: September 24, 2026</p>
         </div>
       </section>
 
@@ -32,9 +32,8 @@ export default function PrivacyPolicyPage() {
           <p>
             We aim to collect as little personal information as possible. If you
             contact us by email, we receive the details you choose to share, such
-            as your name and email address, so that we can reply. If you
-            subscribe to our newsletter, we collect the email address you
-            provide. We do not require you to create an account to read our
+            as your name and email address, so that we can reply. We do not
+            require you to create an account to read our
             articles.
           </p>
 
@@ -59,8 +58,8 @@ export default function PrivacyPolicyPage() {
 
           <h2>Advertising and third-party partners</h2>
           <p>
-            We may display advertising to support our work. Third-party ad
-            networks, including Google, may use cookies, web beacons, and similar
+            We use Google AdSense to display advertising that supports our
+            work. Google and other third-party vendors may use cookies, web beacons, and similar
             technologies to serve ads based on your prior visits to this and
             other websites. This allows them and their partners to show ads that
             may be more relevant to you.
@@ -77,12 +76,44 @@ export default function PrivacyPolicyPage() {
               and/or other sites on the internet.
             </li>
             <li>
-              You may opt out of personalised advertising by visiting
-              Google&rsquo;s Ads Settings, or opt out of a third-party
-              vendor&rsquo;s use of cookies for personalised advertising by
-              visiting www.aboutads.info.
+              You may opt out of personalised advertising by visiting{" "}
+              <a
+                href="https://adssettings.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google&rsquo;s Ads Settings
+              </a>
+              , or opt out of a third-party vendor&rsquo;s use of cookies for
+              personalised advertising by visiting{" "}
+              <a
+                href="https://www.aboutads.info/choices/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                www.aboutads.info
+              </a>
+              .
             </li>
           </ul>
+          <p>
+            To learn more about how Google uses information from sites that use
+            its services, see{" "}
+            <a
+              href="https://policies.google.com/technologies/partner-sites"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              How Google uses information from sites or apps that use our
+              services
+            </a>
+            .
+          </p>
+          <p>
+            Visitors from the European Economic Area, the United Kingdom, and
+            Switzerland are asked for consent before personalised advertising
+            cookies are used, and can change their choice at any time.
+          </p>
           <p>
             We do not control the cookies used by third-party advertisers. We
             encourage you to review the privacy policies of any third-party ad
@@ -101,9 +132,8 @@ export default function PrivacyPolicyPage() {
           <h2>Your choices</h2>
           <p>
             You can manage or disable cookies through your browser settings, opt
-            out of personalised advertising through the links above, and
-            unsubscribe from our newsletter at any time using the link in any
-            email we send. If you would like us to delete any information you
+            out of personalised advertising through the links above. If you
+            would like us to delete any information you
             have shared with us, please contact us.
           </p>
 

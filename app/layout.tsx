@@ -4,6 +4,7 @@ import "./fonts.css";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 import {
+  ADSENSE_CLIENT,
   GOOGLE_SITE_VERIFICATION,
   SITE_DESCRIPTION,
   SITE_NAME,
@@ -20,6 +21,9 @@ export const metadata: Metadata = {
     template: `%s — ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
+  ...(ADSENSE_CLIENT
+    ? { other: { "google-adsense-account": ADSENSE_CLIENT } }
+    : {}),
   icons: { icon: "/favicon.svg" },
   openGraph: {
     type: "website",
@@ -46,15 +50,15 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        {/* Monetag Multitag ad script (zone 272780) */}
-        <script
-          src="https://quge5.com/88/tag.min.js"
-          data-zone="272780"
-          data-cfasync="false"
-          async
-        />
-      </head>
+      {ADSENSE_CLIENT && (
+        <head>
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+            crossOrigin="anonymous"
+          />
+        </head>
+      )}
       <body>
         <SiteHeader />
         {children}

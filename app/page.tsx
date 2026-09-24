@@ -3,7 +3,6 @@ import Link from "next/link";
 import { articles } from "@/content/articles";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/content/site";
 import ArticleCard from "./components/ArticleCard";
-import Newsletter from "./components/Newsletter";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -80,8 +79,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <Newsletter />
     </main>
   );
 }
