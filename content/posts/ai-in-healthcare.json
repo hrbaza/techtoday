@@ -1,0 +1,105 @@
+{
+  "slug": "ai-in-healthcare",
+  "title": "The Growing Role of AI in Healthcare",
+  "category": "Health Technology",
+  "excerpt": "From reading scans to speeding up drug discovery, AI is entering medicine. Here is where it genuinely helps, where it falls short, and why caution matters.",
+  "date": "2026-08-04",
+  "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=82",
+  "imageAlt": "A stethoscope resting on a digital medical display",
+  "draft": false,
+  "body": [
+    {
+      "type": "h2",
+      "text": "A careful revolution"
+    },
+    {
+      "type": "p",
+      "text": "Few fields carry higher stakes than medicine, which is why the arrival of artificial intelligence in healthcare is both exciting and delicate. A mistake in a photo app is annoying; a mistake in a diagnosis can be devastating. As a result, AI is entering medicine more cautiously than other industries, proving itself in supporting roles before being trusted with anything critical."
+    },
+    {
+      "type": "p",
+      "text": "Done well, this technology could help overstretched health systems do more with limited staff and time. Done carelessly, it could entrench errors or bias. Understanding where AI genuinely helps today — and where it does not — is essential to seeing past both the hype and the fear."
+    },
+    {
+      "type": "h2",
+      "text": "Reading medical images"
+    },
+    {
+      "type": "p",
+      "text": "One of the most mature uses of AI in medicine is analysing images: X-rays, CT and MRI scans, retinal photographs, and pathology slides. These tasks involve spotting subtle patterns in enormous amounts of visual detail, exactly the kind of work where trained AI can excel."
+    },
+    {
+      "type": "p",
+      "text": "In some studies, image-analysis systems match or approach the accuracy of specialists at flagging particular conditions, and they never tire. Crucially, the goal is usually not to replace the radiologist but to assist — highlighting areas of concern, prioritising urgent cases, and offering a second opinion that a human then confirms."
+    },
+    {
+      "type": "h2",
+      "text": "Speeding up discovery and paperwork"
+    },
+    {
+      "type": "p",
+      "text": "AI is also reshaping the slower, less visible parts of medicine. Drug discovery, for example, involves searching an almost limitless space of possible molecules. AI can help predict which candidates are worth testing in the lab, potentially shortening a process that traditionally takes many years and vast sums of money."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Predicting how molecules might behave, narrowing the search for new medicines",
+        "Summarising patient notes and drafting routine documentation to reduce clinician paperwork",
+        "Flagging patients who may be at rising risk so staff can intervene earlier",
+        "Helping schedule resources and reduce waiting times in busy hospitals"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Much of medicine's burden is administrative. By easing paperwork and organisation, AI can give clinicians back something precious and scarce: time with patients."
+    },
+    {
+      "type": "p",
+      "text": "There is a quieter benefit here that is easy to overlook. Much of the exhaustion clinicians report comes not from difficult medical decisions but from the sheer weight of administration — the notes, forms, and coding that pile up around every patient encounter. If AI can draft that paperwork accurately for a human to check and approve, it addresses one of the real drivers of burnout in medicine. A less exhausted, less rushed clinician is not just happier; they tend to make better decisions and communicate more clearly with the people in their care."
+    },
+    {
+      "type": "p",
+      "text": "Another promising area is triage and early detection. In busy systems, catching a deteriorating patient a few hours sooner, or flagging a subtle warning sign in a routine test, can change an outcome dramatically. AI is well suited to watching for patterns across large amounts of data and raising a quiet alert when something looks unusual, so that a human can take a closer look. Used this way, it acts less like a decision-maker and more like an ever-vigilant assistant that never gets tired or distracted. The value lies in extending human attention, not replacing human judgement."
+    },
+    {
+      "type": "h2",
+      "text": "The limits and the dangers"
+    },
+    {
+      "type": "p",
+      "text": "For all its promise, AI in healthcare carries serious risks that responsible practitioners take seriously. The most important is bias. If a system is trained mostly on data from one group of people, it may perform worse for others, quietly widening health inequalities rather than closing them."
+    },
+    {
+      "type": "quote",
+      "text": "In medicine, an AI that is right on average but wrong for a particular group is not a success. It is a hazard that must be found and fixed."
+    },
+    {
+      "type": "p",
+      "text": "There is also the problem of explanation. A doctor must be able to justify a decision, but some AI systems cannot clearly explain why they reached a conclusion. And because these tools can be confidently wrong, a human expert must always remain responsible for the final call, especially where a life is at stake."
+    },
+    {
+      "type": "h2",
+      "text": "Keeping humans in charge"
+    },
+    {
+      "type": "p",
+      "text": "The consensus among careful experts is that AI in medicine should augment clinicians, not replace them. The technology is a powerful assistant: fast, tireless, and good at spotting patterns, but lacking judgement, empathy, and accountability. The best results come from pairing the machine's pattern-recognition with the human's context and care."
+    },
+    {
+      "type": "p",
+      "text": "This partnership also demands strong safeguards: rigorous testing across diverse populations, clear rules on privacy for deeply sensitive health data, and honest monitoring of how systems perform once deployed. Regulation in this field is rightly slow and demanding, because the cost of getting it wrong is measured in human lives."
+    },
+    {
+      "type": "h2",
+      "text": "A tool, handled with care"
+    },
+    {
+      "type": "p",
+      "text": "Artificial intelligence will not replace your doctor, and it should not. But it is already becoming a quiet presence behind the scenes — reading scans faster, easing paperwork, and helping researchers search for new treatments. Used with care and honesty about its limits, it can help make healthcare more accurate, more efficient, and more humane."
+    },
+    {
+      "type": "p",
+      "text": "The challenge for the years ahead is not whether to use AI in medicine, but how to do so responsibly. If patients, clinicians, and regulators keep humans firmly in charge and insist on fairness and transparency, this careful revolution could genuinely improve the care that millions of people receive."
+    }
+  ]
+}

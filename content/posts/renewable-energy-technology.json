@@ -1,0 +1,105 @@
+{
+  "slug": "renewable-energy-technology",
+  "title": "The Technology Driving Renewable Energy",
+  "category": "Green Tech",
+  "excerpt": "Solar, wind, and storage are reshaping how the world makes power. Here is a clear look at the technology behind the shift and the challenges that remain.",
+  "date": "2026-07-25",
+  "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=82",
+  "imageAlt": "Solar panels and wind turbines under a clear sky",
+  "draft": false,
+  "body": [
+    {
+      "type": "h2",
+      "text": "A quiet transformation in how we make power"
+    },
+    {
+      "type": "p",
+      "text": "For more than a century, the world ran mostly on burning things — coal, oil, and gas — to make electricity. That model built the modern world but came with a heavy cost in pollution and a changing climate. Over the past two decades, a quieter transformation has been under way, driven not by slogans but by steadily improving technology. Renewable energy has gone from expensive and marginal to, in many places, the cheapest way to make new power."
+    },
+    {
+      "type": "p",
+      "text": "Understanding this shift means looking past the politics to the engineering. The story of renewable energy is really a story of relentless technical progress — panels that got cheaper, turbines that got bigger, and batteries that got better — combined with the hard, unglamorous work of rebuilding the grid around them."
+    },
+    {
+      "type": "h2",
+      "text": "How solar power works"
+    },
+    {
+      "type": "p",
+      "text": "Solar panels perform a small miracle with no moving parts. Made largely of silicon, they convert sunlight directly into electricity through the photovoltaic effect, in which light knocks electrons loose and sets them flowing as current. Because there are no engines or turbines involved, panels are quiet, durable, and require little maintenance."
+    },
+    {
+      "type": "p",
+      "text": "The remarkable thing about solar is how dramatically its cost has fallen. Decades of manufacturing improvements and scale have made panels a fraction of their former price, turning solar from a niche curiosity into one of the cheapest sources of electricity ever built. That falling cost, more than any policy, is what drives its rapid spread."
+    },
+    {
+      "type": "h2",
+      "text": "Capturing the wind"
+    },
+    {
+      "type": "p",
+      "text": "Wind turbines take a different approach, converting the movement of air into electricity. As wind pushes the long blades, they turn a shaft connected to a generator, producing power. Modern turbines are enormous, with blades longer than a football pitch, because larger machines capture far more energy and do so more efficiently."
+    },
+    {
+      "type": "quote",
+      "text": "The renewable revolution was not won by a single breakthrough. It was won by countless small improvements that made clean power cheaper year after year."
+    },
+    {
+      "type": "p",
+      "text": "Wind farms are increasingly built offshore, where winds are stronger and steadier and where there is room for the largest machines. Like solar, wind has ridden a wave of falling costs and rising efficiency, making it a mainstay of clean electricity in many countries."
+    },
+    {
+      "type": "h2",
+      "text": "The problem of intermittency"
+    },
+    {
+      "type": "p",
+      "text": "Renewables have one obvious weakness: the sun sets and the wind drops. Unlike a power station that can burn fuel on demand, solar and wind produce power only when nature cooperates. This challenge, called intermittency, is the central engineering problem of the clean-energy transition."
+    },
+    {
+      "type": "p",
+      "text": "Solving it requires several tools working together, and progress on each is what makes a renewable grid realistic rather than merely hopeful."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Batteries that store surplus power for use when generation dips",
+        "Larger, smarter grids that move power from where it is sunny or windy to where it is needed",
+        "Flexible demand that shifts some usage to times when clean power is plentiful",
+        "A mix of sources so that a lull in one is covered by another"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Battery technology in particular has improved rapidly, following its own curve of falling costs, and increasingly allows solar power gathered by day to keep the lights on after dark."
+    },
+    {
+      "type": "p",
+      "text": "Grids themselves are quietly being reinvented to cope with this new reality. A traditional grid was designed to send power in one direction, from a few large stations out to homes and businesses. A renewable grid is different: power can flow from millions of rooftops and scattered wind farms, rising and falling with the weather. Managing this requires smarter controls, better forecasting of sun and wind, and the ability to move electricity across long distances to wherever it is needed. Much of the real engineering effort in the energy transition goes not into the panels and turbines themselves, which are now mature and cheap, but into this less visible work of rebuilding the network that connects them. It is unglamorous but essential, and progress on it is what turns a promising technology into a dependable everyday supply."
+    },
+    {
+      "type": "h2",
+      "text": "The challenges that remain"
+    },
+    {
+      "type": "p",
+      "text": "The transition is far from finished, and honesty about the obstacles matters. Building enough clean generation, storage, and grid capacity is a vast undertaking that takes time, money, and materials. Mining the minerals for batteries and panels carries its own environmental and social costs that must be managed responsibly."
+    },
+    {
+      "type": "p",
+      "text": "There are also practical hurdles: upgrading ageing grids, securing supply chains, and integrating variable power without compromising reliability. None of these is a reason to doubt the direction of travel, but each is a reminder that the shift is a marathon of engineering and planning, not a single leap."
+    },
+    {
+      "type": "h2",
+      "text": "A clearer, cheaper future"
+    },
+    {
+      "type": "p",
+      "text": "Despite the challenges, the trajectory is unmistakable. The technology that makes clean power keeps getting cheaper and better, and in more and more places it now outcompetes fossil fuels on cost alone. That economic reality, as much as any environmental concern, is what makes the continued rise of renewables so likely."
+    },
+    {
+      "type": "p",
+      "text": "The coming decades will be defined by the work of building this new energy system at scale. It is a huge task, but it rests on proven, steadily improving technology. The quiet transformation that began with a cheaper solar panel is reshaping one of the most fundamental systems in modern life — how we make the power that everything else depends on."
+    }
+  ]
+}

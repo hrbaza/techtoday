@@ -1,0 +1,100 @@
+{
+  "slug": "robots-beyond-the-factory-floor",
+  "title": "Robots Are Moving Beyond the Factory Floor",
+  "category": "Robotics",
+  "excerpt": "Better sensors, smaller models, and improved batteries are helping robots step out of factories and into warehouses, hospitals, offices, and public spaces.",
+  "date": "2026-08-22",
+  "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1600&q=82",
+  "imageAlt": "White humanoid robot in a technology laboratory",
+  "draft": false,
+  "body": [
+    {
+      "type": "h2",
+      "text": "From cages to open spaces"
+    },
+    {
+      "type": "p",
+      "text": "For decades, industrial robots lived behind safety cages. They were powerful, precise, and completely blind to the world around them. Bolted to the floor, they repeated the same welding or lifting motion millions of times, and any human who wandered into their path was in danger. That model worked because the environment never changed."
+    },
+    {
+      "type": "p",
+      "text": "The robots now appearing in warehouses, hospitals, and offices are built on a very different idea. They are designed to share space with people, react to obstacles, and handle situations their programmers never explicitly described. This shift from fixed machine to adaptable helper is one of the most important stories in technology today."
+    },
+    {
+      "type": "h2",
+      "text": "Why now? Three quiet breakthroughs"
+    },
+    {
+      "type": "p",
+      "text": "Robots have existed for a long time, so it is fair to ask why they are spreading now. The answer is that several supporting technologies matured at once, and together they crossed a practical threshold."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Cheaper, better sensors — cameras, depth sensors, and lidar now cost a fraction of what they once did, giving robots a reliable sense of their surroundings.",
+        "Smaller, faster models — AI that once needed a data centre can now run on a chip inside the robot, so decisions happen instantly and privately.",
+        "Improved batteries — higher energy density means a robot can work a useful shift instead of stopping every few minutes to recharge."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "None of these advances is dramatic on its own. Combined, they turn a robot from an expensive novelty into something that can actually earn its keep in a messy, unpredictable environment."
+    },
+    {
+      "type": "h2",
+      "text": "Where robots are showing up"
+    },
+    {
+      "type": "p",
+      "text": "The most visible examples are in logistics. Modern warehouses use fleets of wheeled robots that carry shelves to human packers, cutting the miles a worker walks each day. Sorting centres use robotic arms with camera-guided grippers to pick up parcels of different shapes and sizes without custom programming for each item."
+    },
+    {
+      "type": "p",
+      "text": "Hospitals are another growing area. Delivery robots ferry medicine, samples, and linens through corridors, freeing nurses to focus on patients. In some cleaning and disinfection roles, robots handle repetitive routes overnight. Offices, hotels, and airports are experimenting with machines that guide visitors, deliver items between floors, or keep floors clean after hours."
+    },
+    {
+      "type": "p",
+      "text": "Retail, farming, and hospitality are experimenting too. Some shops deploy robots that roam the aisles scanning shelves for missing stock, while a handful of restaurants trial machines that ferry plates from kitchen to table. On farms, autonomous machinery increasingly plants, monitors, and harvests crops with less manual labour. What unites these examples is not spectacle but usefulness: each robot takes on a narrow, repetitive, or physically demanding task and performs it consistently, shift after shift. That specialisation is also what makes the economics work. A machine built for a single, well-defined job can be manufactured, maintained, and improved far more easily than a general-purpose android, which helps explain why the quiet spread of practical robots has so far outpaced the flashier humanoid demonstrations that dominate the headlines."
+    },
+    {
+      "type": "quote",
+      "text": "The goal is rarely a robot that does everything. It is a robot that reliably does one dull or dangerous job so a person does not have to."
+    },
+    {
+      "type": "h2",
+      "text": "The humanoid question"
+    },
+    {
+      "type": "p",
+      "text": "Much of the recent excitement centres on humanoid robots — machines with two arms, two legs, and a roughly human shape. The appeal is simple: the world is already built for the human body. A machine shaped like us could, in theory, use our stairs, tools, and doorways without redesigning the building."
+    },
+    {
+      "type": "p",
+      "text": "The reality is more modest. Walking on two legs is hard, balancing while carrying weight is harder, and hands capable of delicate work remain expensive and fragile. Humanoids make impressive demonstration videos, but most useful robots today still roll on wheels or sit on a fixed base, because those designs are cheaper and more dependable for a specific task."
+    },
+    {
+      "type": "h2",
+      "text": "The hard problems that remain"
+    },
+    {
+      "type": "p",
+      "text": "Two challenges keep robotics engineers up at night. The first is manipulation — the act of grasping and handling objects. Humans do this without thinking, but teaching a machine to pick up a soft fruit without crushing it, or a slippery tool without dropping it, is genuinely difficult."
+    },
+    {
+      "type": "p",
+      "text": "The second is safety around unpredictable people. A robot in a fixed cage only needs to avoid mistakes. A robot in a busy hospital corridor must anticipate a child running past, a spilled liquid, or a door swinging open. Getting this right, every time, is the difference between a helpful machine and a hazard."
+    },
+    {
+      "type": "h2",
+      "text": "What to expect next"
+    },
+    {
+      "type": "p",
+      "text": "The likely near future is not an army of android workers, but a quiet spread of specialised machines into more corners of daily life. Expect more robots that do one job well in a semi-structured space, learn faster from shared data, and cost little enough that renting one by the month makes sense for a small business."
+    },
+    {
+      "type": "p",
+      "text": "As with most technology, the biggest changes will feel ordinary once they arrive. A parcel that shows up faster, a hospital that runs a little more smoothly, a warehouse job that is less physically punishing — these are the practical ways robots are stepping beyond the factory floor and into everyday life."
+    }
+  ]
+}

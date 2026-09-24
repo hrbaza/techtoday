@@ -1,0 +1,110 @@
+{
+  "slug": "what-is-edge-computing",
+  "title": "What Is Edge Computing and Why It Matters",
+  "category": "Cloud & Infrastructure",
+  "excerpt": "Edge computing moves processing closer to where data is created. Here is what that means, why it is growing, and where you already benefit from it.",
+  "date": "2026-08-16",
+  "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=82",
+  "imageAlt": "Glowing network connections across a dark globe",
+  "draft": false,
+  "body": [
+    {
+      "type": "h2",
+      "text": "Bringing computing closer to home"
+    },
+    {
+      "type": "p",
+      "text": "For most of the past two decades, the trend in technology moved in one direction: toward the cloud. Data was collected on devices and sent to giant, distant data centres where the real work happened. Edge computing reverses part of that journey. Instead of sending everything far away, it processes data close to where it is created — on or near the device itself."
+    },
+    {
+      "type": "p",
+      "text": "The edge in edge computing simply means the outer edge of the network, near the user, rather than the centre where the big data centres sit. It is not a replacement for the cloud but a complement to it, handling the tasks that benefit from being nearby while the cloud continues to do the heavy lifting that can wait."
+    },
+    {
+      "type": "h2",
+      "text": "The problem the edge solves"
+    },
+    {
+      "type": "p",
+      "text": "Sending data to a distant data centre and waiting for an answer takes time. Usually that delay, called latency, is small enough not to matter. But for some applications, even a fraction of a second is too long. A self-driving car deciding whether to brake cannot wait for a round trip to a server hundreds of miles away."
+    },
+    {
+      "type": "p",
+      "text": "There is also the sheer volume of data. Modern sensors, cameras, and machines generate enormous streams of information. Sending all of it across the internet would be slow, expensive, and often pointless. Edge computing lets a device analyse data locally and send only the useful summary onward, saving bandwidth and cost."
+    },
+    {
+      "type": "h2",
+      "text": "Everyday examples you already use"
+    },
+    {
+      "type": "p",
+      "text": "Edge computing is not a distant idea; it is already woven into daily life, usually invisibly."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Smartphones that recognise faces or voices on the device, without sending your data away",
+        "Smart doorbells and cameras that detect a person locally before alerting you",
+        "Cars that process sensor data instantly to assist with braking and steering",
+        "Factory machines that spot a fault on the production line in real time",
+        "Voice assistants that handle simple commands offline for a faster response"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "In each case, doing the work nearby makes the experience faster, cheaper, or more private — and sometimes all three at once."
+    },
+    {
+      "type": "h2",
+      "text": "Speed, privacy, and reliability"
+    },
+    {
+      "type": "p",
+      "text": "The three biggest advantages of the edge are speed, privacy, and reliability. Speed comes from cutting the distance data must travel. Privacy improves because sensitive information — your face, your voice, your location — can be handled on the device and never uploaded. Reliability increases because a device that thinks for itself keeps working even when the internet connection drops."
+    },
+    {
+      "type": "quote",
+      "text": "The cloud gives you scale. The edge gives you speed. The most capable systems now use both, each where it fits best."
+    },
+    {
+      "type": "h2",
+      "text": "Why AI made the edge essential"
+    },
+    {
+      "type": "p",
+      "text": "Artificial intelligence accelerated the move to the edge. AI models used to be so large that they could only run in data centres. But researchers learned to shrink and optimise models so they could run on smaller chips inside phones, cameras, and cars. This unlocked features that feel instant and work without a connection."
+    },
+    {
+      "type": "p",
+      "text": "Running AI at the edge also eases pressure on central data centres and networks. If millions of devices can each handle simple recognition tasks on their own, the cloud is freed to focus on the harder problems that genuinely require its scale. The two layers work as a team rather than competitors."
+    },
+    {
+      "type": "p",
+      "text": "A helpful way to picture the division of labour is a busy restaurant. The chefs in the kitchen — the cloud — handle the heavy, complex cooking that benefits from scale and specialised equipment. The waiter at your table — the edge — handles the quick, immediate needs: taking your order, refilling your water, answering a simple question without walking back to the kitchen each time. Neither could run the restaurant alone, but together they deliver a fast, smooth experience. Edge and cloud computing work the same way, each taking the tasks it is best suited to and passing the rest along. As the chips inside everyday devices keep improving, more of the immediate work shifts to the edge, while the cloud remains the kitchen where the truly demanding jobs are done."
+    },
+    {
+      "type": "h2",
+      "text": "The trade-offs"
+    },
+    {
+      "type": "p",
+      "text": "Edge computing is not free of challenges. Spreading computation across countless devices makes systems harder to manage, update, and secure. A single data centre is easier to patch than a million scattered gadgets. Keeping all those devices safe from attackers and up to date is a real and ongoing burden."
+    },
+    {
+      "type": "p",
+      "text": "There are also physical limits. Small devices have limited power, memory, and cooling, so they cannot match the raw capability of a data centre. Designers must decide carefully which tasks belong at the edge and which should still travel to the cloud — a balance that shifts as chips get more capable."
+    },
+    {
+      "type": "h2",
+      "text": "Where this is heading"
+    },
+    {
+      "type": "p",
+      "text": "As chips grow more powerful and efficient, more intelligence will move to the edge. Expect devices that understand speech, images, and context locally, responding instantly and protecting your data by keeping it on hand. The future is not cloud versus edge but a smooth spectrum, with each task running wherever it makes the most sense."
+    },
+    {
+      "type": "p",
+      "text": "For most people, the details will stay invisible. You will simply notice that your devices feel faster, more private, and more dependable — the quiet payoff of moving computing a little closer to home."
+    }
+  ]
+}

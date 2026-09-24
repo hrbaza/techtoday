@@ -1,0 +1,101 @@
+{
+  "slug": "how-self-driving-cars-work",
+  "title": "How Self-Driving Cars Actually Work",
+  "category": "Mobility",
+  "excerpt": "Self-driving cars combine sensors, maps, and AI to perceive the road and make decisions. Here is a clear look at how they work and why full autonomy is hard.",
+  "date": "2026-08-12",
+  "image": "https://images.unsplash.com/photo-1553260168-69b041873e65?auto=format&fit=crop&w=1600&q=82",
+  "imageAlt": "Modern car interior with a digital dashboard display",
+  "draft": false,
+  "body": [
+    {
+      "type": "h2",
+      "text": "Teaching a car to see and decide"
+    },
+    {
+      "type": "p",
+      "text": "A self-driving car has to do something humans do effortlessly and yet find almost impossible to explain: perceive a complex, changing world and make safe decisions in real time. To pull this off, engineers break the challenge into three broad jobs — sensing the environment, understanding it, and acting on that understanding. Each relies on a different set of technologies working in concert."
+    },
+    {
+      "type": "p",
+      "text": "The result is a car that reads the road many times per second, predicts what other people and vehicles will do, and steers, accelerates, and brakes accordingly. Understanding those three jobs is the key to seeing why the technology is both impressive and still unfinished."
+    },
+    {
+      "type": "h2",
+      "text": "The senses: how a car perceives"
+    },
+    {
+      "type": "p",
+      "text": "A self-driving car cannot rely on a single sensor, because each has weaknesses. Instead it blends several, a technique called sensor fusion, so that the strengths of one cover the blind spots of another."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Cameras — see colour, read signs and lane markings, and recognise traffic lights, but struggle in glare or darkness.",
+        "Radar — measures the distance and speed of objects and works well in rain or fog, but sees the world in low detail.",
+        "Lidar — bounces laser pulses to build a precise 3D map of surroundings, but is costly and can be affected by heavy weather.",
+        "Ultrasonic sensors — handle close-range tasks like parking and detecting nearby obstacles."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "By combining these, the car builds a single, reliable picture of everything around it — far more consistent than any one sensor could provide alone."
+    },
+    {
+      "type": "h2",
+      "text": "The brain: understanding the scene"
+    },
+    {
+      "type": "p",
+      "text": "Raw sensor data is just numbers until software makes sense of it. This is where artificial intelligence takes over. Trained on vast amounts of driving data, the car's software identifies pedestrians, cyclists, other vehicles, road edges, and signs, then tracks how each is moving."
+    },
+    {
+      "type": "p",
+      "text": "Crucially, the system also predicts what will happen next. Will that pedestrian step off the kerb? Is that car about to change lanes? Good prediction is what separates a safe autonomous system from a dangerous one, and it is one of the hardest parts of the whole problem because human behaviour is not always logical."
+    },
+    {
+      "type": "quote",
+      "text": "Perceiving the road is difficult. Predicting what unpredictable humans will do next is harder still."
+    },
+    {
+      "type": "h2",
+      "text": "The hands: making it move"
+    },
+    {
+      "type": "p",
+      "text": "Once the car understands the scene and has predicted how it will evolve, it must decide on an action — maintain speed, slow down, change lanes, stop — and then execute it smoothly. This planning layer weighs safety, comfort, and the rules of the road, then sends precise commands to the steering, throttle, and brakes."
+    },
+    {
+      "type": "p",
+      "text": "Detailed digital maps often assist here, telling the car about lane layouts, speed limits, and junctions before its sensors even see them. The car constantly compares the live sensor view against the map to know exactly where it is, down to a few centimetres."
+    },
+    {
+      "type": "h2",
+      "text": "The levels of autonomy"
+    },
+    {
+      "type": "p",
+      "text": "Not all self-driving is equal. The industry uses a scale from zero to five. At the lower levels, the car assists but the human must stay fully in control — think adaptive cruise control or lane-keeping. At the higher levels, the car handles more, until at the top level it needs no human at all, anywhere. Most cars sold today sit in the assisted range, where the driver remains responsible."
+    },
+    {
+      "type": "p",
+      "text": "This distinction matters enormously for safety. A system that drives well most of the time but occasionally needs a human to grab the wheel demands constant attention — which is exactly the kind of vigilance humans are bad at maintaining when they feel the car is doing the work."
+    },
+    {
+      "type": "p",
+      "text": "This is why the middle of the autonomy scale is, in some ways, the most dangerous place to be. A system that is good but not fully trustworthy invites complacency: the more capable it appears, the more tempting it is to stop paying attention, exactly when attention is still required. Engineers and regulators are acutely aware of this trap. Some companies have chosen to skip the awkward middle ground entirely, aiming straight for full autonomy in limited, well-mapped areas rather than selling half-measures to ordinary drivers. Others take the opposite view, arguing that gradual improvement, with the human always responsible, is the safer path to earning trust. Both approaches are being tested on real roads today, and which one proves wiser is still an open question — one that will shape not just the technology, but how comfortable the public feels sharing the road with it."
+    },
+    {
+      "type": "h2",
+      "text": "Why full autonomy is taking so long"
+    },
+    {
+      "type": "p",
+      "text": "Building a car that drives well in good conditions is achievable. Building one that handles every rare, strange, and dangerous situation — the so-called edge cases — is extraordinarily hard. A ball rolling into the road, an unusual construction layout, a police officer waving traffic through a red light: humans handle these with common sense that machines still lack."
+    },
+    {
+      "type": "p",
+      "text": "Because a driving mistake can cost lives, the bar for safety is rightly very high. That is why fully driverless cars have rolled out slowly, city by city, rather than arriving everywhere at once. The technology is genuinely remarkable, but the last few percent of reliability is proving to be the hardest — and most important — part of the journey."
+    }
+  ]
+}

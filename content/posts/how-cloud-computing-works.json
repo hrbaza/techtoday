@@ -1,0 +1,104 @@
+{
+  "slug": "how-cloud-computing-works",
+  "title": "How Cloud Computing Powers Modern Apps",
+  "category": "Cloud & Infrastructure",
+  "excerpt": "Almost every app you use runs on the cloud. Here is a plain-language guide to what cloud computing is, how it works, and why it changed technology.",
+  "date": "2026-07-29",
+  "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1600&q=82",
+  "imageAlt": "Network cables plugged into servers in a data centre",
+  "draft": false,
+  "body": [
+    {
+      "type": "h2",
+      "text": "The invisible engine of the internet"
+    },
+    {
+      "type": "p",
+      "text": "Almost everything you do online today runs on the cloud, even if you never think about it. Streaming a show, sending a message, backing up a photo, using a work app in your browser — behind each of these sits cloud computing. It has become the invisible engine of modern technology, yet many people find the term vague. The good news is that the core idea is genuinely simple."
+    },
+    {
+      "type": "p",
+      "text": "At its most basic, cloud computing means using someone else's computers, over the internet, instead of your own. Rather than owning and maintaining the hardware yourself, you rent computing power, storage, and software from a provider who runs vast data centres and shares them among millions of customers."
+    },
+    {
+      "type": "h2",
+      "text": "From owning to renting"
+    },
+    {
+      "type": "p",
+      "text": "To appreciate the change, picture how software used to work. A company that wanted to run an application had to buy physical servers, install them in a room, keep them cool, secure them, and hire staff to maintain them. It was expensive, slow to expand, and wasteful, because much of that capacity sat idle most of the time."
+    },
+    {
+      "type": "p",
+      "text": "Cloud computing replaced this with a rental model. Providers built enormous data centres and let customers use exactly as much capacity as they need, when they need it, paying only for what they use. It is the difference between buying a car and using a taxi: you get the benefit without the burden of ownership."
+    },
+    {
+      "type": "h2",
+      "text": "Why on-demand changes everything"
+    },
+    {
+      "type": "p",
+      "text": "The magic of the cloud is elasticity — the ability to scale up and down almost instantly. If a small app suddenly goes viral and needs a hundred times more capacity overnight, the cloud can provide it in minutes. When demand falls, the extra capacity is released, and the bill shrinks accordingly."
+    },
+    {
+      "type": "quote",
+      "text": "The cloud turned computing from something you buy in bulk and hope to use into something you tap like electricity, paying only for what you draw."
+    },
+    {
+      "type": "p",
+      "text": "This flexibility lowered the barrier to building technology dramatically. A single person with an idea can now launch a service to the whole world without buying any hardware, using the same powerful infrastructure as the largest corporations. Much of the last decade's wave of startups was made possible by exactly this shift."
+    },
+    {
+      "type": "h2",
+      "text": "The layers of cloud services"
+    },
+    {
+      "type": "p",
+      "text": "Cloud services are usually described in layers, each offering a different level of convenience."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Infrastructure — renting raw computing power and storage, which you configure yourself",
+        "Platforms — ready-made environments where developers build and run apps without managing servers",
+        "Software — finished applications delivered through your browser, such as email or document tools"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Most people interact with the top layer every day without realising it. Every time you use a web-based email service or an online document editor, you are using software running in the cloud rather than on your own machine."
+    },
+    {
+      "type": "p",
+      "text": "This layered model is part of why building software has become so much faster than it once was. A small team no longer needs to assemble its own servers, databases, and security systems from scratch. Instead, it can rent ready-made building blocks — storage here, a database there, a tool for sending emails or processing payments — and combine them like components. What might once have taken a year of setup can now be arranged in days, which is a large part of why new online services appear so quickly."
+    },
+    {
+      "type": "p",
+      "text": "There is a hidden cost to this convenience, though, and it is worth understanding. The more a business builds on a particular provider's unique tools, the harder it becomes to leave — a situation known as vendor lock-in. Moving a large, complex service from one cloud to another can be expensive and disruptive. Sensible organisations weigh this from the start, keeping an eye on how tightly they are tied to any single provider and, where it matters, designing their systems so that switching remains possible. Convenience and independence pull in opposite directions, and part of using the cloud well is deciding where to strike that balance."
+    },
+    {
+      "type": "h2",
+      "text": "The trade-offs to understand"
+    },
+    {
+      "type": "p",
+      "text": "The cloud is powerful, but it is not free of downsides. Relying on a provider means trusting them with your data and depending on their reliability; when a major cloud service has an outage, countless apps go down with it. There are also questions of cost, which can creep up as usage grows, and of lock-in, where moving away from one provider becomes difficult."
+    },
+    {
+      "type": "p",
+      "text": "Privacy and control matter too. Storing sensitive information on someone else's servers requires trust and strong security. For this reason, some organisations keep certain data on their own systems, using a mix of cloud and in-house computing — an approach that balances flexibility with control."
+    },
+    {
+      "type": "h2",
+      "text": "Why it matters to you"
+    },
+    {
+      "type": "p",
+      "text": "Even if you never manage a server, cloud computing shapes your daily experience. It is why your photos sync across devices, why apps update instantly, and why powerful tools that once required expensive hardware now run smoothly in a browser. It quietly powers the convenience we have come to expect."
+    },
+    {
+      "type": "p",
+      "text": "Understanding the cloud demystifies a great deal of modern technology. Behind the friendly apps and instant services lies a simple, transformative idea: shared computing, delivered on demand, paid for by the sip. That idea reshaped the internet, and it will keep shaping whatever comes next."
+    }
+  ]
+}

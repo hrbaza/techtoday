@@ -1,0 +1,107 @@
+{
+  "slug": "how-ai-agents-are-changing-work",
+  "title": "How AI Agents Are Changing Everyday Work",
+  "category": "AI & Work",
+  "excerpt": "AI agents are moving from answering questions to completing useful tasks. Here is what that shift means, why it matters, and how to use it safely.",
+  "date": "2026-08-24",
+  "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=82",
+  "imageAlt": "Close-up of a modern computer circuit board",
+  "draft": false,
+  "body": [
+    {
+      "type": "h2",
+      "text": "What exactly is an AI agent?"
+    },
+    {
+      "type": "p",
+      "text": "An AI agent is a software system that can understand a goal, decide which steps are needed, use digital tools, and then check whether the work has actually been finished. A normal chatbot usually responds to a single request at a time and waits for you to ask the next question. An agent is different because it can keep working through a longer process without being told what to do at every step."
+    },
+    {
+      "type": "p",
+      "text": "Think of the difference between asking someone for directions and asking them to plan your entire trip. The first is a single answer. The second involves comparing options, checking constraints, making trade-offs, and producing a finished result. AI agents aim for that second kind of behaviour, and that is why they feel like a meaningful step beyond the chatbots most people already know."
+    },
+    {
+      "type": "h2",
+      "text": "A simple example"
+    },
+    {
+      "type": "p",
+      "text": "Imagine you ask an agent to help plan a weekend away. Instead of only suggesting a few destinations, it could compare travel schedules, organise prices, build a rough itinerary, and prepare a short list of actions for your approval. Nothing is booked without you, but most of the tedious searching and organising is done for you."
+    },
+    {
+      "type": "p",
+      "text": "In a workplace, the same pattern applies to knowledge work. An agent might gather project updates from several tools, summarise long email threads, highlight the messages that need a human reply, and draft a weekly report from trusted internal sources. The person stays in charge of decisions, while the agent handles the assembly work that eats up so much of the day."
+    },
+    {
+      "type": "h2",
+      "text": "Why is this happening now?"
+    },
+    {
+      "type": "p",
+      "text": "Two things changed at roughly the same time. First, language models became far better at following instructions, understanding context, writing code, and reasoning about messy information. Second, software companies started giving those models safer, structured ways to search databases, open applications, and perform approved actions rather than only producing text."
+    },
+    {
+      "type": "p",
+      "text": "The result is a new layer sitting on top of ordinary software. Instead of learning every menu and setting, a person can describe the outcome they want and let the agent translate that request into a series of smaller steps. For people who are not technical experts, this can make complicated tools far more approachable."
+    },
+    {
+      "type": "quote",
+      "text": "The most valuable AI will not simply give us more information. It will help turn information into useful action."
+    },
+    {
+      "type": "h2",
+      "text": "What AI agents can do well today"
+    },
+    {
+      "type": "p",
+      "text": "Current agents are strongest at structured, reviewable tasks — work where there is a clear goal and where a human can easily check the result. In practice, that covers a surprisingly large amount of everyday office work."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Searching and summarising long documents or research",
+        "Sorting and categorising support requests or emails",
+        "Preparing first drafts of reports, posts, and presentations",
+        "Analysing tables and spreadsheets to spot trends",
+        "Helping software developers test, explain, or improve code",
+        "Monitoring information and alerting a person when something needs attention"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "In each of these cases the agent removes friction rather than removing the human. You still decide what matters, but you spend less time on the mechanical steps in between."
+    },
+    {
+      "type": "p",
+      "text": "A useful way to picture the shift is to imagine delegating to a capable junior colleague. You would not hand over a sensitive task and walk away; you would explain the goal, set clear boundaries, and review the result before it goes out. Agents work best under exactly that arrangement. Give one a specific objective, the tools and information it genuinely needs, and a defined point at which it must pause for your approval. The more precisely you frame the request, the better the outcome, because a vague instruction leaves too much room for the system to guess. Handled this way, an agent becomes a real multiplier of your time rather than an unpredictable black box."
+    },
+    {
+      "type": "h2",
+      "text": "Where agents still struggle"
+    },
+    {
+      "type": "p",
+      "text": "Agents are not flawless digital employees. They can misunderstand instructions, rely on incomplete information, or state a wrong answer with complete confidence. When several steps depend on one another, a small early mistake can quietly grow into a larger one by the end of the task."
+    },
+    {
+      "type": "p",
+      "text": "This is why reliable systems are built with clear limits. Good agent design includes permission controls, activity logs, and a human review step before anything sensitive is completed — sending money, deleting records, or emailing a customer, for example. The technology works best as a careful assistant, not an unsupervised decision-maker."
+    },
+    {
+      "type": "h2",
+      "text": "What this means for people"
+    },
+    {
+      "type": "p",
+      "text": "In the near term, the honest story is about collaboration rather than replacement. People will increasingly define goals, provide context, review results, and decide when an automated system is allowed to act. Skills like good judgement, clear communication, subject knowledge, and the ability to verify information become more valuable, not less."
+    },
+    {
+      "type": "p",
+      "text": "For everyday users, a simple approach works best. Begin with low-risk tasks where a mistake is easy to catch. Always check the sources behind important claims. And never give an AI tool more access than it genuinely needs to do the job. The technology is moving quickly, but trust should be earned one useful result at a time."
+    },
+    {
+      "type": "p",
+      "text": "Used this way, AI agents are less like a science-fiction robot and more like a capable new colleague who is fast, tireless, and occasionally wrong. Treat their output as a strong first draft rather than a final answer, and they can save real time without quietly introducing new risks into your work."
+    }
+  ]
+}

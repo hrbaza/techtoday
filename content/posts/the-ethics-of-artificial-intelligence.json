@@ -1,0 +1,101 @@
+{
+  "slug": "the-ethics-of-artificial-intelligence",
+  "title": "The Ethics of Artificial Intelligence",
+  "category": "AI & Society",
+  "excerpt": "As AI shapes more decisions, hard questions about fairness, privacy, and accountability follow. Here is a clear look at the ethical issues that matter most.",
+  "date": "2026-07-31",
+  "image": "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=1600&q=82",
+  "imageAlt": "A thoughtful abstract image representing ideas and balance",
+  "draft": false,
+  "body": [
+    {
+      "type": "h2",
+      "text": "Why ethics cannot be an afterthought"
+    },
+    {
+      "type": "p",
+      "text": "As artificial intelligence moves from novelty to infrastructure, it increasingly influences decisions that shape real lives: who gets a loan, which job applications are read, how content is moderated, even how medical cases are prioritised. When a technology gains this much reach, the question is no longer just what it can do, but what it should do — and who decides. That is the territory of ethics, and it can no longer be treated as an afterthought bolted on at the end."
+    },
+    {
+      "type": "p",
+      "text": "The point of thinking carefully about AI ethics is not to slow progress for its own sake. It is to make sure the systems we build are fair, accountable, and worthy of the trust we place in them. A few core issues sit at the centre of that effort."
+    },
+    {
+      "type": "h2",
+      "text": "Bias and fairness"
+    },
+    {
+      "type": "p",
+      "text": "AI systems learn from data, and data reflects the world as it has been — including its inequalities. If a hiring model is trained on past decisions that favoured one group, it may learn to repeat that pattern, dressing old prejudice in the appearance of neutral mathematics. The danger is that a biased human decision at least looks like a judgement, while a biased algorithm can hide behind a false air of objectivity."
+    },
+    {
+      "type": "p",
+      "text": "Addressing this means examining not just how a model performs on average, but how it performs for different groups of people. Fairness is not automatic; it has to be measured, demanded, and engineered. Ignoring it does not produce neutral technology — it produces technology that quietly encodes the unfairness of the data it was fed."
+    },
+    {
+      "type": "h2",
+      "text": "Privacy in an age of data"
+    },
+    {
+      "type": "p",
+      "text": "Modern AI runs on data, often deeply personal data. Systems can infer sensitive things about us — our health, our habits, our beliefs — from information we did not think revealing. This raises urgent questions about consent: did people really agree to how their data is being used, and do they even understand what is possible?"
+    },
+    {
+      "type": "quote",
+      "text": "The question is no longer only what data is collected, but what can be inferred from it — and whether we ever agreed to that."
+    },
+    {
+      "type": "p",
+      "text": "Responsible use means collecting only what is needed, being transparent about it, protecting it well, and giving people genuine control. Privacy is not about having something to hide; it is about preserving the freedom to live without being constantly measured, predicted, and nudged by systems we cannot see."
+    },
+    {
+      "type": "h2",
+      "text": "Accountability and the black box"
+    },
+    {
+      "type": "p",
+      "text": "When an AI system makes a mistake — denies a benefit wrongly, misidentifies a person, gives dangerous advice — who is responsible? The developer who built it, the company that deployed it, or the user who trusted it? Clear lines of accountability are essential, yet they are often blurry, and that blurriness can leave harmed people with no one to answer to."
+    },
+    {
+      "type": "p",
+      "text": "The problem is deepened by the black box nature of some systems, which can produce a decision without a clear explanation of why. For consequential decisions, this is unacceptable. People affected by an automated choice deserve to understand it and to challenge it. Explainability and human oversight are not luxuries; they are conditions for using AI justly."
+    },
+    {
+      "type": "p",
+      "text": "Accountability also has a human dimension that technology alone cannot supply. It is tempting, when a system is complex, for everyone involved to assume someone else is responsible for checking it — the developers trust the deployers, the deployers trust the developers, and the people affected are left with no one to turn to. Avoiding this requires deliberate choices: naming who is answerable for a system's decisions, giving people a clear way to appeal, and ensuring a human can always step in. These are not merely technical safeguards but commitments about how an organisation chooses to treat the people its systems affect."
+    },
+    {
+      "type": "h2",
+      "text": "Work, power, and concentration"
+    },
+    {
+      "type": "p",
+      "text": "Beyond individual decisions, AI raises broader social questions. Automation will reshape work, creating new roles while making others obsolete, and how societies manage that transition is an ethical matter as much as an economic one. There is also the question of concentration: the most powerful systems require resources only a few large organisations possess, which risks placing enormous influence in very few hands."
+    },
+    {
+      "type": "list",
+      "items": [
+        "How do we support people whose work is disrupted by automation?",
+        "How do we prevent a handful of companies or states from controlling critical AI?",
+        "How do we keep powerful tools from being used for manipulation or surveillance?",
+        "How do we ensure the benefits of AI are shared widely, not captured narrowly?"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "These are not questions engineers can answer alone. They require input from citizens, lawmakers, and affected communities, because they are ultimately about the kind of society we want to live in."
+    },
+    {
+      "type": "h2",
+      "text": "Building AI worthy of trust"
+    },
+    {
+      "type": "p",
+      "text": "None of these challenges is a reason to abandon artificial intelligence. The technology offers real benefits, from better medicine to more accessible tools. But realising those benefits safely depends on taking the hard questions seriously from the start — designing for fairness, protecting privacy, insisting on accountability, and keeping humans meaningfully in control."
+    },
+    {
+      "type": "p",
+      "text": "The most important idea in AI ethics is also the simplest: technology is not neutral. It reflects the choices, values, and blind spots of the people who build it. That is a responsibility, but it is also an opportunity. If we choose well, we can build systems that are not only powerful, but genuinely worthy of trust."
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "slug": "quantum-computing-explained",
+  "title": "Quantum Computing Explained Simply",
+  "category": "Computing",
+  "excerpt": "Quantum computers promise to solve problems ordinary machines cannot. Here is a plain-language guide to how they work and what they might actually be good for.",
+  "date": "2026-08-10",
+  "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1600&q=82",
+  "imageAlt": "Abstract glowing blue and gold quantum computing visualisation",
+  "draft": false,
+  "body": [
+    {
+      "type": "h2",
+      "text": "A different kind of computer"
+    },
+    {
+      "type": "p",
+      "text": "Quantum computing is one of the most hyped and least understood topics in technology. Headlines promise machines that will break all encryption or cure disease overnight. The reality is more subtle and, in its own way, more interesting. A quantum computer is not simply a faster version of the laptop on your desk. It is a fundamentally different kind of machine, built to exploit the strange rules of the very small."
+    },
+    {
+      "type": "p",
+      "text": "To understand why it matters, you first have to accept that it will not replace ordinary computers for everyday tasks. Instead, it aims to solve a narrow set of problems that are effectively impossible for even the largest traditional supercomputers."
+    },
+    {
+      "type": "h2",
+      "text": "Bits versus qubits"
+    },
+    {
+      "type": "p",
+      "text": "An ordinary computer stores information in bits, each of which is either a zero or a one. Everything your computer does — text, images, video, calculations — is ultimately built from long strings of these two values. It is simple, reliable, and astonishingly powerful when scaled up."
+    },
+    {
+      "type": "p",
+      "text": "A quantum computer uses quantum bits, or qubits. Thanks to a property called superposition, a qubit can exist in a blend of zero and one at the same time. It is not that we simply do not know its value; the qubit genuinely holds a combination of both possibilities until it is measured. This is where quantum computing gets its unusual power."
+    },
+    {
+      "type": "h2",
+      "text": "Superposition and entanglement"
+    },
+    {
+      "type": "p",
+      "text": "Superposition means that a group of qubits can represent many combinations at once. Where a handful of ordinary bits can hold a single number, the same number of qubits can, in a sense, explore a vast range of numbers simultaneously. Add more qubits and this space grows explosively."
+    },
+    {
+      "type": "quote",
+      "text": "A quantum computer does not try every answer one by one. It uses the physics of interference to make wrong answers cancel out and right answers stand out."
+    },
+    {
+      "type": "p",
+      "text": "The second key property is entanglement, where qubits become linked so that the state of one instantly relates to another, no matter the distance between them. Entanglement lets a quantum computer coordinate its qubits in ways that have no equivalent in ordinary computing, and it is essential to how quantum algorithms work."
+    },
+    {
+      "type": "h2",
+      "text": "What quantum computers might do"
+    },
+    {
+      "type": "p",
+      "text": "Quantum machines are not general-purpose speed boosters. They excel only at specific kinds of problems where their strange properties give an advantage. The most promising areas share a common feature: an enormous number of possibilities that must be searched or simulated."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Simulating molecules and materials, which could speed up drug and battery discovery",
+        "Optimising complex systems such as logistics networks or financial portfolios",
+        "Certain kinds of search and mathematics that underlie modern encryption",
+        "Advancing scientific research into chemistry and physics that classical machines model poorly"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Notably, simulating the quantum world of atoms and molecules is something classical computers do badly, because nature at that scale is itself quantum. Using a quantum machine to model quantum chemistry is one of the field's most genuinely promising applications."
+    },
+    {
+      "type": "p",
+      "text": "Encryption is the application that draws the most headlines, and it deserves a careful word. Much of today's online security relies on mathematical problems that ordinary computers cannot solve quickly. A large, reliable quantum computer could, in theory, crack some of these, which is why researchers are already developing new 'post-quantum' encryption designed to resist such machines. Importantly, this threat is years away and is being addressed well in advance, so there is no cause for alarm — but it explains why the field attracts so much attention from governments and security experts."
+    },
+    {
+      "type": "p",
+      "text": "It is just as important to stress what quantum computers will not do. They will not make your spreadsheets load faster, your videos stream more smoothly, or your everyday apps run better. For the overwhelming majority of computing tasks, an ordinary processor is not merely adequate but superior, because it is cheaper, simpler, and already extremely fast. Quantum machines are specialists for a narrow class of problems, not a general upgrade — a distinction that a great deal of breathless coverage manages to blur. Keeping that distinction clear is the best defence against both hype and disappointment."
+    },
+    {
+      "type": "h2",
+      "text": "The enormous engineering challenge"
+    },
+    {
+      "type": "p",
+      "text": "Building a useful quantum computer is fiendishly difficult. Qubits are extraordinarily fragile. The slightest heat, vibration, or stray electromagnetic signal can disturb them and destroy the delicate quantum state, a problem called decoherence. To hold qubits still, many machines must be chilled to temperatures colder than deep space."
+    },
+    {
+      "type": "p",
+      "text": "Errors are the central obstacle. Today's quantum computers make mistakes far too often for serious work, so a huge research effort focuses on error correction — using many physical qubits to build one reliable logical qubit. Progress is real but slow, and practical, large-scale machines remain years away."
+    },
+    {
+      "type": "h2",
+      "text": "A realistic view of the future"
+    },
+    {
+      "type": "p",
+      "text": "It is easy to be swept up in the hype or dismiss quantum computing as science fiction. The truth sits between the two. Quantum computers will almost certainly never replace your phone or laptop. But for a narrow band of extremely hard problems, they may one day do things no classical machine ever could."
+    },
+    {
+      "type": "p",
+      "text": "The most likely future is a partnership: classical computers handling everyday work and quantum machines called upon, like specialist tools, for the rare problems that suit them. Whether that future arrives in ten years or thirty, the science being done today is quietly laying the groundwork for it."
+    }
+  ]
+}

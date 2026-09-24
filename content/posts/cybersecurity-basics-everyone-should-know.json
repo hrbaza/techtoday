@@ -1,0 +1,113 @@
+{
+  "slug": "cybersecurity-basics-everyone-should-know",
+  "title": "Cybersecurity Basics Everyone Should Know",
+  "category": "Security",
+  "excerpt": "You do not need to be an expert to stay safe online. These practical cybersecurity habits protect your accounts, money, and privacy from common threats.",
+  "date": "2026-08-08",
+  "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=82",
+  "imageAlt": "Glowing padlock symbol representing digital security",
+  "draft": false,
+  "body": [
+    {
+      "type": "h2",
+      "text": "Security is a habit, not a product"
+    },
+    {
+      "type": "p",
+      "text": "When people hear cybersecurity, they often picture hackers in hoodies and complicated software. In reality, most people are not targeted by sophisticated attacks. They are caught out by simple, common tricks that a few sensible habits would have stopped. The good news is that protecting yourself online does not require technical expertise. It requires a handful of good practices, applied consistently."
+    },
+    {
+      "type": "p",
+      "text": "Think of it like locking your front door. You do not need to understand how the lock is manufactured to benefit from using it. The same is true online: a few basic protections block the overwhelming majority of everyday threats."
+    },
+    {
+      "type": "h2",
+      "text": "Passwords: your first line of defence"
+    },
+    {
+      "type": "p",
+      "text": "Weak and reused passwords are the single most common cause of account breaches. If you use the same password everywhere, a leak from one website hands attackers the keys to all your accounts. They simply try the stolen password across banks, email, and shopping sites — a tactic that works far too often."
+    },
+    {
+      "type": "p",
+      "text": "The solution is to use a long, unique password for every important account. Remembering dozens of them is impossible, which is why a password manager is so valuable. It generates and stores strong passwords for you, so you only need to remember one master password. It is the closest thing to a single, effective upgrade to your online safety."
+    },
+    {
+      "type": "h2",
+      "text": "Turn on two-factor authentication"
+    },
+    {
+      "type": "p",
+      "text": "Even a strong password can be stolen. Two-factor authentication, often shortened to 2FA, adds a second step — usually a code from an app or a prompt on your phone — so that a password alone is not enough to get in. An attacker on the other side of the world would also need your physical device."
+    },
+    {
+      "type": "quote",
+      "text": "A password is something you know. Two-factor adds something you have. Together they stop most account takeovers cold."
+    },
+    {
+      "type": "p",
+      "text": "Wherever it is offered, especially on email, banking, and social media, turn it on. App-based codes or a physical security key are stronger than text-message codes, but any second factor is far better than none."
+    },
+    {
+      "type": "h2",
+      "text": "Recognising scams and phishing"
+    },
+    {
+      "type": "p",
+      "text": "The most dangerous attacks often do not break your technology at all. They trick you. Phishing messages pretend to be from a bank, a delivery company, or a colleague, and try to make you click a link, enter a password, or send money. They rely on urgency and fear to stop you thinking clearly."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Be suspicious of urgency — real institutions rarely demand instant action or threaten immediate consequences.",
+        "Check the sender's real address, not just the display name, and hover over links before clicking.",
+        "Never enter passwords or card details on a page you reached by clicking a link in a message.",
+        "When in doubt, contact the company directly using a number or address you already trust."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "If a message makes you feel panicked or rushed, that is often the point. Slow down, and the trick usually falls apart."
+    },
+    {
+      "type": "p",
+      "text": "It helps to remember that attackers play a numbers game. They send the same lure to thousands of people, knowing that only a few need to fall for it. You do not have to outsmart a genius; you only have to be more careful than the easiest targets around you. A brief pause before clicking, a habit of checking who really sent a message, and a healthy suspicion of anything that arrives unexpectedly asking for money or passwords will defeat the vast majority of these schemes. Scammers rely on speed and emotion, so the simple act of slowing down and thinking is genuinely one of your strongest defences. No software can replace that moment of calm judgement."
+    },
+    {
+      "type": "h2",
+      "text": "Keep your software updated"
+    },
+    {
+      "type": "p",
+      "text": "Software updates are easy to ignore, but many of them fix security holes that attackers actively exploit. When you delay an update for weeks, you leave a known door unlocked. Turning on automatic updates for your phone, computer, and apps quietly closes those doors as soon as fixes are available."
+    },
+    {
+      "type": "p",
+      "text": "This applies to everything connected to the internet, including routers and smart home devices, which people often set up once and never touch again. Outdated devices are a favourite target precisely because they are so often neglected."
+    },
+    {
+      "type": "h2",
+      "text": "Back up what you cannot lose"
+    },
+    {
+      "type": "p",
+      "text": "Not every threat comes from a hacker. Devices break, get lost, or fall victim to ransomware that locks your files. Regular backups mean that even in a worst-case scenario, your photos, documents, and memories are not gone. A good approach keeps at least one backup somewhere separate from your main device."
+    },
+    {
+      "type": "p",
+      "text": "Cloud backup services make this almost automatic, and an occasional copy to an external drive adds another layer. The effort is small, and the day you need it, you will be extremely glad you made it."
+    },
+    {
+      "type": "h2",
+      "text": "Small habits, big protection"
+    },
+    {
+      "type": "p",
+      "text": "You cannot make yourself completely immune to every online risk, and no one can. But you do not have to. By using unique passwords, enabling two-factor authentication, staying alert to scams, updating your software, and backing up your data, you close the doors that attackers rely on most."
+    },
+    {
+      "type": "p",
+      "text": "These habits take a little effort to set up and almost none to maintain. Adopt them, and you move from being an easy target to a hard one — which, for the vast majority of threats, is all the protection you need."
+    }
+  ]
+}

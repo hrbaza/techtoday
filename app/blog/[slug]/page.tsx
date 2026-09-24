@@ -13,6 +13,9 @@ import AuthorBio from "../../components/AuthorBio";
 
 type Params = { slug: string };
 
+// Only prebuilt slugs exist; a new post appears after its commit redeploys.
+export const dynamicParams = false;
+
 export function generateStaticParams(): Params[] {
   return getAllSlugs().map((slug) => ({ slug }));
 }
