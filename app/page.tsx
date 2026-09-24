@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { articles } from "@/content/articles";
+import { getArticles } from "@/content/articles";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/content/site";
 import ArticleCard from "./components/ArticleCard";
 
@@ -8,8 +8,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-export default function Home() {
-  const [featured, ...rest] = articles;
+export default async function Home() {
+  const [featured, ...rest] = await getArticles();
+  if (!featured) {
+    return (
+      <main>
+        <section className="page-hero">
+          <div className="container">
+            <h1>New articles are on the way</h1>
+          </div>
+        </section>
+      </main>
+    );
+  }
 
   const siteLd = {
     "@context": "https://schema.org",

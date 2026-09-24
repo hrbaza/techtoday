@@ -2,7 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { formatDateLabel, type PostFile } from "@/content/articles/types";
 import { isAdmin } from "@/lib/admin/auth";
-import { listPosts, storeMode } from "@/lib/admin/store";
+import { listPosts } from "@/lib/posts";
 import DeleteButton from "./_components/DeleteButton";
 import StoreNotice from "./_components/StoreNotice";
 
@@ -11,15 +11,13 @@ export const dynamic = "force-dynamic";
 export default async function AdminHome() {
   if (!(await isAdmin())) redirect("/admin/login");
 
-  const mode = storeMode();
   let posts: PostFile[] = [];
   let loadError = "";
-  if (mode !== "unconfigured") {
-    try {
-      posts = await listPosts();
-    } catch (error) {
-      loadError = error instanceof Error ? error.message : "Could not load articles.";
-    }
+  try {
+    posts = await listPosts({ includeDrafts: true });
+  } catch (error) {
+    console.error("[admin] could not load articles", error);
+    loadError = "Could not load articles from the database.";
   }
 
   return (
@@ -43,7 +41,7 @@ export default async function AdminHome() {
         </div>
       </div>
 
-      <StoreNotice mode={mode} />
+      <StoreNotice />
       {loadError && <div className="admin-notice error">{loadError}</div>}
 
       <div className="admin-card">

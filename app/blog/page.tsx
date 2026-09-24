@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { articles } from "@/content/articles";
+import { getArticles } from "@/content/articles";
 import ArticleCard from "../components/ArticleCard";
 
 export const metadata: Metadata = {
@@ -9,7 +9,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
 };
 
-export default function BlogIndex() {
+export default async function BlogIndex() {
+  const articles = await getArticles();
   return (
     <main>
       <section className="page-hero">

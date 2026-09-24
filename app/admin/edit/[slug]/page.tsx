@@ -1,6 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 import { isAdmin } from "@/lib/admin/auth";
-import { listPosts, storeMode } from "@/lib/admin/store";
+import { listPosts } from "@/lib/posts";
 import { savedMessage } from "@/lib/admin/format";
 import PostEditor from "../../_components/PostEditor";
 import StoreNotice from "../../_components/StoreNotice";
@@ -16,12 +16,7 @@ export default async function EditPost({
 }) {
   if (!(await isAdmin())) redirect("/admin/login");
   const { slug } = await params;
-  const mode = storeMode();
-  if (mode === "unconfigured") {
-    return <StoreNotice mode={mode} />;
-  }
-
-  const posts = await listPosts();
+  const posts = await listPosts({ includeDrafts: true });
   const post = posts.find((item) => item.slug === slug);
   if (!post) notFound();
   const categories = [...new Set(posts.map((item) => item.category))].sort();
@@ -29,7 +24,7 @@ export default async function EditPost({
 
   return (
     <>
-      <StoreNotice mode={mode} />
+      <StoreNotice />
       <PostEditor
         key={post.slug}
         initial={post}

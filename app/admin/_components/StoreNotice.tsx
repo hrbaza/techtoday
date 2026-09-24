@@ -1,26 +1,21 @@
-import type { StoreMode } from "@/lib/admin/store";
+import { backend, canWrite } from "@/lib/posts";
 
-export default function StoreNotice({ mode }: { mode: StoreMode }) {
-  if (mode === "unconfigured") {
+export default function StoreNotice() {
+  if (!canWrite()) {
     return (
       <div className="admin-notice error">
-        <strong>Saving is switched off.</strong> Add a <code>GITHUB_TOKEN</code>{" "}
-        environment variable in Vercel (a GitHub token with Contents read &amp;
-        write access to the techtoday repo), then redeploy.
+        <strong>Saving is switched off.</strong> Connect MongoDB in Vercel so
+        the <code>MONGODB_URI</code> environment variable is set, then redeploy.
       </div>
     );
   }
-  if (mode === "local") {
+  if (backend() === "files") {
     return (
       <div className="admin-notice warn">
-        <strong>Local mode:</strong> changes are written to this computer&rsquo;s
-        files only. They go live after you commit and push them.
+        <strong>Local mode:</strong> no database is connected, so changes are
+        written to this computer&rsquo;s files only.
       </div>
     );
   }
-  return (
-    <div className="admin-notice info">
-      Saving publishes to GitHub, and the live site updates about a minute later.
-    </div>
-  );
+  return null;
 }

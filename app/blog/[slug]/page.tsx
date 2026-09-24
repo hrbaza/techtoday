@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
-  getAllSlugs,
   getArticleBySlug,
+  getArticles,
   getRelatedArticles,
   wordCount,
 } from "@/content/articles";
@@ -13,11 +13,12 @@ import AuthorBio from "../../components/AuthorBio";
 
 type Params = { slug: string };
 
-// Only prebuilt slugs exist; a new post appears after its commit redeploys.
-export const dynamicParams = false;
+// Existing articles are prebuilt; new ones render on first visit and are
+// then cached until the admin panel revalidates them.
+export const dynamicParams = true;
 
-export function generateStaticParams(): Params[] {
-  return getAllSlugs().map((slug) => ({ slug }));
+export async function generateStaticParams(): Promise<Params[]> {
+  return (await getArticles()).map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({
@@ -26,7 +27,7 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = await getArticleBySlug(slug);
   if (!article) return { title: "Article not found" };
 
   const url = `/blog/${article.slug}`;
@@ -60,10 +61,10 @@ export default async function ArticlePage({
   params: Promise<Params>;
 }) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = await getArticleBySlug(slug);
   if (!article) notFound();
 
-  const related = getRelatedArticles(slug);
+  const related = await getRelatedArticles(slug);
   const canonical = `${SITE_URL}/blog/${article.slug}`;
 
   const jsonLd = {

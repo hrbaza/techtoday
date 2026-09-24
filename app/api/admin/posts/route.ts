@@ -1,15 +1,18 @@
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import type { PostFile } from "@/content/articles/types";
 import { isAdmin } from "@/lib/admin/auth";
 import { SLUG_PATTERN, textToBlocks } from "@/lib/admin/format";
 import {
-  commitChanges,
+  backend,
+  canWrite,
+  deleteImage,
+  deletePost,
+  DuplicateSlugError,
   getPost,
-  IMAGES_DIR,
-  POSTS_DIR,
-  storeMode,
-  type FileChange,
-} from "@/lib/admin/store";
+  saveImage,
+  savePost,
+} from "@/lib/posts";
 
 type SaveRequest = {
   action: "save";
@@ -23,22 +26,20 @@ type SaveRequest = {
 type DeleteRequest = { action: "delete"; slug: string };
 
 const MAX_IMAGE_BYTES = 3 * 1024 * 1024;
-const UPLOADED_IMAGE_PREFIX = "/images/posts/";
 
 function bad(message: string, status = 400) {
   return NextResponse.json({ error: message }, { status });
 }
 
-function uploadedImagePath(image: string): string | null {
-  return image.startsWith(UPLOADED_IMAGE_PREFIX)
-    ? `${IMAGES_DIR}/${image.slice(UPLOADED_IMAGE_PREFIX.length)}`
-    : null;
+// Every public page lists or shows articles, so refresh them all.
+function refreshSite() {
+  revalidatePath("/", "layout");
 }
 
 export async function POST(request: Request) {
   if (!(await isAdmin())) return bad("Please log in again.", 401);
-  if (storeMode() === "unconfigured") {
-    return bad("GITHUB_TOKEN is not set in Vercel, so posts cannot be saved.", 503);
+  if (!canWrite()) {
+    return bad("MONGODB_URI is not set in Vercel, so articles cannot be saved.", 503);
   }
 
   const payload = (await request.json().catch(() => null)) as
@@ -48,8 +49,8 @@ export async function POST(request: Request) {
   if (!payload) return bad("Invalid request.");
 
   try {
-    if (payload.action === "delete") return await deletePost(payload.slug);
-    if (payload.action === "save") return await savePost(payload);
+    if (payload.action === "delete") return await handleDelete(payload.slug);
+    if (payload.action === "save") return await handleSave(payload);
     return bad("Unknown action.");
   } catch (error) {
     console.error("[admin] post action failed", error);
@@ -57,7 +58,7 @@ export async function POST(request: Request) {
   }
 }
 
-async function savePost({ isNew, post, bodyText, imageUpload }: SaveRequest) {
+async function handleSave({ isNew, post, bodyText, imageUpload }: SaveRequest) {
   const slug = String(post.slug ?? "").trim();
   const title = String(post.title ?? "").trim();
   const category = String(post.category ?? "").trim();
@@ -73,37 +74,30 @@ async function savePost({ isNew, post, bodyText, imageUpload }: SaveRequest) {
   if (!category) return bad("Category is required.");
   if (!excerpt) return bad("Short description is required.");
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return bad("Date is invalid.");
+  if (!imageAlt) return bad("Image description (alt text) is required.");
 
   const body = textToBlocks(String(bodyText ?? ""));
   if (!body.length) return bad("Article text is empty.");
 
-  const existing = await getPost(slug);
+  const existing = await getPost(slug, { includeDrafts: true });
   if (isNew && existing) {
     return bad(`An article with the URL /blog/${slug} already exists.`, 409);
   }
   if (!isNew && !existing) return bad("This article no longer exists.", 404);
 
-  const changes: FileChange[] = [];
-
+  let upload: { data: Buffer; contentType: string } | null = null;
   if (imageUpload) {
-    const match = /^data:image\/(webp|jpeg|png);base64,([A-Za-z0-9+/=]+)$/.exec(
+    const match = /^data:(image\/(?:webp|jpeg|png));base64,([A-Za-z0-9+/=]+)$/.exec(
       imageUpload,
     );
     if (!match) return bad("Cover image must be a JPEG, PNG or WebP.");
-    const bytes = Buffer.from(match[2], "base64");
-    if (bytes.length > MAX_IMAGE_BYTES) return bad("Cover image is too large.");
-    const ext = match[1] === "jpeg" ? "jpg" : match[1];
-    const fileName = `${slug}-${Date.now()}.${ext}`;
-    changes.push({ path: `${IMAGES_DIR}/${fileName}`, content: bytes });
-    image = `${UPLOADED_IMAGE_PREFIX}${fileName}`;
+    const data = Buffer.from(match[2], "base64");
+    if (data.length > MAX_IMAGE_BYTES) return bad("Cover image is too large.");
+    upload = { data, contentType: match[1] };
   }
-  if (!image) return bad("Cover image is required.");
-  if (!imageAlt) return bad("Image description (alt text) is required.");
+  if (!upload && !image) return bad("Cover image is required.");
 
-  const previousImage = existing && uploadedImagePath(existing.image);
-  if (previousImage && existing.image !== image) {
-    changes.push({ path: previousImage, content: null });
-  }
+  if (upload) image = await saveImage(upload.data, upload.contentType, slug);
 
   const saved: PostFile = {
     slug,
@@ -116,25 +110,28 @@ async function savePost({ isNew, post, bodyText, imageUpload }: SaveRequest) {
     draft: Boolean(post.draft),
     body,
   };
-  changes.push({
-    path: `${POSTS_DIR}/${slug}.json`,
-    content: Buffer.from(`${JSON.stringify(saved, null, 2)}\n`),
-  });
+  try {
+    await savePost(saved, { isNew });
+  } catch (error) {
+    if (upload) await deleteImage(image);
+    if (error instanceof DuplicateSlugError) {
+      return bad(`An article with the URL /blog/${slug} already exists.`, 409);
+    }
+    throw error;
+  }
+  if (existing && existing.image !== image) await deleteImage(existing.image);
 
-  const verb = isNew ? "Add" : "Update";
-  await commitChanges(changes, `${verb} article: ${title}${saved.draft ? " (draft)" : ""}`);
-  return NextResponse.json({ ok: true, post: saved, mode: storeMode() });
+  refreshSite();
+  return NextResponse.json({ ok: true, post: saved, mode: backend() });
 }
 
-async function deletePost(slug: string) {
+async function handleDelete(slug: string) {
   if (!SLUG_PATTERN.test(String(slug))) return bad("Invalid slug.");
-  const existing = await getPost(slug);
+  const existing = await getPost(slug, { includeDrafts: true });
   if (!existing) return bad("This article no longer exists.", 404);
 
-  const changes: FileChange[] = [{ path: `${POSTS_DIR}/${slug}.json`, content: null }];
-  const image = uploadedImagePath(existing.image);
-  if (image) changes.push({ path: image, content: null });
-
-  await commitChanges(changes, `Delete article: ${existing.title}`);
-  return NextResponse.json({ ok: true, mode: storeMode() });
+  await deletePost(slug);
+  await deleteImage(existing.image);
+  refreshSite();
+  return NextResponse.json({ ok: true, mode: backend() });
 }

@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
-import { articles } from "@/content/articles";
+import { getArticles } from "@/content/articles";
 import { SITE_URL } from "@/content/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const articles = await getArticles();
   const staticPages = [
     { path: "", priority: 1.0, changeFrequency: "daily" as const },
     { path: "/blog", priority: 0.9, changeFrequency: "daily" as const },
