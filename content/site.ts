@@ -10,7 +10,7 @@ export const SITE_DESCRIPTION =
   "TechToday explains AI, robotics, cloud, security and the technology shaping our world in clear, useful language — one story at a time.";
 
 // Contact address shown on the Contact / legal pages.
-export const CONTACT_EMAIL = "hamzaarashid00@gmail.com";
+export const CONTACT_EMAIL = "techtoday.contact@gmail.com";
 
 // Optional: paste the code from Google Search Console's "HTML tag" verification
 // method here, or set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel. Leave
