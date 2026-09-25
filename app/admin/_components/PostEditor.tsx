@@ -11,30 +11,14 @@ import {
   SLUG_PATTERN,
   textToBlocks,
 } from "@/lib/admin/format";
-import ArticleBody from "../../components/ArticleBody";
+import ArticleContent from "../../components/ArticleContent";
+import ImagePicker from "./ImagePicker";
 
 type Props = {
   initial?: PostFile;
   categories: string[];
   initialMessage?: string;
 };
-
-const MAX_IMAGE_WIDTH = 1600;
-
-// Resize in the browser so uploads stay small (Vercel caps request bodies).
-async function resizeImage(file: File): Promise<string> {
-  const bitmap = await createImageBitmap(file);
-  const scale = Math.min(1, MAX_IMAGE_WIDTH / bitmap.width);
-  const canvas = document.createElement("canvas");
-  canvas.width = Math.round(bitmap.width * scale);
-  canvas.height = Math.round(bitmap.height * scale);
-  canvas.getContext("2d")!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-  bitmap.close();
-  const webp = canvas.toDataURL("image/webp", 0.82);
-  return webp.startsWith("data:image/webp")
-    ? webp
-    : canvas.toDataURL("image/jpeg", 0.85);
-}
 
 function today(): string {
   const now = new Date();
@@ -56,6 +40,9 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
   const [image, setImage] = useState(initial?.image ?? "");
   const [imageUpload, setImageUpload] = useState<string | null>(null);
   const [imageAlt, setImageAlt] = useState(initial?.imageAlt ?? "");
+  const [midImage, setMidImage] = useState(initial?.midImage ?? "");
+  const [midImageUpload, setMidImageUpload] = useState<string | null>(null);
+  const [midImageAlt, setMidImageAlt] = useState(initial?.midImageAlt ?? "");
   const [bodyText, setBodyText] = useState(initial ? blocksToText(initial.body) : "");
   const [tab, setTab] = useState<"write" | "preview">("write");
   const [busy, setBusy] = useState(false);
@@ -64,23 +51,10 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
 
   const blocks = useMemo(() => textToBlocks(bodyText), [bodyText]);
   const words = wordCount({ body: blocks });
-  const coverSrc = imageUpload || image;
 
   function handleTitle(value: string) {
     setTitle(value);
     if (!slugEdited) setSlug(slugify(value));
-  }
-
-  async function handleFile(event: React.ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0];
-    if (!file) return;
-    setError("");
-    try {
-      setImageUpload(await resizeImage(file));
-      if (!imageAlt) setImageAlt(title);
-    } catch {
-      setError("That image could not be read. Try a JPEG or PNG.");
-    }
   }
 
   async function handleSave(event: React.FormEvent) {
@@ -94,9 +68,21 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
       body: JSON.stringify({
         action: "save",
         isNew,
-        post: { slug, title, category, excerpt, date, draft, image, imageAlt },
+        post: {
+          slug,
+          title,
+          category,
+          excerpt,
+          date,
+          draft,
+          image,
+          imageAlt,
+          midImage,
+          midImageAlt,
+        },
         bodyText,
         imageUpload,
+        midImageUpload,
       }),
     });
     const data = (await res.json().catch(() => ({}))) as {
@@ -111,6 +97,8 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
     }
     setImage(data.post.image);
     setImageUpload(null);
+    setMidImage(data.post.midImage ?? "");
+    setMidImageUpload(null);
     const message = savedMessage(data.post.draft ? "draft" : "published", data.mode);
     if (isNew) {
       // The edit page re-mounts the editor, so hand the message over in the URL.
@@ -223,38 +211,34 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
           </div>
         </div>
 
-        <div className="admin-field">
-          <span className="admin-label">Cover image</span>
-          <div className="admin-cover">
-            <div className="admin-cover-preview">
-              {coverSrc ? <img src={coverSrc} alt="" /> : "No image"}
-            </div>
-            <div className="admin-form" style={{ gap: 12 }}>
-              <input type="file" accept="image/jpeg,image/png,image/webp" onChange={handleFile} />
-              <div className="admin-field">
-                <label htmlFor="image-url">…or image link</label>
-                <input
-                  id="image-url"
-                  type="url"
-                  placeholder="https://"
-                  value={imageUpload ? "" : image}
-                  disabled={Boolean(imageUpload)}
-                  onChange={(event) => setImage(event.target.value)}
-                />
-              </div>
-              <div className="admin-field">
-                <label htmlFor="image-alt">Image description (alt text)</label>
-                <input
-                  id="image-alt"
-                  type="text"
-                  required
-                  value={imageAlt}
-                  onChange={(event) => setImageAlt(event.target.value)}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <ImagePicker
+          id="cover"
+          label="Cover image"
+          hint="Shown at the top of the article and when the link is shared."
+          required
+          url={image}
+          upload={imageUpload}
+          alt={imageAlt}
+          defaultAlt={title}
+          onUrl={setImage}
+          onUpload={setImageUpload}
+          onAlt={setImageAlt}
+          onError={setError}
+        />
+
+        <ImagePicker
+          id="mid"
+          label="Middle image (optional)"
+          hint="Placed automatically halfway through the article, between two sections."
+          url={midImage}
+          upload={midImageUpload}
+          alt={midImageAlt}
+          defaultAlt={title}
+          onUrl={setMidImage}
+          onUpload={setMidImageUpload}
+          onAlt={setMidImageAlt}
+          onError={setError}
+        />
 
         <div className="admin-field">
           <label htmlFor="body">Article</label>
@@ -286,7 +270,11 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
             />
           ) : (
             <div className="admin-preview article-body">
-              <ArticleBody blocks={blocks} />
+              <ArticleContent
+                body={blocks}
+                midImage={midImageUpload || midImage || undefined}
+                midImageAlt={midImageAlt}
+              />
             </div>
           )}
           <p className={`admin-hint${words < 800 ? " bad" : ""}`}>

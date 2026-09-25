@@ -27,6 +27,7 @@ nav a:hover,.footer-links a:hover { color:var(--blue); }
 .article-body h2:first-of-type { margin-top:0; }
 .article-body p { font-family:Georgia,"Times New Roman",serif; font-size:18px; line-height:1.85; color:#354158; margin:0 0 24px; }
 .article-image { width:100%; height:430px; object-fit:cover; border-radius:8px; margin:40px 0 10px; }
+.article-image-mid { margin:8px 0 40px; }
 .caption { display:block; color:var(--muted); font-size:12px; margin-bottom:45px; }
 .quote { border-left:5px solid var(--blue); padding:12px 0 12px 24px; margin:45px 0; color:var(--navy); font-size:27px; line-height:1.45; font-weight:700; }
 .sidebar { position:sticky; top:95px; display:grid; gap:22px; }

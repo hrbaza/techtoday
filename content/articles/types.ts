@@ -12,11 +12,26 @@ export type PostFile = {
   category: string;
   excerpt: string;
   date: string; // ISO date (YYYY-MM-DD), used for sitemap + machine reading
-  image: string; // absolute URL or a path under /public
+  image: string; // cover image: absolute URL or a site path
   imageAlt: string;
+  midImage?: string; // optional second image, shown halfway through the body
+  midImageAlt?: string;
   draft?: boolean; // drafts are saved but not shown on the site
   body: Block[];
 };
+
+// Where the middle image goes: before the section heading nearest the middle
+// of the article, so it sits between two sections rather than mid-thought.
+export function midImageIndex(blocks: Block[]): number {
+  const half = Math.floor(blocks.length / 2);
+  for (let i = half; i < blocks.length; i++) {
+    if (blocks[i].type === "h2") return i;
+  }
+  for (let i = half - 1; i > 0; i--) {
+    if (blocks[i].type === "h2") return i;
+  }
+  return half;
+}
 
 // A post as the site renders it, with display-only fields derived.
 export type Article = PostFile & {

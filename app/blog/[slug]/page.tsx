@@ -8,7 +8,7 @@ import {
   wordCount,
 } from "@/content/articles";
 import { SITE_NAME, SITE_URL } from "@/content/site";
-import ArticleBody from "../../components/ArticleBody";
+import ArticleContent from "../../components/ArticleContent";
 
 type Params = { slug: string };
 
@@ -149,7 +149,11 @@ export default async function ArticlePage({
               width={1600}
               height={900}
             />
-            <ArticleBody blocks={article.body} />
+            <ArticleContent
+              body={article.body}
+              midImage={article.midImage}
+              midImageAlt={article.midImageAlt}
+            />
 
             <div className="article-cta">
               <Link className="primary-button" href="/blog">

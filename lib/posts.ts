@@ -42,7 +42,22 @@ function sortNewestFirst(posts: PostFile[]): PostFile[] {
 
 function stripDoc<T extends PostFile>(doc: T): PostFile {
   const { slug, title, category, excerpt, date, image, imageAlt, draft, body } = doc;
-  return { slug, title, category, excerpt, date, image, imageAlt, draft: Boolean(draft), body };
+  const post: PostFile = {
+    slug,
+    title,
+    category,
+    excerpt,
+    date,
+    image,
+    imageAlt,
+    draft: Boolean(draft),
+    body,
+  };
+  if (doc.midImage) {
+    post.midImage = doc.midImage;
+    post.midImageAlt = doc.midImageAlt ?? "";
+  }
+  return post;
 }
 
 async function readPostFiles(): Promise<PostFile[]> {
@@ -102,7 +117,14 @@ export async function savePost(post: PostFile, { isNew }: { isNew: boolean }) {
         throw error;
       }
     } else {
-      await posts.updateOne({ slug: post.slug }, { $set: { ...post, updatedAt: now } });
+      await posts.updateOne(
+        { slug: post.slug },
+        {
+          $set: { ...post, updatedAt: now },
+          // Removing the middle image leaves these keys out of `post`.
+          ...(post.midImage ? {} : { $unset: { midImage: "", midImageAlt: "" } }),
+        },
+      );
     }
     return;
   }

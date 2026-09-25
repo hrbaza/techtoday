@@ -19,8 +19,9 @@ type SaveRequest = {
   isNew: boolean;
   post: Omit<PostFile, "body">;
   bodyText: string;
-  // Cover image already resized in the browser, as a data: URL.
+  // Images already resized in the browser, as data: URLs.
   imageUpload?: string | null;
+  midImageUpload?: string | null;
 };
 
 type DeleteRequest = { action: "delete"; slug: string };
@@ -29,6 +30,17 @@ const MAX_IMAGE_BYTES = 3 * 1024 * 1024;
 
 function bad(message: string, status = 400) {
   return NextResponse.json({ error: message }, { status });
+}
+
+type Upload = { data: Buffer; contentType: string };
+
+// Parses a browser-resized image; returns an error message if it's unusable.
+function parseUpload(dataUrl: string, label: string): Upload | string {
+  const match = /^data:(image\/(?:webp|jpeg|png));base64,([A-Za-z0-9+/=]+)$/.exec(dataUrl);
+  if (!match) return `${label} must be a JPEG, PNG or WebP.`;
+  const data = Buffer.from(match[2], "base64");
+  if (data.length > MAX_IMAGE_BYTES) return `${label} is too large.`;
+  return { data, contentType: match[1] };
 }
 
 // Every public page lists or shows articles, so refresh them all.
@@ -58,7 +70,13 @@ export async function POST(request: Request) {
   }
 }
 
-async function handleSave({ isNew, post, bodyText, imageUpload }: SaveRequest) {
+async function handleSave({
+  isNew,
+  post,
+  bodyText,
+  imageUpload,
+  midImageUpload,
+}: SaveRequest) {
   const slug = String(post.slug ?? "").trim();
   const title = String(post.title ?? "").trim();
   const category = String(post.category ?? "").trim();
@@ -66,6 +84,8 @@ async function handleSave({ isNew, post, bodyText, imageUpload }: SaveRequest) {
   const date = String(post.date ?? "").trim();
   const imageAlt = String(post.imageAlt ?? "").trim();
   let image = String(post.image ?? "").trim();
+  let midImage = String(post.midImage ?? "").trim();
+  const midImageAlt = String(post.midImageAlt ?? "").trim();
 
   if (!SLUG_PATTERN.test(slug)) {
     return bad("URL slug may only use lowercase letters, numbers and dashes.");
@@ -85,19 +105,26 @@ async function handleSave({ isNew, post, bodyText, imageUpload }: SaveRequest) {
   }
   if (!isNew && !existing) return bad("This article no longer exists.", 404);
 
-  let upload: { data: Buffer; contentType: string } | null = null;
-  if (imageUpload) {
-    const match = /^data:(image\/(?:webp|jpeg|png));base64,([A-Za-z0-9+/=]+)$/.exec(
-      imageUpload,
-    );
-    if (!match) return bad("Cover image must be a JPEG, PNG or WebP.");
-    const data = Buffer.from(match[2], "base64");
-    if (data.length > MAX_IMAGE_BYTES) return bad("Cover image is too large.");
-    upload = { data, contentType: match[1] };
-  }
+  const upload = imageUpload ? parseUpload(imageUpload, "Cover image") : null;
+  if (typeof upload === "string") return bad(upload);
   if (!upload && !image) return bad("Cover image is required.");
 
-  if (upload) image = await saveImage(upload.data, upload.contentType, slug);
+  const midUpload = midImageUpload ? parseUpload(midImageUpload, "Middle image") : null;
+  if (typeof midUpload === "string") return bad(midUpload);
+  if ((midUpload || midImage) && !midImageAlt) {
+    return bad("Middle image description (alt text) is required.");
+  }
+
+  // Images saved during this request, removed again if the save fails.
+  const newImages: string[] = [];
+  if (upload) {
+    image = await saveImage(upload.data, upload.contentType, slug);
+    newImages.push(image);
+  }
+  if (midUpload) {
+    midImage = await saveImage(midUpload.data, midUpload.contentType, `${slug}-mid`);
+    newImages.push(midImage);
+  }
 
   const saved: PostFile = {
     slug,
@@ -110,16 +137,23 @@ async function handleSave({ isNew, post, bodyText, imageUpload }: SaveRequest) {
     draft: Boolean(post.draft),
     body,
   };
+  if (midImage) {
+    saved.midImage = midImage;
+    saved.midImageAlt = midImageAlt;
+  }
   try {
     await savePost(saved, { isNew });
   } catch (error) {
-    if (upload) await deleteImage(image);
+    await Promise.all(newImages.map(deleteImage));
     if (error instanceof DuplicateSlugError) {
       return bad(`An article with the URL /blog/${slug} already exists.`, 409);
     }
     throw error;
   }
   if (existing && existing.image !== image) await deleteImage(existing.image);
+  if (existing?.midImage && existing.midImage !== midImage) {
+    await deleteImage(existing.midImage);
+  }
 
   refreshSite();
   return NextResponse.json({ ok: true, post: saved, mode: backend() });
@@ -132,6 +166,7 @@ async function handleDelete(slug: string) {
 
   await deletePost(slug);
   await deleteImage(existing.image);
+  if (existing.midImage) await deleteImage(existing.midImage);
   refreshSite();
   return NextResponse.json({ ok: true, mode: backend() });
 }
