@@ -73,7 +73,7 @@
     },
     {
       "type": "p",
-      "text": "It helps to remember that attackers play a numbers game. They send the same lure to thousands of people, knowing that only a few need to fall for it. You do not have to outsmart a genius; you only have to be more careful than the easiest targets around you. A brief pause before clicking, a habit of checking who really sent a message, and a healthy suspicion of anything that arrives unexpectedly asking for money or passwords will defeat the vast majority of these schemes. Scammers rely on speed and emotion, so the simple act of slowing down and thinking is genuinely one of your strongest defences. No software can replace that moment of calm judgement."
+      "text": "It helps to remember that attackers play a numbers game. They send the same lure to thousands of people, knowing that only a few need to fall for it. You do not have to outsmart a genius; you only have to be more careful than the easiest targets around you. A brief pause before clicking, a habit of checking who really sent a message, and a healthy suspicion of anything that arrives unexpectedly asking for money or passwords will defeat the vast majority of these schemes. Scammers rely on speed and emotion, so the simple act of slowing down and thinking is genuinely one of your strongest defences. No software can replace that moment of calm judgement. Scammers increasingly use AI tools such as [large language models](/blog/large-language-models-explained) to write convincing messages, so polished grammar is no longer a sign that an email is genuine."
     },
     {
       "type": "h2",
@@ -85,7 +85,7 @@
     },
     {
       "type": "p",
-      "text": "This applies to everything connected to the internet, including routers and smart home devices, which people often set up once and never touch again. Outdated devices are a favourite target precisely because they are so often neglected."
+      "text": "This applies to everything connected to the internet, including routers and smart home devices, which people often set up once and never touch again. Outdated devices are a favourite target precisely because they are so often neglected. This applies to every connected gadget you own, from your router to [smartwatches and fitness trackers](/blog/wearable-technology-and-health)."
     },
     {
       "type": "h2",
@@ -97,7 +97,7 @@
     },
     {
       "type": "p",
-      "text": "Cloud backup services make this almost automatic, and an occasional copy to an external drive adds another layer. The effort is small, and the day you need it, you will be extremely glad you made it."
+      "text": "Cloud backup services make this almost automatic, and an occasional copy to an external drive adds another layer. The effort is small, and the day you need it, you will be extremely glad you made it. Services built on [cloud computing](/blog/how-cloud-computing-works) make automatic backups easy and inexpensive."
     },
     {
       "type": "h2",
@@ -109,7 +109,7 @@
     },
     {
       "type": "p",
-      "text": "These habits take a little effort to set up and almost none to maintain. Adopt them, and you move from being an easy target to a hard one — which, for the vast majority of threats, is all the protection you need."
+      "text": "These habits take a little effort to set up and almost none to maintain. Adopt them, and you move from being an easy target to a hard one — which, for the vast majority of threats, is all the protection you need. Looking further ahead, researchers are already preparing new kinds of encryption for the arrival of [quantum computers](/blog/quantum-computing-explained)."
     }
   ]
 }

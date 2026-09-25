@@ -73,11 +73,11 @@
     },
     {
       "type": "p",
-      "text": "Encryption is the application that draws the most headlines, and it deserves a careful word. Much of today's online security relies on mathematical problems that ordinary computers cannot solve quickly. A large, reliable quantum computer could, in theory, crack some of these, which is why researchers are already developing new 'post-quantum' encryption designed to resist such machines. Importantly, this threat is years away and is being addressed well in advance, so there is no cause for alarm — but it explains why the field attracts so much attention from governments and security experts."
+      "text": "Encryption is the application that draws the most headlines, and it deserves a careful word. Much of today's online [security](/blog/cybersecurity-basics-everyone-should-know) relies on mathematical problems that ordinary computers cannot solve quickly. A large, reliable quantum computer could, in theory, crack some of these, which is why researchers are already developing new 'post-quantum' encryption designed to resist such machines. Importantly, this threat is years away and is being addressed well in advance, so there is no cause for alarm — but it explains why the field attracts so much attention from governments and security experts."
     },
     {
       "type": "p",
-      "text": "It is just as important to stress what quantum computers will not do. They will not make your spreadsheets load faster, your videos stream more smoothly, or your everyday apps run better. For the overwhelming majority of computing tasks, an ordinary processor is not merely adequate but superior, because it is cheaper, simpler, and already extremely fast. Quantum machines are specialists for a narrow class of problems, not a general upgrade — a distinction that a great deal of breathless coverage manages to blur. Keeping that distinction clear is the best defence against both hype and disappointment."
+      "text": "It is just as important to stress what quantum computers will not do. They will not make your spreadsheets load faster, your videos stream more smoothly, or your everyday apps run better. For the overwhelming majority of computing tasks, an ordinary processor is not merely adequate but superior, because it is cheaper, simpler, and already extremely fast. Quantum machines are specialists for a narrow class of problems, not a general upgrade — a distinction that a great deal of breathless coverage manages to blur. Keeping that distinction clear is the best defence against both hype and disappointment. They could also help design better batteries and materials for [renewable energy](/blog/renewable-energy-technology)."
     },
     {
       "type": "h2",
@@ -89,7 +89,7 @@
     },
     {
       "type": "p",
-      "text": "Errors are the central obstacle. Today's quantum computers make mistakes far too often for serious work, so a huge research effort focuses on error correction — using many physical qubits to build one reliable logical qubit. Progress is real but slow, and practical, large-scale machines remain years away."
+      "text": "Errors are the central obstacle. Today's quantum computers make mistakes far too often for serious work, so a huge research effort focuses on error correction — using many physical qubits to build one reliable logical qubit. Progress is real but slow, and practical, large-scale machines remain years away. Most people who use quantum computers today reach them remotely, through the same kind of services described in our guide to [cloud computing](/blog/how-cloud-computing-works)."
     },
     {
       "type": "h2",
@@ -101,7 +101,7 @@
     },
     {
       "type": "p",
-      "text": "The most likely future is a partnership: classical computers handling everyday work and quantum machines called upon, like specialist tools, for the rare problems that suit them. Whether that future arrives in ten years or thirty, the science being done today is quietly laying the groundwork for it."
+      "text": "The most likely future is a partnership: classical computers handling everyday work and quantum machines called upon, like specialist tools, for the rare problems that suit them. Whether that future arrives in ten years or thirty, the science being done today is quietly laying the groundwork for it. Security experts are not waiting, either: systems built on cryptography, from online banking to [blockchains](/blog/blockchain-beyond-crypto), are already being upgraded to resist future quantum attacks."
     }
   ]
 }

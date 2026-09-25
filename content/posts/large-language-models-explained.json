@@ -44,7 +44,7 @@
     },
     {
       "type": "p",
-      "text": "Repeat this process across trillions of examples and the model gradually tunes itself into a system that captures the statistical shape of human language. No human writes those billions of parameters by hand; they emerge from the training process itself. This is why we say the model learns rather than being explicitly coded."
+      "text": "Repeat this process across trillions of examples and the model gradually tunes itself into a system that captures the statistical shape of human language. No human writes those billions of parameters by hand; they emerge from the training process itself. This is why we say the model learns rather than being explicitly coded. That training happens in vast [data centres](/blog/inside-the-data-centers-powering-ai) filled with specialised chips."
     },
     {
       "type": "quote",
@@ -76,7 +76,7 @@
     },
     {
       "type": "p",
-      "text": "This limitation is fundamental, not a temporary bug. It is why serious tools now connect models to trusted data sources and citations, and why you should always verify important facts, figures, and quotes that a model provides. Treat the output as a knowledgeable draft, not an authoritative reference."
+      "text": "This limitation is fundamental, not a temporary bug. It is why serious tools now connect models to trusted data sources and citations, and why you should always verify important facts, figures, and quotes that a model provides. Treat the output as a knowledgeable draft, not an authoritative reference. Failures like these are part of why the [ethics of artificial intelligence](/blog/the-ethics-of-artificial-intelligence) has become such an active field."
     },
     {
       "type": "h2",
@@ -84,7 +84,7 @@
     },
     {
       "type": "p",
-      "text": "Understanding how these systems work leads to some practical habits that make them far more useful."
+      "text": "Understanding how these systems work leads to some practical habits that make them far more useful. Many capable language models are now freely available as [open-source models](/blog/the-rise-of-open-source-ai) that anyone can run and study."
     },
     {
       "type": "list",
@@ -98,7 +98,7 @@
     },
     {
       "type": "p",
-      "text": "Language models are among the most flexible tools ever built, but they reward users who understand their nature. Seen clearly, an LLM is neither a mind nor a magic oracle. It is a powerful pattern-completion engine — extraordinary at language, uneven on facts, and most valuable when paired with human judgement and a habit of double-checking what matters."
+      "text": "Language models are among the most flexible tools ever built, but they reward users who understand their nature. Seen clearly, an LLM is neither a mind nor a magic oracle. It is a powerful pattern-completion engine — extraordinary at language, uneven on facts, and most valuable when paired with human judgement and a habit of double-checking what matters. Language models are also the foundation of the [AI agents](/blog/how-ai-agents-are-changing-work) that can carry out multi-step tasks on your behalf."
     }
   ]
 }

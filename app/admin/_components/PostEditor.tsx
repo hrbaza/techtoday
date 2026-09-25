@@ -282,8 +282,9 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
           </p>
           <div className="admin-help">
             <code>## Heading</code> for a section heading · <code>- item</code> for a
-            bullet list · <code>&gt; text</code> for a highlighted quote · leave an
-            empty line between paragraphs.
+            bullet list · <code>&gt; text</code> for a highlighted quote ·{" "}
+            <code>[link text](/blog/article-url)</code> for a link · leave an empty
+            line between paragraphs.
           </div>
         </div>
       </div>

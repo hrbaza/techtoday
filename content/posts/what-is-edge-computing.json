@@ -16,11 +16,11 @@
     },
     {
       "type": "p",
-      "text": "For most of the past two decades, the trend in technology moved in one direction: toward the cloud. Data was collected on devices and sent to giant, distant data centres where the real work happened. Edge computing reverses part of that journey. Instead of sending everything far away, it processes data close to where it is created — on or near the device itself."
+      "text": "For most of the past two decades, the trend in technology moved in one direction: toward [the cloud](/blog/how-cloud-computing-works). Data was collected on devices and sent to giant, distant data centres where the real work happened. Edge computing reverses part of that journey. Instead of sending everything far away, it processes data close to where it is created — on or near the device itself."
     },
     {
       "type": "p",
-      "text": "The edge in edge computing simply means the outer edge of the network, near the user, rather than the centre where the big data centres sit. It is not a replacement for the cloud but a complement to it, handling the tasks that benefit from being nearby while the cloud continues to do the heavy lifting that can wait."
+      "text": "The edge in edge computing simply means the outer edge of the network, near the user, rather than the centre where the big [data centres](/blog/inside-the-data-centers-powering-ai) sit. It is not a replacement for the cloud but a complement to it, handling the tasks that benefit from being nearby while the cloud continues to do the heavy lifting that can wait."
     },
     {
       "type": "h2",
@@ -28,7 +28,7 @@
     },
     {
       "type": "p",
-      "text": "Sending data to a distant data centre and waiting for an answer takes time. Usually that delay, called latency, is small enough not to matter. But for some applications, even a fraction of a second is too long. A self-driving car deciding whether to brake cannot wait for a round trip to a server hundreds of miles away."
+      "text": "Sending data to a distant data centre and waiting for an answer takes time. Usually that delay, called latency, is small enough not to matter. But for some applications, even a fraction of a second is too long. A [self-driving car](/blog/how-self-driving-cars-work) deciding whether to brake cannot wait for a round trip to a server hundreds of miles away."
     },
     {
       "type": "p",
@@ -106,7 +106,7 @@
     },
     {
       "type": "p",
-      "text": "For most people, the details will stay invisible. You will simply notice that your devices feel faster, more private, and more dependable — the quiet payoff of moving computing a little closer to home."
+      "text": "For most people, the details will stay invisible. You will simply notice that your devices feel faster, more private, and more dependable — the quiet payoff of moving computing a little closer to home. Fast [5G networks](/blog/how-5g-changes-connectivity) will make it easier for nearby devices to share this work with one another."
     }
   ]
 }

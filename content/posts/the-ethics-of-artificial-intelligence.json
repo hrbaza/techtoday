@@ -32,7 +32,7 @@
     },
     {
       "type": "p",
-      "text": "Addressing this means examining not just how a model performs on average, but how it performs for different groups of people. Fairness is not automatic; it has to be measured, demanded, and engineered. Ignoring it does not produce neutral technology — it produces technology that quietly encodes the unfairness of the data it was fed."
+      "text": "Addressing this means examining not just how a model performs on average, but how it performs for different groups of people. Fairness is not automatic; it has to be measured, demanded, and engineered. Ignoring it does not produce neutral technology — it produces technology that quietly encodes the unfairness of the data it was fed. These problems are especially serious in medicine, as our article on [AI in healthcare](/blog/ai-in-healthcare) discusses."
     },
     {
       "type": "h2",
@@ -48,7 +48,7 @@
     },
     {
       "type": "p",
-      "text": "Responsible use means collecting only what is needed, being transparent about it, protecting it well, and giving people genuine control. Privacy is not about having something to hide; it is about preserving the freedom to live without being constantly measured, predicted, and nudged by systems we cannot see."
+      "text": "Responsible use means collecting only what is needed, being transparent about it, protecting it well, and giving people genuine control. Privacy is not about having something to hide; it is about preserving the freedom to live without being constantly measured, predicted, and nudged by systems we cannot see. Health data from [wearable devices](/blog/wearable-technology-and-health) is a good example of how personal this information can be."
     },
     {
       "type": "h2",
@@ -64,7 +64,7 @@
     },
     {
       "type": "p",
-      "text": "Accountability also has a human dimension that technology alone cannot supply. It is tempting, when a system is complex, for everyone involved to assume someone else is responsible for checking it — the developers trust the deployers, the deployers trust the developers, and the people affected are left with no one to turn to. Avoiding this requires deliberate choices: naming who is answerable for a system's decisions, giving people a clear way to appeal, and ensuring a human can always step in. These are not merely technical safeguards but commitments about how an organisation chooses to treat the people its systems affect."
+      "text": "Accountability also has a human dimension that technology alone cannot supply. It is tempting, when a system is complex, for everyone involved to assume someone else is responsible for checking it — the developers trust the deployers, the deployers trust the developers, and the people affected are left with no one to turn to. Avoiding this requires deliberate choices: naming who is answerable for a system's decisions, giving people a clear way to appeal, and ensuring a human can always step in. These are not merely technical safeguards but commitments about how an organisation chooses to treat the people its systems affect. The question becomes even more urgent when machines act in the physical world, as [self-driving cars](/blog/how-self-driving-cars-work) do."
     },
     {
       "type": "h2",
@@ -85,7 +85,7 @@
     },
     {
       "type": "p",
-      "text": "These are not questions engineers can answer alone. They require input from citizens, lawmakers, and affected communities, because they are ultimately about the kind of society we want to live in."
+      "text": "These are not questions engineers can answer alone. They require input from citizens, lawmakers, and affected communities, because they are ultimately about the kind of society we want to live in. One counterweight is the growth of [open-source AI](/blog/the-rise-of-open-source-ai), which puts powerful models in more hands."
     },
     {
       "type": "h2",

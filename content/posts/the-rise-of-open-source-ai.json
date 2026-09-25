@@ -32,7 +32,7 @@
     },
     {
       "type": "p",
-      "text": "The definitions get blurry in practice. Some models release everything, including the training data and methods. Others release only the finished parameters under conditions. Purists argue about where the line truly sits, but for most people the key point is simple: an open model can be downloaded and run without asking permission from the company that made it."
+      "text": "The definitions get blurry in practice. Some models release everything, including the training data and methods. Others release only the finished parameters under conditions. Purists argue about where the line truly sits, but for most people the key point is simple: an open model can be downloaded and run without asking permission from the company that made it. Like the software behind many [blockchains](/blog/blockchain-beyond-crypto), open AI projects rely on communities that anyone can inspect and join."
     },
     {
       "type": "h2",
@@ -54,7 +54,7 @@
     },
     {
       "type": "p",
-      "text": "For a hospital, a bank, or a government that cannot send confidential data to an outside service, these benefits are not luxuries. They are the difference between using AI at all and leaving it on the shelf."
+      "text": "For a hospital, a bank, or a government that cannot send confidential data to an outside service, these benefits are not luxuries. They are the difference between using AI at all and leaving it on the shelf. Smaller open models can even run on your own laptop or phone, a form of [edge computing](/blog/what-is-edge-computing)."
     },
     {
       "type": "h2",
@@ -70,7 +70,7 @@
     },
     {
       "type": "p",
-      "text": "Supporters counter that transparency is itself a form of safety. When many independent experts can examine a model, flaws are found and fixed faster than in a closed system that only its owner can inspect. They also argue that concentrating powerful AI in a few private companies carries its own risks. There is no settled answer, and reasonable people disagree."
+      "text": "Supporters counter that transparency is itself a form of safety. When many independent experts can examine a model, flaws are found and fixed faster than in a closed system that only its owner can inspect. They also argue that concentrating powerful AI in a few private companies carries its own risks. There is no settled answer, and reasonable people disagree. It is one of the central questions in the wider [ethics of artificial intelligence](/blog/the-ethics-of-artificial-intelligence)."
     },
     {
       "type": "h2",
@@ -98,7 +98,7 @@
     },
     {
       "type": "p",
-      "text": "The story of open-source AI is still being written. What is already clear is that it has turned artificial intelligence from something a handful of companies control into something a much wider community can build with — and that shift will shape the technology for years to come."
+      "text": "The story of open-source AI is still being written. What is already clear is that it has turned artificial intelligence from something a handful of companies control into something a much wider community can build with — and that shift will shape the technology for years to come. Open models are also powering a new wave of [AI agents](/blog/how-ai-agents-are-changing-work) built by independent developers."
     }
   ]
 }

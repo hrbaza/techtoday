@@ -20,7 +20,7 @@
     },
     {
       "type": "p",
-      "text": "Done well, this technology could help overstretched health systems do more with limited staff and time. Done carelessly, it could entrench errors or bias. Understanding where AI genuinely helps today — and where it does not — is essential to seeing past both the hype and the fear."
+      "text": "Done well, this technology could help overstretched health systems do more with limited staff and time. Done carelessly, it could entrench errors or [bias](/blog/the-ethics-of-artificial-intelligence). Understanding where AI genuinely helps today — and where it does not — is essential to seeing past both the hype and the fear."
     },
     {
       "type": "h2",
@@ -32,7 +32,7 @@
     },
     {
       "type": "p",
-      "text": "In some studies, image-analysis systems match or approach the accuracy of specialists at flagging particular conditions, and they never tire. Crucially, the goal is usually not to replace the radiologist but to assist — highlighting areas of concern, prioritising urgent cases, and offering a second opinion that a human then confirms."
+      "text": "In some studies, image-analysis systems match or approach the accuracy of specialists at flagging particular conditions, and they never tire. Crucially, the goal is usually not to replace the radiologist but to assist — highlighting areas of concern, prioritising urgent cases, and offering a second opinion that a human then confirms. Consumer devices are starting to play a part too, as our look at [wearable technology and health](/blog/wearable-technology-and-health) explores."
     },
     {
       "type": "h2",
@@ -61,7 +61,7 @@
     },
     {
       "type": "p",
-      "text": "Another promising area is triage and early detection. In busy systems, catching a deteriorating patient a few hours sooner, or flagging a subtle warning sign in a routine test, can change an outcome dramatically. AI is well suited to watching for patterns across large amounts of data and raising a quiet alert when something looks unusual, so that a human can take a closer look. Used this way, it acts less like a decision-maker and more like an ever-vigilant assistant that never gets tired or distracted. The value lies in extending human attention, not replacing human judgement."
+      "text": "Another promising area is triage and early detection. In busy systems, catching a deteriorating patient a few hours sooner, or flagging a subtle warning sign in a routine test, can change an outcome dramatically. AI is well suited to watching for patterns across large amounts of data and raising a quiet alert when something looks unusual, so that a human can take a closer look. Used this way, it acts less like a decision-maker and more like an ever-vigilant assistant that never gets tired or distracted. The value lies in extending human attention, not replacing human judgement. Much of this paperwork help comes from [large language models](/blog/large-language-models-explained), the same technology behind today's chatbots."
     },
     {
       "type": "h2",
@@ -89,7 +89,7 @@
     },
     {
       "type": "p",
-      "text": "This partnership also demands strong safeguards: rigorous testing across diverse populations, clear rules on privacy for deeply sensitive health data, and honest monitoring of how systems perform once deployed. Regulation in this field is rightly slow and demanding, because the cost of getting it wrong is measured in human lives."
+      "text": "This partnership also demands strong safeguards: rigorous testing across diverse populations, clear rules on privacy for deeply sensitive health data, and honest monitoring of how systems perform once deployed. Regulation in this field is rightly slow and demanding, because the cost of getting it wrong is measured in human lives. Health records are also among the most sensitive data there is, which makes strong [cybersecurity](/blog/cybersecurity-basics-everyone-should-know) essential for any hospital adopting these tools."
     },
     {
       "type": "h2",

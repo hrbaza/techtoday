@@ -16,7 +16,7 @@
     },
     {
       "type": "p",
-      "text": "We talk about the cloud as if it were made of air. In truth, every message you send, every video you stream, and every AI answer you receive travels through a very physical world of buildings, cables, and machines. When people say a service runs in the cloud, they mean it runs in a data centre — a large, carefully controlled building filled with computers."
+      "text": "We talk about [the cloud](/blog/how-cloud-computing-works) as if it were made of air. In truth, every message you send, every video you stream, and every AI answer you receive travels through a very physical world of buildings, cables, and machines. When people say a service runs in the cloud, they mean it runs in a data centre — a large, carefully controlled building filled with computers."
     },
     {
       "type": "p",
@@ -54,7 +54,7 @@
     },
     {
       "type": "p",
-      "text": "To meet this demand, companies have shifted from ordinary processors to graphics-style chips, known as GPUs and other accelerators, that can perform many calculations in parallel. Racks packed with these chips generate far more heat and draw far more power than the servers of a decade ago, reshaping how data centres are designed."
+      "text": "To meet this demand, companies have shifted from ordinary processors to graphics-style chips, known as GPUs and other accelerators, that can perform many calculations in parallel. Racks packed with these chips generate far more heat and draw far more power than the servers of a decade ago, reshaping how data centres are designed. Training [large language models](/blog/large-language-models-explained) is one of the most demanding jobs these buildings now do."
     },
     {
       "type": "quote",
@@ -82,7 +82,7 @@
     },
     {
       "type": "p",
-      "text": "Many operators have responded by buying renewable energy, improving efficiency, and reusing waste heat to warm nearby buildings. Progress is real but uneven, and the honest picture is that demand is rising faster than efficiency alone can offset. How the industry balances growth with responsibility will be one of the defining infrastructure stories of the decade."
+      "text": "Many operators have responded by buying [renewable energy](/blog/renewable-energy-technology), improving efficiency, and reusing waste heat to warm nearby buildings. Progress is real but uneven, and the honest picture is that demand is rising faster than efficiency alone can offset. How the industry balances growth with responsibility will be one of the defining infrastructure stories of the decade."
     },
     {
       "type": "p",
@@ -98,7 +98,7 @@
     },
     {
       "type": "p",
-      "text": "The next time an app answers instantly or a model writes a paragraph in seconds, it is worth remembering the hidden machinery behind it: rows of humming servers in an anonymous building, kept cool and powered around the clock, quietly turning electricity into the intelligence we increasingly take for granted."
+      "text": "The next time an app answers instantly or a model writes a paragraph in seconds, it is worth remembering the hidden machinery behind it: rows of humming servers in an anonymous building, kept cool and powered around the clock, quietly turning electricity into the intelligence we increasingly take for granted. One response is to move some processing out to smaller sites near users, an approach known as [edge computing](/blog/what-is-edge-computing)."
     }
   ]
 }

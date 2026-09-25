@@ -42,7 +42,7 @@
     },
     {
       "type": "p",
-      "text": "The real value often lies not in any one number but in the trend. A single night of poor sleep means little; a steady decline over weeks might prompt a helpful change in habits or a conversation with a doctor."
+      "text": "The real value often lies not in any one number but in the trend. A single night of poor sleep means little; a steady decline over weeks might prompt a helpful change in habits or a conversation with a doctor. More and more of this analysis happens on the device itself rather than in the cloud — an everyday example of [edge computing](/blog/what-is-edge-computing)."
     },
     {
       "type": "h2",
@@ -66,7 +66,7 @@
     },
     {
       "type": "p",
-      "text": "At the same time, this strength can become a weakness if misread. A prompt to see a doctor is an invitation to gather more information, not a verdict. The right response to an alert is to note it, watch whether it persists, and consult a professional who can perform a proper assessment. Treated as a starting point for a conversation with a clinician, rather than as a diagnosis in itself, the early-warning feature is one of the most useful things a wearable offers."
+      "text": "At the same time, this strength can become a weakness if misread. A prompt to see a doctor is an invitation to gather more information, not a verdict. The right response to an alert is to note it, watch whether it persists, and consult a professional who can perform a proper assessment. Treated as a starting point for a conversation with a clinician, rather than as a diagnosis in itself, the early-warning feature is one of the most useful things a wearable offers. Doctors are exploring how this data could feed into the kind of tools described in our article on [AI in healthcare](/blog/ai-in-healthcare)."
     },
     {
       "type": "h2",
@@ -86,11 +86,11 @@
     },
     {
       "type": "p",
-      "text": "Health data is among the most sensitive information there is, and wearables collect it continuously. It is worth asking where that data goes, who can see it, and how it might be used. Some of this information could, in the wrong hands, affect insurance, employment, or privacy in ways that are hard to predict."
+      "text": "Health data is among the most sensitive information there is, and wearables collect it continuously. It is worth asking where that data goes, who can see it, and how it might be used. Some of this information could, in the wrong hands, affect insurance, employment, or privacy in ways that are hard to predict. Who should be allowed to use such personal information is a key issue in the [ethics of artificial intelligence](/blog/the-ethics-of-artificial-intelligence)."
     },
     {
       "type": "p",
-      "text": "Reading the privacy settings, understanding what is shared, and choosing devices from companies with clear, trustworthy policies are sensible steps. The convenience of tracking should not come at the cost of quietly surrendering the most personal data you have."
+      "text": "Reading the privacy settings, understanding what is shared, and choosing devices from companies with clear, trustworthy policies are sensible steps. The convenience of tracking should not come at the cost of quietly surrendering the most personal data you have. Protecting it starts with the basics covered in our guide to [cybersecurity](/blog/cybersecurity-basics-everyone-should-know)."
     },
     {
       "type": "h2",

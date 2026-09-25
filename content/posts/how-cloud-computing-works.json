@@ -20,7 +20,7 @@
     },
     {
       "type": "p",
-      "text": "At its most basic, cloud computing means using someone else's computers, over the internet, instead of your own. Rather than owning and maintaining the hardware yourself, you rent computing power, storage, and software from a provider who runs vast data centres and shares them among millions of customers."
+      "text": "At its most basic, cloud computing means using someone else's computers, over the internet, instead of your own. Rather than owning and maintaining the hardware yourself, you rent computing power, storage, and software from a provider who runs vast [data centres](/blog/inside-the-data-centers-powering-ai) and shares them among millions of customers."
     },
     {
       "type": "h2",
@@ -72,11 +72,11 @@
     },
     {
       "type": "p",
-      "text": "This layered model is part of why building software has become so much faster than it once was. A small team no longer needs to assemble its own servers, databases, and security systems from scratch. Instead, it can rent ready-made building blocks — storage here, a database there, a tool for sending emails or processing payments — and combine them like components. What might once have taken a year of setup can now be arranged in days, which is a large part of why new online services appear so quickly."
+      "text": "This layered model is part of why building software has become so much faster than it once was. A small team no longer needs to assemble its own servers, databases, and [security](/blog/cybersecurity-basics-everyone-should-know) systems from scratch. Instead, it can rent ready-made building blocks — storage here, a database there, a tool for sending emails or processing payments — and combine them like components. What might once have taken a year of setup can now be arranged in days, which is a large part of why new online services appear so quickly."
     },
     {
       "type": "p",
-      "text": "There is a hidden cost to this convenience, though, and it is worth understanding. The more a business builds on a particular provider's unique tools, the harder it becomes to leave — a situation known as vendor lock-in. Moving a large, complex service from one cloud to another can be expensive and disruptive. Sensible organisations weigh this from the start, keeping an eye on how tightly they are tied to any single provider and, where it matters, designing their systems so that switching remains possible. Convenience and independence pull in opposite directions, and part of using the cloud well is deciding where to strike that balance."
+      "text": "There is a hidden cost to this convenience, though, and it is worth understanding. The more a business builds on a particular provider's unique tools, the harder it becomes to leave — a situation known as vendor lock-in. Moving a large, complex service from one cloud to another can be expensive and disruptive. Sensible organisations weigh this from the start, keeping an eye on how tightly they are tied to any single provider and, where it matters, designing their systems so that switching remains possible. Convenience and independence pull in opposite directions, and part of using the cloud well is deciding where to strike that balance. Some companies even use cloud platforms to run [blockchain](/blog/blockchain-beyond-crypto) networks that share records between organisations that do not fully trust each other."
     },
     {
       "type": "h2",
@@ -100,7 +100,7 @@
     },
     {
       "type": "p",
-      "text": "Understanding the cloud demystifies a great deal of modern technology. Behind the friendly apps and instant services lies a simple, transformative idea: shared computing, delivered on demand, paid for by the sip. That idea reshaped the internet, and it will keep shaping whatever comes next."
+      "text": "Understanding the cloud demystifies a great deal of modern technology. Behind the friendly apps and instant services lies a simple, transformative idea: shared computing, delivered on demand, paid for by the sip. That idea reshaped the internet, and it will keep shaping whatever comes next. The cloud is also where many of today's AI services run, including the [AI agents](/blog/how-ai-agents-are-changing-work) now appearing in everyday work tools."
     }
   ]
 }

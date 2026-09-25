@@ -56,7 +56,7 @@
     },
     {
       "type": "p",
-      "text": "Low latency makes it feasible to control equipment remotely in near real time, to support responsive augmented-reality tools, and to let vehicles and infrastructure exchange warnings quickly enough to matter. These are use cases where even a small lag would break the experience or create danger."
+      "text": "Low latency makes it feasible to control equipment remotely in near real time, to support responsive augmented-reality tools, and to let vehicles and infrastructure exchange warnings quickly enough to matter. These are use cases where even a small lag would break the experience or create danger. It is one reason 5G matters for [self-driving cars](/blog/how-self-driving-cars-work), which need to share information in fractions of a second."
     },
     {
       "type": "h2",
@@ -72,11 +72,11 @@
     },
     {
       "type": "p",
-      "text": "Consider healthcare as a concrete example. With reliable low-latency connections, a specialist could monitor a patient's devices remotely in near real time, or guide a procedure from another city. Ambulances could stream a patient's vital signs to a hospital before arrival, letting staff prepare the moment the doors open. None of this requires science-fiction technology — only a network fast and dependable enough to be trusted with time-sensitive information, which is precisely what 5G was built to provide."
+      "text": "Consider [healthcare](/blog/ai-in-healthcare) as a concrete example. With reliable low-latency connections, a specialist could monitor a patient's devices remotely in near real time, or guide a procedure from another city. Ambulances could stream a patient's vital signs to a hospital before arrival, letting staff prepare the moment the doors open. None of this requires science-fiction technology — only a network fast and dependable enough to be trusted with time-sensitive information, which is precisely what 5G was built to provide."
     },
     {
       "type": "p",
-      "text": "Manufacturing offers another clear case. Modern factories are filling their floors with wireless sensors and machines that must coordinate precisely. A wired network is expensive to install and hard to change, while a crowded older wireless network cannot handle the density or the split-second timing. 5G lets a factory reconfigure its production line without rewiring the building, and lets machines react to one another almost instantly. These industrial uses may lack the glamour of a faster phone, but they are where the technology's real economic value is emerging first — a pattern worth remembering whenever a new network generation arrives."
+      "text": "Manufacturing offers another clear case. Modern factories are filling their floors with wireless sensors and machines that must coordinate precisely. A wired network is expensive to install and hard to change, while a crowded older wireless network cannot handle the density or the split-second timing. 5G lets a factory reconfigure its production line without rewiring the building, and lets machines react to one another almost instantly. These industrial uses may lack the glamour of a faster phone, but they are where the technology's real economic value is emerging first — a pattern worth remembering whenever a new network generation arrives. Much of that data will be processed nearby rather than far away, an approach explained in our guide to [edge computing](/blog/what-is-edge-computing)."
     },
     {
       "type": "h2",
@@ -100,7 +100,7 @@
     },
     {
       "type": "p",
-      "text": "Meanwhile, engineers are already researching what comes after. But the lesson of 5G is a useful one: the headline number, speed, is rarely the whole story. The real impact of a network often lies in the less glamorous qualities — responsiveness and capacity — that quietly make entirely new things possible."
+      "text": "Meanwhile, engineers are already researching what comes after. But the lesson of 5G is a useful one: the headline number, speed, is rarely the whole story. The real impact of a network often lies in the less glamorous qualities — responsiveness and capacity — that quietly make entirely new things possible. Faster, more responsive networks will also help [robots](/blog/robots-beyond-the-factory-floor) and other machines coordinate in warehouses, farms, and hospitals."
     }
   ]
 }

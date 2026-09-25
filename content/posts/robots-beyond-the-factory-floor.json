@@ -20,7 +20,7 @@
     },
     {
       "type": "p",
-      "text": "The robots now appearing in warehouses, hospitals, and offices are built on a very different idea. They are designed to share space with people, react to obstacles, and handle situations their programmers never explicitly described. This shift from fixed machine to adaptable helper is one of the most important stories in technology today."
+      "text": "The robots now appearing in warehouses, [hospitals](/blog/ai-in-healthcare), and offices are built on a very different idea. They are designed to share space with people, react to obstacles, and handle situations their programmers never explicitly described. This shift from fixed machine to adaptable helper is one of the most important stories in technology today."
     },
     {
       "type": "h2",
@@ -34,7 +34,7 @@
       "type": "list",
       "items": [
         "Cheaper, better sensors — cameras, depth sensors, and lidar now cost a fraction of what they once did, giving robots a reliable sense of their surroundings.",
-        "Smaller, faster models — AI that once needed a data centre can now run on a chip inside the robot, so decisions happen instantly and privately.",
+        "Smaller, faster models — AI that once needed a [data centre](/blog/inside-the-data-centers-powering-ai) can now run on a chip inside the robot, so decisions happen instantly and privately.",
         "Improved batteries — higher energy density means a robot can work a useful shift instead of stopping every few minutes to recharge."
       ]
     },
@@ -84,7 +84,7 @@
     },
     {
       "type": "p",
-      "text": "The second is safety around unpredictable people. A robot in a fixed cage only needs to avoid mistakes. A robot in a busy hospital corridor must anticipate a child running past, a spilled liquid, or a door swinging open. Getting this right, every time, is the difference between a helpful machine and a hazard."
+      "text": "The second is safety around unpredictable people. A robot in a fixed cage only needs to avoid mistakes. A robot in a busy hospital corridor must anticipate a child running past, a spilled liquid, or a door swinging open. Getting this right, every time, is the difference between a helpful machine and a hazard. The same challenge — acting safely in an unpredictable world — is what makes [self-driving cars](/blog/how-self-driving-cars-work) so difficult to perfect."
     },
     {
       "type": "h2",
@@ -96,7 +96,7 @@
     },
     {
       "type": "p",
-      "text": "As with most technology, the biggest changes will feel ordinary once they arrive. A parcel that shows up faster, a hospital that runs a little more smoothly, a warehouse job that is less physically punishing — these are the practical ways robots are stepping beyond the factory floor and into everyday life."
+      "text": "As with most technology, the biggest changes will feel ordinary once they arrive. A parcel that shows up faster, a hospital that runs a little more smoothly, a warehouse job that is less physically punishing — these are the practical ways robots are stepping beyond the factory floor and into everyday life. Many of these machines will also be directed by [AI agents](/blog/how-ai-agents-are-changing-work) that plan tasks and hand them to robots to carry out."
     }
   ]
 }

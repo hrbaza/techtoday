@@ -41,7 +41,7 @@
     },
     {
       "type": "p",
-      "text": "By combining these, the car builds a single, reliable picture of everything around it — far more consistent than any one sensor could provide alone."
+      "text": "By combining these, the car builds a single, reliable picture of everything around it — far more consistent than any one sensor could provide alone. Much of this processing has to happen inside the car itself — a textbook example of [edge computing](/blog/what-is-edge-computing)."
     },
     {
       "type": "h2",
@@ -53,7 +53,7 @@
     },
     {
       "type": "p",
-      "text": "Crucially, the system also predicts what will happen next. Will that pedestrian step off the kerb? Is that car about to change lanes? Good prediction is what separates a safe autonomous system from a dangerous one, and it is one of the hardest parts of the whole problem because human behaviour is not always logical."
+      "text": "Crucially, the system also predicts what will happen next. Will that pedestrian step off the kerb? Is that car about to change lanes? Good prediction is what separates a safe autonomous system from a dangerous one, and it is one of the hardest parts of the whole problem because human behaviour is not always logical. It is the same challenge facing the wider field of [robotics](/blog/robots-beyond-the-factory-floor): making sense of a messy, unpredictable world."
     },
     {
       "type": "quote",
@@ -85,7 +85,7 @@
     },
     {
       "type": "p",
-      "text": "This is why the middle of the autonomy scale is, in some ways, the most dangerous place to be. A system that is good but not fully trustworthy invites complacency: the more capable it appears, the more tempting it is to stop paying attention, exactly when attention is still required. Engineers and regulators are acutely aware of this trap. Some companies have chosen to skip the awkward middle ground entirely, aiming straight for full autonomy in limited, well-mapped areas rather than selling half-measures to ordinary drivers. Others take the opposite view, arguing that gradual improvement, with the human always responsible, is the safer path to earning trust. Both approaches are being tested on real roads today, and which one proves wiser is still an open question — one that will shape not just the technology, but how comfortable the public feels sharing the road with it."
+      "text": "This is why the middle of the autonomy scale is, in some ways, the most dangerous place to be. A system that is good but not fully trustworthy invites complacency: the more capable it appears, the more tempting it is to stop paying attention, exactly when attention is still required. Engineers and regulators are acutely aware of this trap. Some companies have chosen to skip the awkward middle ground entirely, aiming straight for full autonomy in limited, well-mapped areas rather than selling half-measures to ordinary drivers. Others take the opposite view, arguing that gradual improvement, with the human always responsible, is the safer path to earning trust. Both approaches are being tested on real roads today, and which one proves wiser is still an open question — one that will shape not just the technology, but how comfortable the public feels sharing the road with it. Who is responsible when an automated car makes a mistake is one of the hardest questions in the [ethics of artificial intelligence](/blog/the-ethics-of-artificial-intelligence)."
     },
     {
       "type": "h2",
@@ -97,7 +97,7 @@
     },
     {
       "type": "p",
-      "text": "Because a driving mistake can cost lives, the bar for safety is rightly very high. That is why fully driverless cars have rolled out slowly, city by city, rather than arriving everywhere at once. The technology is genuinely remarkable, but the last few percent of reliability is proving to be the hardest — and most important — part of the journey."
+      "text": "Because a driving mistake can cost lives, the bar for safety is rightly very high. That is why fully driverless cars have rolled out slowly, city by city, rather than arriving everywhere at once. The technology is genuinely remarkable, but the last few percent of reliability is proving to be the hardest — and most important — part of the journey. Fast, reliable [5G networks](/blog/how-5g-changes-connectivity) could eventually help cars share what they see with each other and with traffic systems."
     }
   ]
 }

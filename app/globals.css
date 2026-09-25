@@ -72,6 +72,8 @@ footer { padding:48px 0 28px; background:#fff; }
 .prose p { font-family:Georgia,"Times New Roman",serif; font-size:18px; line-height:1.8; color:#354158; margin:0 0 20px; }
 .prose a { color:var(--blue); font-weight:600; text-decoration:underline; text-underline-offset:2px; }
 .prose a:hover { color:#174fc3; }
+.article-body p a,.article-body li a,.article-body .quote a { color:var(--blue); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; }
+.article-body p a:hover,.article-body li a:hover,.article-body .quote a:hover { color:#174fc3; }
 
 /* Shared bullet list used in articles and pages */
 .article-list { margin:0 0 26px; padding-left:22px; }

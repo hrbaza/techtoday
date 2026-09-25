@@ -40,12 +40,13 @@ export type Article = PostFile & {
 };
 
 // Rough word count of an article body — used to confirm the 800+ word target.
+// Inline links count only their visible text.
 export function wordCount(article: { body: Block[] }): number {
+  const words = (text: string) =>
+    text.replace(/\[([^\]]+)\]\([^)\s]+\)/g, "$1").split(/\s+/).filter(Boolean).length;
   return article.body.reduce((total, block) => {
-    if (block.type === "list") {
-      return total + block.items.join(" ").split(/\s+/).filter(Boolean).length;
-    }
-    return total + block.text.split(/\s+/).filter(Boolean).length;
+    if (block.type === "list") return total + words(block.items.join(" "));
+    return total + words(block.text);
   }, 0);
 }
 

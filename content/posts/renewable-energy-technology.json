@@ -48,7 +48,7 @@
     },
     {
       "type": "p",
-      "text": "Wind farms are increasingly built offshore, where winds are stronger and steadier and where there is room for the largest machines. Like solar, wind has ridden a wave of falling costs and rising efficiency, making it a mainstay of clean electricity in many countries."
+      "text": "Wind farms are increasingly built offshore, where winds are stronger and steadier and where there is room for the largest machines. Like solar, wind has ridden a wave of falling costs and rising efficiency, making it a mainstay of clean electricity in many countries. Inspections of turbine blades are increasingly carried out by drones and [robots](/blog/robots-beyond-the-factory-floor) rather than by climbers on ropes."
     },
     {
       "type": "h2",
@@ -77,7 +77,7 @@
     },
     {
       "type": "p",
-      "text": "Grids themselves are quietly being reinvented to cope with this new reality. A traditional grid was designed to send power in one direction, from a few large stations out to homes and businesses. A renewable grid is different: power can flow from millions of rooftops and scattered wind farms, rising and falling with the weather. Managing this requires smarter controls, better forecasting of sun and wind, and the ability to move electricity across long distances to wherever it is needed. Much of the real engineering effort in the energy transition goes not into the panels and turbines themselves, which are now mature and cheap, but into this less visible work of rebuilding the network that connects them. It is unglamorous but essential, and progress on it is what turns a promising technology into a dependable everyday supply."
+      "text": "Grids themselves are quietly being reinvented to cope with this new reality. A traditional grid was designed to send power in one direction, from a few large stations out to homes and businesses. A renewable grid is different: power can flow from millions of rooftops and scattered wind farms, rising and falling with the weather. Managing this requires smarter controls, better forecasting of sun and wind, and the ability to move electricity across long distances to wherever it is needed. Much of the real engineering effort in the energy transition goes not into the panels and turbines themselves, which are now mature and cheap, but into this less visible work of rebuilding the network that connects them. It is unglamorous but essential, and progress on it is what turns a promising technology into a dependable everyday supply. Power-hungry facilities are among the biggest new buyers of clean electricity — see our look [inside the data centres powering AI](/blog/inside-the-data-centers-powering-ai)."
     },
     {
       "type": "h2",
@@ -89,7 +89,7 @@
     },
     {
       "type": "p",
-      "text": "There are also practical hurdles: upgrading ageing grids, securing supply chains, and integrating variable power without compromising reliability. None of these is a reason to doubt the direction of travel, but each is a reminder that the shift is a marathon of engineering and planning, not a single leap."
+      "text": "There are also practical hurdles: upgrading ageing grids, securing supply chains, and integrating variable power without compromising reliability. None of these is a reason to doubt the direction of travel, but each is a reminder that the shift is a marathon of engineering and planning, not a single leap. Smarter grids that use connected sensors and fast networks, like those described in our guide to [5G](/blog/how-5g-changes-connectivity), can help balance supply and demand."
     },
     {
       "type": "h2",
@@ -101,7 +101,7 @@
     },
     {
       "type": "p",
-      "text": "The coming decades will be defined by the work of building this new energy system at scale. It is a huge task, but it rests on proven, steadily improving technology. The quiet transformation that began with a cheaper solar panel is reshaping one of the most fundamental systems in modern life — how we make the power that everything else depends on."
+      "text": "The coming decades will be defined by the work of building this new energy system at scale. It is a huge task, but it rests on proven, steadily improving technology. The quiet transformation that began with a cheaper solar panel is reshaping one of the most fundamental systems in modern life — how we make the power that everything else depends on. Researchers even hope that [quantum computers](/blog/quantum-computing-explained) will one day help design better batteries and solar materials."
     }
   ]
 }
