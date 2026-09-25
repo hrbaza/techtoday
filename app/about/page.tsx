@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AUTHOR_NAME, SITE_NAME } from "@/content/site";
-import AuthorBio from "../components/AuthorBio";
 
 export const metadata: Metadata = {
   title: "About",
@@ -69,7 +68,6 @@ export default function AboutPage() {
             are not affiliated with any of the companies or products we cover,
             and we write about technology strictly on its merits.
           </p>
-          <AuthorBio />
 
           <h2>Get in touch</h2>
           <p>

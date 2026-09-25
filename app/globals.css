@@ -92,12 +92,6 @@ footer { padding:48px 0 28px; background:#fff; }
 .byline-sep { color:var(--border); }
 
 /* Author bio box (article foot + about page) */
-.author-bio { display:flex; gap:18px; align-items:flex-start; margin:46px 0 0; padding:26px; background:var(--light); border:1px solid var(--border); border-radius:10px; }
-.author-avatar { flex:none; width:56px; height:56px; border-radius:50%; background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; font-size:19px; font-weight:800; letter-spacing:.5px; }
-.author-name { margin:0; color:var(--navy); font-size:18px; font-weight:800; font-family:Arial,Helvetica,sans-serif; }
-.author-role { margin:2px 0 10px; color:var(--blue); font-size:13px; font-weight:700; font-family:Arial,Helvetica,sans-serif; }
-.author-text { margin:0; font-family:Arial,Helvetica,sans-serif; font-size:15px; line-height:1.7; color:#4a566b; }
-.prose .author-bio { margin-top:10px; }
 
 @media (max-width:850px) {
   .hero-grid,.article-layout { grid-template-columns:1fr; }

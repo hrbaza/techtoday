@@ -9,7 +9,6 @@ import {
 } from "@/content/articles";
 import { AUTHOR_NAME, SITE_NAME, SITE_URL } from "@/content/site";
 import ArticleBody from "../../components/ArticleBody";
-import AuthorBio from "../../components/AuthorBio";
 
 type Params = { slug: string };
 
@@ -151,8 +150,6 @@ export default async function ArticlePage({
               height={900}
             />
             <ArticleBody blocks={article.body} />
-
-            <AuthorBio />
 
             <div className="article-cta">
               <Link className="primary-button" href="/blog">
