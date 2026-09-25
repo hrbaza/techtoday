@@ -7,7 +7,7 @@ import {
   getRelatedArticles,
   wordCount,
 } from "@/content/articles";
-import { AUTHOR_NAME, SITE_NAME, SITE_URL } from "@/content/site";
+import { SITE_NAME, SITE_URL } from "@/content/site";
 import ArticleBody from "../../components/ArticleBody";
 
 type Params = { slug: string };
@@ -34,7 +34,7 @@ export async function generateMetadata({
     title: article.title,
     description: article.excerpt,
     alternates: { canonical: url },
-    authors: [{ name: AUTHOR_NAME, url: `${SITE_URL}/about` }],
+    authors: [{ name: SITE_NAME, url: `${SITE_URL}/about` }],
     category: article.category,
     keywords: [article.category, "technology", "explained", SITE_NAME],
     openGraph: {
@@ -80,9 +80,9 @@ export default async function ArticlePage({
     keywords: [article.category, "technology", SITE_NAME].join(", "),
     url: canonical,
     author: {
-      "@type": "Person",
-      name: AUTHOR_NAME,
-      url: `${SITE_URL}/about`,
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
     },
     publisher: {
       "@type": "Organization",
@@ -134,7 +134,7 @@ export default async function ArticlePage({
             </p>
             <h1 className="article-title">{article.title}</h1>
             <div className="byline">
-              <span className="byline-author">By {AUTHOR_NAME}</span>
+              <span className="byline-author">By {SITE_NAME}</span>
               <span className="byline-sep">·</span>
               <time dateTime={article.date}>{article.dateLabel}</time>
               <span className="byline-sep">·</span>
