@@ -6,6 +6,8 @@
   "date": "2026-08-04",
   "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=82",
   "imageAlt": "A stethoscope resting on a digital medical display",
+  "midImage": "https://images.unsplash.com/photo-1758691463000-08b98131daf3?auto=format&fit=crop&w=1600&q=82",
+  "midImageAlt": "A doctor showing a patient a medical scan on a tablet",
   "draft": false,
   "body": [
     {

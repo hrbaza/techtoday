@@ -6,6 +6,8 @@
   "date": "2026-08-12",
   "image": "https://images.unsplash.com/photo-1553260168-69b041873e65?auto=format&fit=crop&w=1600&q=82",
   "imageAlt": "Modern car interior with a digital dashboard display",
+  "midImage": "https://images.unsplash.com/photo-1764983432146-0217568c8a00?auto=format&fit=crop&w=1600&q=82",
+  "midImageAlt": "A white self-driving car on a city street",
   "draft": false,
   "body": [
     {
