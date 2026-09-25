@@ -12,10 +12,6 @@ export const SITE_DESCRIPTION =
 // Contact address shown on the Contact / legal pages.
 export const CONTACT_EMAIL = "hamzaarashid00@gmail.com";
 
-// The person behind the site, shown in each article's byline and on the About
-// page — a real, named author is a trust signal for readers and for AdSense.
-export const AUTHOR_NAME = "Hamza Rashid";
-
 // Optional: paste the code from Google Search Console's "HTML tag" verification
 // method here, or set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel. Leave
 // empty to skip (e.g. if you verify by DNS instead).
