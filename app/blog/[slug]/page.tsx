@@ -7,8 +7,14 @@ import {
   getRelatedArticles,
   wordCount,
 } from "@/content/articles";
-import { SITE_NAME, SITE_URL } from "@/content/site";
+import {
+  AUTHOR_NAME,
+  AUTHOR_PATH,
+  SITE_NAME,
+  SITE_URL,
+} from "@/content/site";
 import ArticleContent from "../../components/ArticleContent";
+import AuthorBio from "../../components/AuthorBio";
 
 type Params = { slug: string };
 
@@ -34,7 +40,7 @@ export async function generateMetadata({
     title: article.title,
     description: article.excerpt,
     alternates: { canonical: url },
-    authors: [{ name: SITE_NAME, url: `${SITE_URL}/about` }],
+    authors: [{ name: AUTHOR_NAME, url: `${SITE_URL}${AUTHOR_PATH}` }],
     category: article.category,
     keywords: [article.category, "technology", "explained", SITE_NAME],
     openGraph: {
@@ -43,6 +49,7 @@ export async function generateMetadata({
       description: article.excerpt,
       url,
       publishedTime: article.date,
+      authors: [`${SITE_URL}${AUTHOR_PATH}`],
       images: [{ url: article.image, alt: article.imageAlt }],
     },
     twitter: {
@@ -80,9 +87,9 @@ export default async function ArticlePage({
     keywords: [article.category, "technology", SITE_NAME].join(", "),
     url: canonical,
     author: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      url: SITE_URL,
+      "@type": "Person",
+      name: AUTHOR_NAME,
+      url: `${SITE_URL}${AUTHOR_PATH}`,
     },
     publisher: {
       "@type": "Organization",
@@ -134,7 +141,9 @@ export default async function ArticlePage({
             </p>
             <h1 className="article-title">{article.title}</h1>
             <div className="byline">
-              <span className="byline-author">By {SITE_NAME}</span>
+              <span className="byline-author">
+                By <Link href={AUTHOR_PATH}>{AUTHOR_NAME}</Link>
+              </span>
               <span className="byline-sep">·</span>
               <time dateTime={article.date}>{article.dateLabel}</time>
               <span className="byline-sep">·</span>
@@ -154,6 +163,8 @@ export default async function ArticlePage({
               midImage={article.midImage}
               midImageAlt={article.midImageAlt}
             />
+
+            <AuthorBio />
 
             <div className="article-cta">
               <Link className="primary-button" href="/blog">

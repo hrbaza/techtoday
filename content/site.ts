@@ -12,6 +12,18 @@ export const SITE_DESCRIPTION =
 // Contact address shown on the Contact / legal pages.
 export const CONTACT_EMAIL = "techtoday.contact@gmail.com";
 
+// The person behind the site, shown in each article's byline, the author box,
+// /author and the About page — a named author is a trust signal for readers
+// and for AdSense. Edit the bio freely; it appears exactly as written.
+export const AUTHOR_NAME = "Hamza";
+export const AUTHOR_ROLE = "Founder & Editor, TechToday";
+export const AUTHOR_PATH = "/author";
+export const AUTHOR_BIO =
+  "Hamza is the founder and editor of TechToday. Hamza writes about " +
+  "artificial intelligence, computing, security and the technology shaping " +
+  "everyday life, with a focus on explaining complex ideas in plain, honest " +
+  "language — clear answers for curious readers, without the hype.";
+
 // Optional: paste the code from Google Search Console's "HTML tag" verification
 // method here, or set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel. Leave
 // empty to skip (e.g. if you verify by DNS instead).
