@@ -51,6 +51,9 @@ function parseUpload(dataUrl: string, label: string): Upload | string {
 // Every public page lists or shows articles, so refresh them all.
 function refreshSite() {
   revalidatePath("/", "layout");
+  // The sitemap is a route handler, not a page under the layout, so it needs
+  // its own refresh or new articles only appear in it after a redeploy.
+  revalidatePath("/sitemap.xml");
 }
 
 export async function POST(request: Request) {
