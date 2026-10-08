@@ -41,7 +41,7 @@ function sortNewestFirst(posts: PostFile[]): PostFile[] {
 }
 
 function stripDoc<T extends PostFile>(doc: T): PostFile {
-  const { slug, title, category, excerpt, date, image, imageAlt, draft, body } = doc;
+  const { slug, title, category, excerpt, date, image, imageAlt, draft } = doc;
   const post: PostFile = {
     slug,
     title,
@@ -51,8 +51,10 @@ function stripDoc<T extends PostFile>(doc: T): PostFile {
     image,
     imageAlt,
     draft: Boolean(draft),
-    body,
   };
+  // Markdown for articles saved since the editor upgrade, blocks before it.
+  if (typeof doc.markdown === "string") post.markdown = doc.markdown;
+  else post.body = doc.body ?? [];
   if (doc.midImage) {
     post.midImage = doc.midImage;
     post.midImageAlt = doc.midImageAlt ?? "";
@@ -117,12 +119,16 @@ export async function savePost(post: PostFile, { isNew }: { isNew: boolean }) {
         throw error;
       }
     } else {
+      // Keys left out of `post` are removed: the middle image when it was
+      // taken away, and the old-format body once Markdown replaces it.
+      const unset: Record<string, ""> = {};
+      if (!post.midImage) Object.assign(unset, { midImage: "", midImageAlt: "" });
+      if (post.markdown !== undefined) unset.body = "";
       await posts.updateOne(
         { slug: post.slug },
         {
           $set: { ...post, updatedAt: now },
-          // Removing the middle image leaves these keys out of `post`.
-          ...(post.midImage ? {} : { $unset: { midImage: "", midImageAlt: "" } }),
+          ...(Object.keys(unset).length ? { $unset: unset } : {}),
         },
       );
     }

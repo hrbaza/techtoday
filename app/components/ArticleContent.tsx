@@ -1,22 +1,29 @@
-import { midImageIndex, type Block } from "@/content/articles/types";
-import ArticleBody from "./ArticleBody";
+import { renderMarkdown, renderMarkdownSplit } from "@/lib/markdown";
 
 // An article's body with its optional middle image placed halfway through.
+// The HTML comes from renderMarkdown, which sanitizes it with an allowlist.
 export default function ArticleContent({
-  body,
+  markdown,
   midImage,
   midImageAlt,
 }: {
-  body: Block[];
+  markdown: string;
   midImage?: string;
   midImageAlt?: string;
 }) {
-  if (!midImage) return <ArticleBody blocks={body} />;
+  if (!midImage) {
+    return (
+      <div
+        className="article-prose"
+        dangerouslySetInnerHTML={{ __html: renderMarkdown(markdown) }}
+      />
+    );
+  }
 
-  const split = midImageIndex(body);
+  const [before, after] = renderMarkdownSplit(markdown);
   return (
     <>
-      <ArticleBody blocks={body.slice(0, split)} />
+      <div className="article-prose" dangerouslySetInnerHTML={{ __html: before }} />
       <img
         className="article-image article-image-mid"
         src={midImage}
@@ -25,7 +32,7 @@ export default function ArticleContent({
         height={900}
         loading="lazy"
       />
-      <ArticleBody blocks={body.slice(split)} />
+      <div className="article-prose" dangerouslySetInnerHTML={{ __html: after }} />
     </>
   );
 }

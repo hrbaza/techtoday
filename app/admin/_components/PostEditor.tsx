@@ -3,16 +3,11 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
-import { wordCount, type PostFile } from "@/content/articles/types";
-import {
-  blocksToText,
-  savedMessage,
-  slugify,
-  SLUG_PATTERN,
-  textToBlocks,
-} from "@/lib/admin/format";
+import { postMarkdown, wordCount, type PostFile } from "@/content/articles/types";
+import { savedMessage, slugify, SLUG_PATTERN } from "@/lib/admin/format";
 import ArticleContent from "../../components/ArticleContent";
 import ImagePicker from "./ImagePicker";
+import MarkdownEditor from "./MarkdownEditor";
 
 type Props = {
   initial?: PostFile;
@@ -43,14 +38,13 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
   const [midImage, setMidImage] = useState(initial?.midImage ?? "");
   const [midImageUpload, setMidImageUpload] = useState<string | null>(null);
   const [midImageAlt, setMidImageAlt] = useState(initial?.midImageAlt ?? "");
-  const [bodyText, setBodyText] = useState(initial ? blocksToText(initial.body) : "");
+  const [bodyText, setBodyText] = useState(initial ? postMarkdown(initial) : "");
   const [tab, setTab] = useState<"write" | "preview">("write");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(initialMessage);
 
-  const blocks = useMemo(() => textToBlocks(bodyText), [bodyText]);
-  const words = wordCount({ body: blocks });
+  const words = useMemo(() => wordCount(bodyText), [bodyText]);
 
   function handleTitle(value: string) {
     setTitle(value);
@@ -261,17 +255,16 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
             </button>
           </div>
           {tab === "write" ? (
-            <textarea
-              id="body"
-              className="body-input"
-              required
+            <MarkdownEditor
               value={bodyText}
-              onChange={(event) => setBodyText(event.target.value)}
+              onChange={setBodyText}
+              onError={setError}
+              slug={slug}
             />
           ) : (
             <div className="admin-preview article-body">
               <ArticleContent
-                body={blocks}
+                markdown={bodyText}
                 midImage={midImageUpload || midImage || undefined}
                 midImageAlt={midImageAlt}
               />
@@ -281,10 +274,12 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
             {words} words{words < 800 ? " — aim for 800+ for AdSense-quality articles" : ""}
           </p>
           <div className="admin-help">
-            <code>## Heading</code> for a section heading · <code>- item</code> for a
-            bullet list · <code>&gt; text</code> for a highlighted quote ·{" "}
-            <code>[link text](/blog/article-url)</code> for a link · leave an empty
-            line between paragraphs.
+            Use the toolbar, or type: <code>**bold**</code> · <code>*italic*</code> ·{" "}
+            <code>## Heading</code> · <code>### Sub-heading</code> · <code>- item</code>{" "}
+            for bullets · <code>1. item</code> for numbers · <code>&gt; text</code> for a
+            highlighted quote · <code>[link text](/blog/article-url)</code> for a link.
+            Leave an empty line between paragraphs. Shortcuts: Ctrl+B, Ctrl+I, Ctrl+K
+            (⌘ on Mac). Basic HTML such as <code>&lt;strong&gt;</code> also works.
           </div>
         </div>
       </div>

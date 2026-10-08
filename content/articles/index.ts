@@ -3,7 +3,7 @@ import { getPost, listPosts } from "@/lib/posts";
 import { toArticle, type Article } from "./types";
 
 export type { Article, Block, PostFile } from "./types";
-export { wordCount } from "./types";
+export { postMarkdown, wordCount } from "./types";
 
 // Published articles, newest first. Pages are cached, and the admin panel
 // revalidates them whenever an article is saved or deleted.

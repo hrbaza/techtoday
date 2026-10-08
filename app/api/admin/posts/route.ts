@@ -2,7 +2,8 @@ import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import type { PostFile } from "@/content/articles/types";
 import { isAdmin } from "@/lib/admin/auth";
-import { SLUG_PATTERN, textToBlocks } from "@/lib/admin/format";
+import { SLUG_PATTERN } from "@/lib/admin/format";
+import { normalizeMarkdown } from "@/lib/markdown";
 import {
   backend,
   canWrite,
@@ -17,7 +18,8 @@ import {
 type SaveRequest = {
   action: "save";
   isNew: boolean;
-  post: Omit<PostFile, "body">;
+  post: Omit<PostFile, "body" | "markdown">;
+  // The article body as typed in the editor (Markdown).
   bodyText: string;
   // Images already resized in the browser, as data: URLs.
   imageUpload?: string | null;
@@ -25,6 +27,9 @@ type SaveRequest = {
 };
 
 type DeleteRequest = { action: "delete"; slug: string };
+
+// An image placed inside the article text from the editor toolbar.
+type ImageRequest = { action: "image"; slug?: string; upload: string };
 
 const MAX_IMAGE_BYTES = 3 * 1024 * 1024;
 
@@ -57,12 +62,14 @@ export async function POST(request: Request) {
   const payload = (await request.json().catch(() => null)) as
     | SaveRequest
     | DeleteRequest
+    | ImageRequest
     | null;
   if (!payload) return bad("Invalid request.");
 
   try {
     if (payload.action === "delete") return await handleDelete(payload.slug);
     if (payload.action === "save") return await handleSave(payload);
+    if (payload.action === "image") return await handleImage(payload);
     return bad("Unknown action.");
   } catch (error) {
     console.error("[admin] post action failed", error);
@@ -96,8 +103,8 @@ async function handleSave({
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return bad("Date is invalid.");
   if (!imageAlt) return bad("Image description (alt text) is required.");
 
-  const body = textToBlocks(String(bodyText ?? ""));
-  if (!body.length) return bad("Article text is empty.");
+  const markdown = normalizeMarkdown(String(bodyText ?? ""));
+  if (!markdown) return bad("Article text is empty.");
 
   const existing = await getPost(slug, { includeDrafts: true });
   if (isNew && existing) {
@@ -135,7 +142,7 @@ async function handleSave({
     image,
     imageAlt,
     draft: Boolean(post.draft),
-    body,
+    markdown,
   };
   if (midImage) {
     saved.midImage = midImage;
@@ -157,6 +164,14 @@ async function handleSave({
 
   refreshSite();
   return NextResponse.json({ ok: true, post: saved, mode: backend() });
+}
+
+async function handleImage({ slug, upload }: ImageRequest) {
+  const parsed = parseUpload(String(upload ?? ""), "Image");
+  if (typeof parsed === "string") return bad(parsed);
+  const base = SLUG_PATTERN.test(String(slug ?? "")) ? `${slug}-inline` : "inline";
+  const url = await saveImage(parsed.data, parsed.contentType, base);
+  return NextResponse.json({ ok: true, url });
 }
 
 async function handleDelete(slug: string) {

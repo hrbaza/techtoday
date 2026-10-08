@@ -1,3 +1,7 @@
+import { blocksToMarkdown, markdownWordCount } from "@/lib/markdown";
+
+// The format articles were stored in before the Markdown editor. Articles
+// saved since then use `markdown` instead; old ones are converted when read.
 export type Block =
   | { type: "p"; text: string }
   | { type: "h2"; text: string }
@@ -17,37 +21,26 @@ export type PostFile = {
   midImage?: string; // optional second image, shown halfway through the body
   midImageAlt?: string;
   draft?: boolean; // drafts are saved but not shown on the site
-  body: Block[];
+  markdown?: string; // article body (see lib/markdown.ts)
+  body?: Block[]; // article body in the old format, until it is next saved
 };
 
-// Where the middle image goes: before the section heading nearest the middle
-// of the article, so it sits between two sections rather than mid-thought.
-export function midImageIndex(blocks: Block[]): number {
-  const half = Math.floor(blocks.length / 2);
-  for (let i = half; i < blocks.length; i++) {
-    if (blocks[i].type === "h2") return i;
-  }
-  for (let i = half - 1; i > 0; i--) {
-    if (blocks[i].type === "h2") return i;
-  }
-  return half;
+// An article's body as Markdown, whichever format it is stored in.
+export function postMarkdown(post: Pick<PostFile, "markdown" | "body">): string {
+  return post.markdown ?? blocksToMarkdown(post.body ?? []);
 }
 
 // A post as the site renders it, with display-only fields derived.
 export type Article = PostFile & {
+  markdown: string;
   dateLabel: string; // human-friendly display date
   readTime: string;
 };
 
-// Rough word count of an article body — used to confirm the 800+ word target.
-// Inline links count only their visible text.
-export function wordCount(article: { body: Block[] }): number {
-  const words = (text: string) =>
-    text.replace(/\[([^\]]+)\]\([^)\s]+\)/g, "$1").split(/\s+/).filter(Boolean).length;
-  return article.body.reduce((total, block) => {
-    if (block.type === "list") return total + words(block.items.join(" "));
-    return total + words(block.text);
-  }, 0);
+// Words a reader sees in an article body — used to confirm the 800+ word
+// target. Markdown syntax and link URLs are not counted.
+export function wordCount(markdown: string): number {
+  return markdownWordCount(markdown);
 }
 
 export function formatDateLabel(isoDate: string): string {
@@ -60,9 +53,11 @@ export function formatDateLabel(isoDate: string): string {
 }
 
 export function toArticle(post: PostFile): Article {
-  const minutes = Math.max(1, Math.round(wordCount(post) / 200));
+  const markdown = postMarkdown(post);
+  const minutes = Math.max(1, Math.round(wordCount(markdown) / 200));
   return {
     ...post,
+    markdown,
     dateLabel: formatDateLabel(post.date),
     readTime: `${minutes} min read`,
   };

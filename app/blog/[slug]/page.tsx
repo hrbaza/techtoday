@@ -83,7 +83,7 @@ export default async function ArticlePage({
     dateModified: article.date,
     articleSection: article.category,
     inLanguage: "en",
-    wordCount: wordCount(article),
+    wordCount: wordCount(article.markdown),
     keywords: [article.category, "technology", SITE_NAME].join(", "),
     url: canonical,
     author: {
@@ -159,7 +159,7 @@ export default async function ArticlePage({
               height={900}
             />
             <ArticleContent
-              body={article.body}
+              markdown={article.markdown}
               midImage={article.midImage}
               midImageAlt={article.midImageAlt}
             />

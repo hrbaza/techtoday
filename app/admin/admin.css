@@ -45,6 +45,12 @@
 .admin-tabs { display:flex; gap:4px; margin-bottom:8px; }
 .admin-tabs button { border:0; background:none; padding:8px 12px; border-radius:6px; font:inherit; font-size:13px; font-weight:700; color:var(--muted); cursor:pointer; }
 .admin-tabs button[aria-selected=true] { background:#fff; color:var(--navy); box-shadow:0 0 0 1px var(--border); }
+.md-editor .body-input { border-top-left-radius:0; border-top-right-radius:0; }
+.md-toolbar { display:flex; flex-wrap:wrap; gap:4px; padding:6px; border:1px solid var(--border); border-bottom:0; border-radius:6px 6px 0 0; background:var(--light); }
+.md-toolbar button { min-width:36px; height:32px; padding:0 10px; border:1px solid transparent; border-radius:5px; background:none; font:inherit; font-size:13px; font-weight:700; color:var(--navy); cursor:pointer; }
+.md-toolbar button:hover { background:#fff; border-color:var(--border); color:var(--blue); }
+.md-toolbar button:focus-visible { outline:2px solid #bfdbfe; }
+.md-toolbar button:disabled { opacity:.55; cursor:wait; }
 .admin-preview { background:#fff; border:1px solid var(--border); border-radius:6px; padding:8px 24px; min-height:480px; }
 .admin-help { background:var(--light); border-radius:6px; padding:10px 14px; font-size:13px; line-height:1.7; color:var(--text); }
 .admin-help code { background:#fff; border:1px solid var(--border); padding:0 5px; border-radius:4px; }

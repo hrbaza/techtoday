@@ -3,7 +3,7 @@
 const MAX_IMAGE_WIDTH = 1600;
 
 // Resize in the browser so uploads stay small (Vercel caps request bodies).
-async function resizeImage(file: File): Promise<string> {
+export async function resizeImage(file: File): Promise<string> {
   const bitmap = await createImageBitmap(file);
   const scale = Math.min(1, MAX_IMAGE_WIDTH / bitmap.width);
   const canvas = document.createElement("canvas");
