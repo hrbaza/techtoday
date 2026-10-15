@@ -167,7 +167,10 @@ h1, h2, h3, h4 { font-family: var(--ff-display), var(--ff-sans), sans-serif; col
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 
 /* Home hero: a full-width, full-screen cover story */
-.feature-card { position: relative; isolation: isolate; display: flex; align-items: flex-end; min-height: clamp(560px, calc(100vh - 70px), 920px); min-height: clamp(560px, calc(100svh - 70px), 920px); overflow: hidden; background: #0b1220; }
+/* Wide rounded cards (home cover story + article cover), inset from the screen edges */
+.hero, .article-hero { padding-top: 16px; }
+.feature-card, .article-cover-hero { width: min(1600px, calc(100% - 32px)); margin-inline: auto; border-radius: 28px; border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
+.feature-card { position: relative; isolation: isolate; display: flex; align-items: flex-end; min-height: clamp(560px, calc(100vh - 102px), 900px); min-height: clamp(560px, calc(100svh - 102px), 900px); overflow: hidden; background: #0b1220; }
 .feature-card > img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2, .7, .2, 1); }
 /* Dark fades from the bottom and from the left keep the text readable on any image. */
 .feature-card::before, .article-cover-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(5, 8, 20, .97) 0%, rgba(5, 8, 20, .88) 24%, rgba(5, 8, 20, .62) 46%, rgba(5, 8, 20, .22) 72%, rgba(5, 8, 20, .08) 100%), linear-gradient(to right, rgba(5, 8, 20, .72) 0%, rgba(5, 8, 20, .34) 45%, rgba(5, 8, 20, 0) 72%); }
@@ -434,7 +437,9 @@ h1, h2, h3, h4 { font-family: var(--ff-display), var(--ff-sans), sans-serif; col
   .page-hero { padding: 52px 0 42px; }
   .section-title { flex-direction: column; align-items: flex-start; }
   .story-grid { grid-template-columns: 1fr; gap: 22px; }
-  .feature-card { min-height: clamp(500px, calc(100svh - 64px), 720px); }
+  .hero, .article-hero { padding-top: 10px; }
+  .feature-card, .article-cover-hero { width: calc(100% - 20px); border-radius: 20px; }
+  .feature-card { min-height: clamp(500px, calc(100svh - 84px), 720px); }
   .feature-body { padding: 0 0 32px; }
   .feature-card h1 { -webkit-line-clamp: 5; font-size: 28px; }
   .feature-excerpt { font-size: 16px; }
