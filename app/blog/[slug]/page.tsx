@@ -16,6 +16,7 @@ import Avatar from "../../components/Avatar";
 import ReadingProgress from "../../components/ReadingProgress";
 import ShareBar from "../../components/ShareBar";
 import TableOfContents from "../../components/TableOfContents";
+import TrendingList from "../../components/TrendingList";
 
 type Params = { slug: string };
 
@@ -71,7 +72,14 @@ export default async function ArticlePage({
   const article = await getArticleBySlug(slug);
   if (!article) notFound();
 
-  const related = await getRelatedArticles(slug);
+  // Newest other articles under the cover; "Keep reading" avoids repeating them.
+  const trending = (await getArticles())
+    .filter((item) => item.slug !== slug)
+    .slice(0, 4);
+  const trendingSlugs = new Set(trending.map((item) => item.slug));
+  const related = (await getRelatedArticles(slug, 3 + trending.length))
+    .filter((item) => !trendingSlugs.has(item.slug))
+    .slice(0, 3);
   const canonical = `${SITE_URL}/blog/${article.slug}`;
   const toc = tableOfContents(article.markdown);
 
@@ -137,15 +145,15 @@ export default async function ArticlePage({
 
       <article>
         <header className="article-hero">
-          <div className="container">
-            <div className="article-cover-hero">
-              <img
-                src={article.image}
-                alt={article.imageAlt}
-                width={1600}
-                height={900}
-                fetchPriority="high"
-              />
+          <div className="article-cover-hero">
+            <img
+              src={article.image}
+              alt={article.imageAlt}
+              width={1920}
+              height={1080}
+              fetchPriority="high"
+            />
+            <div className="container">
               <div className="article-hero-body">
                 <nav className="breadcrumb" aria-label="Breadcrumb">
                   <Link href="/">Home</Link>
@@ -169,6 +177,8 @@ export default async function ArticlePage({
             </div>
           </div>
         </header>
+
+        <TrendingList articles={trending} />
 
         <div
           className={`container article-layout article-section${toc.length > 1 ? "" : " article-layout-solo"}`}

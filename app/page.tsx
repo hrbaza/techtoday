@@ -9,6 +9,7 @@ import {
 } from "@/content/site";
 import ArticleCard from "./components/ArticleCard";
 import Avatar from "./components/Avatar";
+import TrendingList from "./components/TrendingList";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -65,19 +66,17 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }}
       />
       <section className="hero" id="home">
-        <div
-          className={`container hero-layout${trending.length ? "" : " hero-layout-solo"}`}
-        >
-          {/* The title link is stretched over the card, so the whole cover
-              story is one click target. */}
-          <article className="feature-card">
-            <img
-              src={featured.image}
-              alt={featured.imageAlt}
-              width={1600}
-              height={1000}
-              fetchPriority="high"
-            />
+        {/* Full-width cover story. The title link is stretched over the whole
+            cover, so it is one click target. */}
+        <article className="feature-card">
+          <img
+            src={featured.image}
+            alt={featured.imageAlt}
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+          />
+          <div className="container">
             <div className="feature-body">
               <div className="hero-eyebrow">
                 <span className="pill pill-live pill-glass">Featured story</span>
@@ -103,45 +102,11 @@ export default async function Home() {
                 </span>
               </div>
             </div>
-          </article>
-
-          {trending.length > 0 && (
-            <aside className="trending" aria-labelledby="trending-title">
-              <div className="trending-head">
-                <h2 id="trending-title" className="trending-title">
-                  Trending now
-                </h2>
-                <Link className="section-link" href="/blog">
-                  View all <span className="arrow">→</span>
-                </Link>
-              </div>
-              <ol className="trend-list">
-                {trending.map((article, index) => (
-                  <li key={article.slug} className="trend-item">
-                    <span className="trend-num" aria-hidden="true">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <div>
-                      <span className="trend-cat">{article.category}</span>
-                      <h3>
-                        <Link href={`/blog/${article.slug}`}>{article.title}</Link>
-                      </h3>
-                      <span className="trend-meta">{article.readTime}</span>
-                    </div>
-                    <img
-                      className="trend-thumb"
-                      src={article.image}
-                      alt=""
-                      width={168}
-                      height={128}
-                    />
-                  </li>
-                ))}
-              </ol>
-            </aside>
-          )}
-        </div>
+          </div>
+        </article>
       </section>
+
+      <TrendingList articles={trending} />
 
       <section className="section" id="stories">
         <div className="container">
