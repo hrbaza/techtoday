@@ -66,41 +66,44 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }}
       />
       <section className="hero" id="home">
-        {/* Full-width cover story. The title link is stretched over the whole
-            cover, so it is one click target. */}
+        {/* Cover story: the image on the left, fully visible, and the text on
+            the right. The title link is stretched over the whole card. */}
         <article className="feature-card">
-          <img
-            src={featured.image}
-            alt={featured.imageAlt}
-            width={1920}
-            height={1080}
-            fetchPriority="high"
-          />
-          <div className="container">
-            <div className="feature-body">
-              <div className="hero-eyebrow">
-                <span className="pill pill-live pill-glass">Featured story</span>
-                <span className="hero-cat">{featured.category}</span>
-              </div>
-              <h1>
-                <Link href={featuredHref}>{featured.title}</Link>
-              </h1>
-              <p className="feature-excerpt">{featured.excerpt}</p>
-              <div className="feature-foot">
-                <div className="feature-meta">
-                  <Avatar className="avatar avatar-sm" />
-                  <span>
-                    By <strong>{AUTHOR_NAME}</strong>
-                  </span>
-                  <span className="dot-sep" aria-hidden="true">·</span>
-                  <time dateTime={featured.date}>{featured.dateLabel}</time>
-                  <span className="dot-sep" aria-hidden="true">·</span>
-                  <span>{featured.readTime}</span>
-                </div>
-                <span className="feature-cta" aria-hidden="true">
-                  Read the story <span className="arrow">→</span>
-                </span>
-              </div>
+          <div className="feature-media">
+            <img
+              src={featured.image}
+              alt={featured.imageAlt}
+              width={1200}
+              height={900}
+              fetchPriority="high"
+            />
+          </div>
+          <div className="feature-body">
+            <div className="hero-eyebrow">
+              <span className="pill pill-live">Featured story</span>
+              <span className="hero-cat">{featured.category}</span>
+            </div>
+            <h1>
+              <Link href={featuredHref}>{featured.title}</Link>
+            </h1>
+            <p className="feature-excerpt">{featured.excerpt}</p>
+            <div className="feature-meta">
+              <Avatar className="avatar avatar-sm" />
+              <span>
+                By <strong>{AUTHOR_NAME}</strong>
+              </span>
+              <span className="dot-sep" aria-hidden="true">·</span>
+              <time dateTime={featured.date}>{featured.dateLabel}</time>
+              <span className="dot-sep" aria-hidden="true">·</span>
+              <span>{featured.readTime}</span>
+            </div>
+            <div className="feature-actions">
+              <span className="primary-button" aria-hidden="true">
+                Read the story <span className="arrow">→</span>
+              </span>
+              <Link className="ghost-button" href="/blog">
+                Browse all articles
+              </Link>
             </div>
           </div>
         </article>
@@ -123,28 +126,6 @@ export default async function Home() {
             {latest.map((article) => (
               <ArticleCard key={article.slug} article={article} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="cta-band">
-        <div className="container">
-          <div className="cta-inner">
-            <div>
-              <h2>Technology, without the hype.</h2>
-              <p>
-                Clear, honest explainers on AI, computing and the systems shaping
-                everyday life — written so anyone can follow along.
-              </p>
-            </div>
-            <div className="cta-actions">
-              <Link className="primary-button" href="/blog">
-                Start reading <span className="arrow">→</span>
-              </Link>
-              <Link className="ghost-button" href="/about">
-                About {SITE_NAME}
-              </Link>
-            </div>
           </div>
         </div>
       </section>

@@ -147,33 +147,33 @@ export default async function ArticlePage({
       <article>
         <header className="article-hero">
           <div className="article-cover-hero">
-            <img
-              src={article.image}
-              alt={article.imageAlt}
-              width={1920}
-              height={1080}
-              fetchPriority="high"
-            />
-            <div className="container">
-              <div className="article-hero-body">
-                <nav className="breadcrumb" aria-label="Breadcrumb">
-                  <Link href="/">Home</Link>
-                  <span className="sep" aria-hidden="true">/</span>
-                  <Link href="/blog">Articles</Link>
-                </nav>
-                <span className="pill pill-glass">{article.category}</span>
-                <h1 className="article-title">{article.title}</h1>
-                <p className="article-dek">{article.excerpt}</p>
-                <div className="byline">
-                  <Avatar className="avatar avatar-sm" />
-                  <span className="byline-author">
-                    By <Link href={AUTHOR_PATH}>{AUTHOR_NAME}</Link>
-                  </span>
-                  <span className="byline-sep" aria-hidden="true">·</span>
-                  <time dateTime={article.date}>{article.dateLabel}</time>
-                  <span className="byline-sep" aria-hidden="true">·</span>
-                  <span>{article.readTime}</span>
-                </div>
+            <div className="cover-media">
+              <img
+                src={article.image}
+                alt={article.imageAlt}
+                width={1200}
+                height={900}
+                fetchPriority="high"
+              />
+            </div>
+            <div className="article-hero-body">
+              <nav className="breadcrumb" aria-label="Breadcrumb">
+                <Link href="/">Home</Link>
+                <span className="sep" aria-hidden="true">/</span>
+                <Link href="/blog">Articles</Link>
+              </nav>
+              <span className="pill">{article.category}</span>
+              <h1 className="article-title">{article.title}</h1>
+              <p className="article-dek">{article.excerpt}</p>
+              <div className="byline">
+                <Avatar className="avatar avatar-sm" />
+                <span className="byline-author">
+                  By <Link href={AUTHOR_PATH}>{AUTHOR_NAME}</Link>
+                </span>
+                <span className="byline-sep" aria-hidden="true">·</span>
+                <time dateTime={article.date}>{article.dateLabel}</time>
+                <span className="byline-sep" aria-hidden="true">·</span>
+                <span>{article.readTime}</span>
               </div>
             </div>
           </div>
