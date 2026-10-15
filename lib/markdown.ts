@@ -87,8 +87,70 @@ function parse(tokens: Token[], links: TokensList["links"]): string {
   return toSafeHtml(marked.parser(list));
 }
 
+// ── Section anchors ──
+// Every <h2> gets an id (from its text, made unique) so the table of contents
+// and shared links like /blog/x#section can jump to it. Ids are added after
+// sanitizing and only ever contain [a-z0-9-].
+
+export type TocItem = { id: string; text: string };
+
+const H2_BLOCK = /<h2>([\s\S]*?)<\/h2>/g;
+const H2_WITH_ID = /<h2 id="([^"]+)">([\s\S]*?)<\/h2>/g;
+const NAMED_ENTITIES: Record<string, string> = {
+  amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
+};
+
+function htmlToText(html: string): string {
+  return html
+    .replace(/<[^>]+>/g, "")
+    .replace(/&(#x[0-9a-f]+|#[0-9]+|[a-z]+);/gi, (entity, code: string) => {
+      if (code[0] !== "#") return NAMED_ENTITIES[code.toLowerCase()] ?? entity;
+      const point = code[1] === "x" || code[1] === "X"
+        ? parseInt(code.slice(2), 16)
+        : parseInt(code.slice(1), 10);
+      return Number.isFinite(point) ? String.fromCodePoint(point) : entity;
+    })
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60)
+    .replace(/-+$/, "");
+}
+
+// Adds ids to the <h2>s of one or more consecutive pieces of an article, so
+// ids stay unique when the article is rendered in halves.
+function withHeadingIds(parts: string[]): string[] {
+  const used = new Map<string, number>();
+  const ids = parts
+    .flatMap((part) => [...part.matchAll(H2_BLOCK)].map((match) => htmlToText(match[1])))
+    .map((text) => {
+      const base = slugify(text) || "section";
+      const count = (used.get(base) ?? 0) + 1;
+      used.set(base, count);
+      return count === 1 ? base : `${base}-${count}`;
+    });
+  let index = 0;
+  return parts.map((part) => part.replace(/<h2>/g, () => `<h2 id="${ids[index++]}">`));
+}
+
 export function renderMarkdown(markdown: string): string {
-  return toSafeHtml(marked.parse(normalizeMarkdown(markdown)) as string);
+  return withHeadingIds([toSafeHtml(marked.parse(normalizeMarkdown(markdown)) as string)])[0];
+}
+
+// The article's sections, in order — the same ids renderMarkdown adds.
+export function tableOfContents(markdown: string): TocItem[] {
+  return [...renderMarkdown(markdown).matchAll(H2_WITH_ID)].map((match) => ({
+    id: match[1],
+    text: htmlToText(match[2]),
+  }));
 }
 
 // Renders an article in two halves so the optional middle image can sit
@@ -113,10 +175,11 @@ export function renderMarkdownSplit(markdown: string): [string, string] {
       }
     }
   }
-  return [
+  const [firstHalf, secondHalf] = withHeadingIds([
     parse(blocks.slice(0, split), tokens.links),
     parse(blocks.slice(split), tokens.links),
-  ];
+  ]);
+  return [firstHalf, secondHalf];
 }
 
 export function markdownWordCount(markdown: string): number {

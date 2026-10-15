@@ -7,19 +7,15 @@ import {
   getRelatedArticles,
   wordCount,
 } from "@/content/articles";
-import {
-  AUTHOR_NAME,
-  AUTHOR_PATH,
-  SITE_NAME,
-  SITE_TAGLINE,
-  SITE_URL,
-} from "@/content/site";
+import { AUTHOR_NAME, AUTHOR_PATH, SITE_NAME, SITE_URL } from "@/content/site";
+import { tableOfContents } from "@/lib/markdown";
+import ArticleCard from "../../components/ArticleCard";
 import ArticleContent from "../../components/ArticleContent";
 import AuthorBio from "../../components/AuthorBio";
 import Avatar from "../../components/Avatar";
-import { LogoMark } from "../../components/Logo";
 import ReadingProgress from "../../components/ReadingProgress";
 import ShareBar from "../../components/ShareBar";
+import TableOfContents from "../../components/TableOfContents";
 
 type Params = { slug: string };
 
@@ -77,6 +73,7 @@ export default async function ArticlePage({
 
   const related = await getRelatedArticles(slug);
   const canonical = `${SITE_URL}/blog/${article.slug}`;
+  const toc = tableOfContents(article.markdown);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -139,39 +136,43 @@ export default async function ArticlePage({
       <ReadingProgress />
 
       <article>
-        <div className="container article-hero">
-          <header className="article-header">
-            <nav className="breadcrumb" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span className="sep" aria-hidden="true">/</span>
-              <Link href="/blog">Articles</Link>
-            </nav>
-            <span className="pill">{article.category}</span>
-            <h1 className="article-title">{article.title}</h1>
-            <p className="article-dek">{article.excerpt}</p>
-            <div className="byline">
-              <Avatar className="avatar avatar-sm" />
-              <span className="byline-author">
-                By <Link href={AUTHOR_PATH}>{AUTHOR_NAME}</Link>
-              </span>
-              <span className="byline-sep" aria-hidden="true">·</span>
-              <time dateTime={article.date}>{article.dateLabel}</time>
-              <span className="byline-sep" aria-hidden="true">·</span>
-              <span>{article.readTime}</span>
+        <header className="article-hero">
+          <div className="container">
+            <div className="article-cover-hero">
+              <img
+                src={article.image}
+                alt={article.imageAlt}
+                width={1600}
+                height={900}
+                fetchPriority="high"
+              />
+              <div className="article-hero-body">
+                <nav className="breadcrumb" aria-label="Breadcrumb">
+                  <Link href="/">Home</Link>
+                  <span className="sep" aria-hidden="true">/</span>
+                  <Link href="/blog">Articles</Link>
+                </nav>
+                <span className="pill pill-glass">{article.category}</span>
+                <h1 className="article-title">{article.title}</h1>
+                <p className="article-dek">{article.excerpt}</p>
+                <div className="byline">
+                  <Avatar className="avatar avatar-sm" />
+                  <span className="byline-author">
+                    By <Link href={AUTHOR_PATH}>{AUTHOR_NAME}</Link>
+                  </span>
+                  <span className="byline-sep" aria-hidden="true">·</span>
+                  <time dateTime={article.date}>{article.dateLabel}</time>
+                  <span className="byline-sep" aria-hidden="true">·</span>
+                  <span>{article.readTime}</span>
+                </div>
+              </div>
             </div>
-          </header>
-          <figure className="article-cover">
-            <img
-              src={article.image}
-              alt={article.imageAlt}
-              width={1600}
-              height={800}
-              fetchPriority="high"
-            />
-          </figure>
-        </div>
+          </div>
+        </header>
 
-        <div className="container article-layout article-section">
+        <div
+          className={`container article-layout article-section${toc.length > 1 ? "" : " article-layout-solo"}`}
+        >
           <div className="article-body">
             <ArticleContent
               markdown={article.markdown}
@@ -182,50 +183,36 @@ export default async function ArticlePage({
             <ShareBar url={canonical} title={article.title} />
 
             <AuthorBio />
-
-            <div className="article-cta">
-              <Link className="ghost-button" href="/blog">
-                <span aria-hidden="true">←</span> Back to all articles
-              </Link>
-            </div>
           </div>
 
-          <aside className="sidebar">
-            {related.length > 0 && (
-              <div className="side-box">
-                <h3 className="side-title">Related reading</h3>
-                {related.map((item) => (
-                  <Link
-                    key={item.slug}
-                    className="related-item"
-                    href={`/blog/${item.slug}`}
-                  >
-                    <img
-                      src={item.image}
-                      alt=""
-                      width={144}
-                      height={112}
-                      loading="lazy"
-                    />
-                    <span>
-                      <span className="related-title">{item.title}</span>
-                      <span className="related-meta">{item.readTime}</span>
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            )}
-            <div className="side-box side-about">
-              <LogoMark idPrefix="sidebar" />
-              <p className="side-title">About {SITE_NAME}</p>
-              <p>{SITE_TAGLINE}</p>
-              <Link className="section-link" href="/about">
-                Learn more <span className="arrow">→</span>
-              </Link>
-            </div>
-          </aside>
+          {toc.length > 1 && (
+            <aside className="sidebar">
+              <TableOfContents items={toc} />
+            </aside>
+          )}
         </div>
       </article>
+
+      {related.length > 0 && (
+        <section className="keep-reading">
+          <div className="container">
+            <div className="section-title">
+              <div>
+                <span>Keep reading</span>
+                <h2>More from {SITE_NAME}</h2>
+              </div>
+              <Link className="section-link" href="/blog">
+                View all articles <span className="arrow">→</span>
+              </Link>
+            </div>
+            <div className="story-grid">
+              {related.map((item) => (
+                <ArticleCard key={item.slug} article={item} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </main>
   );
 }
