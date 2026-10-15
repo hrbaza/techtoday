@@ -28,9 +28,19 @@ export default function ContactPage() {
             The best way to reach {SITE_NAME} is by email. We read every message
             and do our best to reply as quickly as we can.
           </p>
-          <p>
-            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-          </p>
+          <a className="contact-card" href={`mailto:${CONTACT_EMAIL}`}>
+            <span className="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+            </span>
+            <span className="contact-text">
+              <span className="contact-label">Email us at</span>
+              <strong>{CONTACT_EMAIL}</strong>
+            </span>
+            <span className="arrow" aria-hidden="true">→</span>
+          </a>
 
           <h2>What you can write to us about</h2>
           <ul className="article-list">

@@ -5,22 +5,12 @@ import {
   AUTHOR_PATH,
   AUTHOR_ROLE,
 } from "@/content/site";
-
-function initials(name: string): string {
-  return name
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase() ?? "")
-    .join("");
-}
+import Avatar from "./Avatar";
 
 export default function AuthorBio({ linked = true }: { linked?: boolean }) {
   return (
     <div className="author-bio">
-      <div className="author-avatar" aria-hidden="true">
-        {initials(AUTHOR_NAME)}
-      </div>
+      <Avatar className="author-avatar" />
       <div>
         <p className="author-name">
           {linked ? <Link href={AUTHOR_PATH}>{AUTHOR_NAME}</Link> : AUTHOR_NAME}

@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getArticles } from "@/content/articles";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/content/site";
+import {
+  AUTHOR_NAME,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+} from "@/content/site";
 import ArticleCard from "./components/ArticleCard";
+import Avatar from "./components/Avatar";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -21,6 +27,8 @@ export default async function Home() {
       </main>
     );
   }
+
+  const featuredHref = `/blog/${featured.slug}`;
 
   const siteLd = {
     "@context": "https://schema.org",
@@ -57,36 +65,89 @@ export default async function Home() {
       <section className="hero" id="home">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <span className="tag">{featured.category}</span>
-            <h1>{featured.title}</h1>
+            <div className="hero-eyebrow">
+              <span className="pill pill-live">Featured story</span>
+              <span className="hero-cat">{featured.category}</span>
+            </div>
+            <h1>
+              <Link href={featuredHref}>{featured.title}</Link>
+            </h1>
             <p className="lead">{featured.excerpt}</p>
-            <Link className="primary-button" href={`/blog/${featured.slug}`}>
-              Read the full article
+            <div className="meta-row">
+              <Avatar className="avatar avatar-sm" />
+              <span>
+                By <strong>{AUTHOR_NAME}</strong>
+              </span>
+              <span className="dot-sep" aria-hidden="true">·</span>
+              <time dateTime={featured.date}>{featured.dateLabel}</time>
+              <span className="dot-sep" aria-hidden="true">·</span>
+              <span>{featured.readTime}</span>
+            </div>
+            <div className="hero-actions">
+              <Link className="primary-button" href={featuredHref}>
+                Read the story <span className="arrow">→</span>
+              </Link>
+              <Link className="ghost-button" href="/blog">
+                Browse all articles
+              </Link>
+            </div>
+          </div>
+          <div className="hero-visual">
+            <Link
+              className="hero-media"
+              href={featuredHref}
+              tabIndex={-1}
+              aria-hidden="true"
+            >
+              <img
+                src={featured.image}
+                alt=""
+                width={1600}
+                height={1200}
+                fetchPriority="high"
+              />
             </Link>
           </div>
-          <img
-            src={featured.image}
-            alt={featured.imageAlt}
-            width={1600}
-            height={900}
-            fetchPriority="high"
-          />
         </div>
       </section>
 
-      <section className="more-stories" id="stories">
+      <section className="section" id="stories">
         <div className="container">
           <div className="section-title">
             <div>
               <span>Latest stories</span>
               <h2>Technology, explained clearly</h2>
             </div>
-            <Link href="/blog">View all articles</Link>
+            <Link className="section-link" href="/blog">
+              View all articles <span className="arrow">→</span>
+            </Link>
           </div>
           <div className="story-grid">
             {rest.slice(0, 9).map((article) => (
               <ArticleCard key={article.slug} article={article} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="cta-band">
+        <div className="container">
+          <div className="cta-inner">
+            <div>
+              <h2>Technology, without the hype.</h2>
+              <p>
+                Clear, honest explainers on AI, computing and the systems shaping
+                everyday life — written so anyone can follow along.
+              </p>
+            </div>
+            <div className="cta-actions">
+              <Link className="primary-button" href="/blog">
+                Start reading <span className="arrow">→</span>
+              </Link>
+              <Link className="ghost-button" href="/about">
+                About {SITE_NAME}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter, Source_Serif_4, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import "./fonts.css";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 import {
@@ -10,6 +10,32 @@ import {
   SITE_NAME,
   SITE_URL,
 } from "@/content/site";
+import { THEME_INIT_SCRIPT } from "@/lib/theme";
+
+// Self-hosted by next/font: interface text, headings + logo, article prose.
+const fontSans = Inter({
+  subsets: ["latin"],
+  variable: "--ff-sans",
+  display: "swap",
+});
+const fontDisplay = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--ff-display",
+  display: "swap",
+});
+const fontSerif = Source_Serif_4({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--ff-serif",
+  display: "swap",
+});
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0f1e" },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -49,19 +75,28 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      {ADSENSE_CLIENT && (
-        <head>
+    <html
+      lang="en"
+      className={`${fontSans.variable} ${fontDisplay.variable} ${fontSerif.variable}`}
+      // The theme script sets data-theme before React hydrates.
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        {ADSENSE_CLIENT && (
           <script
             async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
             crossOrigin="anonymous"
           />
-        </head>
-      )}
+        )}
+      </head>
       <body>
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
         <SiteHeader />
-        {children}
+        <div id="main-content">{children}</div>
         <SiteFooter />
       </body>
     </html>
