@@ -82,6 +82,7 @@ export default async function ArticlePage({
     .slice(0, 3);
   const canonical = `${SITE_URL}/blog/${article.slug}`;
   const toc = tableOfContents(article.markdown);
+  const hasSidebar = trending.length > 0 || toc.length > 1;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -178,10 +179,8 @@ export default async function ArticlePage({
           </div>
         </header>
 
-        <TrendingList articles={trending} />
-
         <div
-          className={`container article-layout article-section${toc.length > 1 ? "" : " article-layout-solo"}`}
+          className={`container article-layout article-section${hasSidebar ? "" : " article-layout-solo"}`}
         >
           <div className="article-body">
             <ArticleContent
@@ -195,9 +194,10 @@ export default async function ArticlePage({
             <AuthorBio />
           </div>
 
-          {toc.length > 1 && (
+          {hasSidebar && (
             <aside className="sidebar">
-              <TableOfContents items={toc} />
+              <TrendingList articles={trending} variant="sidebar" />
+              {toc.length > 1 && <TableOfContents items={toc} />}
             </aside>
           )}
         </div>
