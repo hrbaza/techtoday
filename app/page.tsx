@@ -29,6 +29,8 @@ export default async function Home() {
   }
 
   const featuredHref = `/blog/${featured.slug}`;
+  const trending = rest.slice(0, 4);
+  const latest = rest.slice(4, 13);
 
   const siteLd = {
     "@context": "https://schema.org",
@@ -63,51 +65,81 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }}
       />
       <section className="hero" id="home">
-        <div className="container hero-grid">
-          <div className="hero-copy">
-            <div className="hero-eyebrow">
-              <span className="pill pill-live">Featured story</span>
-              <span className="hero-cat">{featured.category}</span>
+        <div
+          className={`container hero-layout${trending.length ? "" : " hero-layout-solo"}`}
+        >
+          {/* The title link is stretched over the card, so the whole cover
+              story is one click target. */}
+          <article className="feature-card">
+            <img
+              src={featured.image}
+              alt={featured.imageAlt}
+              width={1600}
+              height={1000}
+              fetchPriority="high"
+            />
+            <div className="feature-body">
+              <div className="hero-eyebrow">
+                <span className="pill pill-live pill-glass">Featured story</span>
+                <span className="hero-cat">{featured.category}</span>
+              </div>
+              <h1>
+                <Link href={featuredHref}>{featured.title}</Link>
+              </h1>
+              <p className="feature-excerpt">{featured.excerpt}</p>
+              <div className="feature-foot">
+                <div className="feature-meta">
+                  <Avatar className="avatar avatar-sm" />
+                  <span>
+                    By <strong>{AUTHOR_NAME}</strong>
+                  </span>
+                  <span className="dot-sep" aria-hidden="true">·</span>
+                  <time dateTime={featured.date}>{featured.dateLabel}</time>
+                  <span className="dot-sep" aria-hidden="true">·</span>
+                  <span>{featured.readTime}</span>
+                </div>
+                <span className="feature-cta" aria-hidden="true">
+                  Read the story <span className="arrow">→</span>
+                </span>
+              </div>
             </div>
-            <h1>
-              <Link href={featuredHref}>{featured.title}</Link>
-            </h1>
-            <p className="lead">{featured.excerpt}</p>
-            <div className="meta-row">
-              <Avatar className="avatar avatar-sm" />
-              <span>
-                By <strong>{AUTHOR_NAME}</strong>
-              </span>
-              <span className="dot-sep" aria-hidden="true">·</span>
-              <time dateTime={featured.date}>{featured.dateLabel}</time>
-              <span className="dot-sep" aria-hidden="true">·</span>
-              <span>{featured.readTime}</span>
-            </div>
-            <div className="hero-actions">
-              <Link className="primary-button" href={featuredHref}>
-                Read the story <span className="arrow">→</span>
-              </Link>
-              <Link className="ghost-button" href="/blog">
-                Browse all articles
-              </Link>
-            </div>
-          </div>
-          <div className="hero-visual">
-            <Link
-              className="hero-media"
-              href={featuredHref}
-              tabIndex={-1}
-              aria-hidden="true"
-            >
-              <img
-                src={featured.image}
-                alt=""
-                width={1600}
-                height={1200}
-                fetchPriority="high"
-              />
-            </Link>
-          </div>
+          </article>
+
+          {trending.length > 0 && (
+            <aside className="trending" aria-labelledby="trending-title">
+              <div className="trending-head">
+                <h2 id="trending-title" className="trending-title">
+                  Trending now
+                </h2>
+                <Link className="section-link" href="/blog">
+                  View all <span className="arrow">→</span>
+                </Link>
+              </div>
+              <ol className="trend-list">
+                {trending.map((article, index) => (
+                  <li key={article.slug} className="trend-item">
+                    <span className="trend-num" aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <span className="trend-cat">{article.category}</span>
+                      <h3>
+                        <Link href={`/blog/${article.slug}`}>{article.title}</Link>
+                      </h3>
+                      <span className="trend-meta">{article.readTime}</span>
+                    </div>
+                    <img
+                      className="trend-thumb"
+                      src={article.image}
+                      alt=""
+                      width={168}
+                      height={128}
+                    />
+                  </li>
+                ))}
+              </ol>
+            </aside>
+          )}
         </div>
       </section>
 
@@ -123,7 +155,7 @@ export default async function Home() {
             </Link>
           </div>
           <div className="story-grid">
-            {rest.slice(0, 9).map((article) => (
+            {latest.map((article) => (
               <ArticleCard key={article.slug} article={article} />
             ))}
           </div>
