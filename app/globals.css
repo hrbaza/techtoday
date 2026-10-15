@@ -39,6 +39,10 @@
   --grad: linear-gradient(135deg, #2563eb 0%, #4f46e5 52%, #7c3aed 100%);
   --radius: 14px;
   --radius-lg: 22px;
+  /* Page width shared by every section, the header and the cover cards:
+     12px side gaps on smaller screens; on wide screens the empty space at the
+     sides is half what a fixed 1180px column would leave. */
+  --page-width: min(calc(100% - 24px), calc((100% + 1180px) / 2));
 }
 
 :root[data-theme="dark"] {
@@ -107,7 +111,8 @@ img { display: block; max-width: 100%; }
 h1, h2, h3, h4 { font-family: var(--ff-display), var(--ff-sans), sans-serif; color: var(--ink); font-weight: 700; line-height: 1.2; letter-spacing: -.02em; }
 ::selection { background: color-mix(in srgb, var(--brand) 26%, transparent); }
 :focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 6px; }
-.container { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+/* max-width: none undoes Tailwind's own .container caps (1280px / 1536px). */
+.container { width: var(--page-width); max-width: none; margin-inline: auto; }
 .skip-link { position: absolute; left: 16px; top: -64px; z-index: 100; padding: 10px 16px; border-radius: 10px; background: var(--ink); color: var(--bg); font-weight: 700; transition: top .15s; }
 .skip-link:focus { top: 12px; }
 .arrow { display: inline-block; transition: transform .2s ease; }
@@ -170,7 +175,7 @@ h1, h2, h3, h4 { font-family: var(--ff-display), var(--ff-sans), sans-serif; col
 /* Rounded cover cards (home cover story + article cover), aligned with the
    page container like every other section; the text sits inside with padding. */
 .hero, .article-hero { padding-top: 24px; }
-.feature-card, .article-cover-hero { width: min(1180px, calc(100% - 48px)); margin-inline: auto; border-radius: 28px; border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
+.feature-card, .article-cover-hero { width: var(--page-width); margin-inline: auto; border-radius: 28px; border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
 .feature-card > .container, .article-cover-hero > .container { width: calc(100% - 88px); }
 .feature-card { position: relative; isolation: isolate; display: flex; align-items: flex-end; min-height: clamp(560px, calc(100vh - 102px), 900px); min-height: clamp(560px, calc(100svh - 102px), 900px); overflow: hidden; background: #0b1220; }
 .feature-card > img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2, .7, .2, 1); }
@@ -296,7 +301,8 @@ h1, h2, h3, h4 { font-family: var(--ff-display), var(--ff-sans), sans-serif; col
 .byline-author a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .article-section { padding-top: 56px; padding-bottom: 88px; }
-.article-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 72px; align-items: start; }
+/* The text keeps a readable width; the contents box sits at the right edge. */
+.article-layout { display: grid; grid-template-columns: minmax(0, 760px) 300px; justify-content: space-between; gap: 72px; align-items: start; }
 .article-layout-solo { grid-template-columns: minmax(0, 760px); justify-content: center; }
 /* Lets wide content (tables, code) scroll inside the column instead of widening it. */
 .article-layout > * { min-width: 0; }
@@ -430,7 +436,7 @@ h1, h2, h3, h4 { font-family: var(--ff-display), var(--ff-sans), sans-serif; col
   .mobile-menu[data-open="true"] { display: block; }
 }
 @media (max-width: 640px) {
-  .container { width: calc(100% - 32px); }
+  :root { --page-width: calc(100% - 24px); }
   .header-inner { min-height: 64px; }
   .brand-mark { width: 32px; height: 32px; }
   .brand-word { font-size: 20px; }
@@ -440,7 +446,7 @@ h1, h2, h3, h4 { font-family: var(--ff-display), var(--ff-sans), sans-serif; col
   .section-title { flex-direction: column; align-items: flex-start; }
   .story-grid { grid-template-columns: 1fr; gap: 22px; }
   .hero, .article-hero { padding-top: 16px; }
-  .feature-card, .article-cover-hero { width: calc(100% - 32px); border-radius: 20px; }
+  .feature-card, .article-cover-hero { border-radius: 20px; }
   .feature-card > .container, .article-cover-hero > .container { width: calc(100% - 40px); }
   .feature-card { min-height: clamp(500px, calc(100svh - 84px), 720px); }
   .feature-body { padding: 0 0 32px; }
