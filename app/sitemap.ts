@@ -2,12 +2,12 @@ import type { MetadataRoute } from "next";
 import { getArticles } from "@/content/articles";
 import { SITE_URL } from "@/content/site";
 
-// Rebuild the sitemap from the database at most once an hour. The admin panel
-// also asks for a refresh on every save (revalidatePath in
-// app/api/admin/posts/route.ts), but on Vercel that on-demand refresh does not
-// reach this route — the sitemap stayed frozen at the last deploy while new
-// articles went live — so this timer is what keeps it current.
-export const revalidate = 3600;
+// Build the sitemap from the database on every request. Caching it has failed
+// twice on Vercel: neither the admin panel's on-demand refresh (revalidatePath
+// in app/api/admin/posts/route.ts) nor an hourly `revalidate = 3600` ever
+// replaced the copy cached at deploy time, so new articles went live but never
+// reached the sitemap. Crawlers fetch it rarely and it costs one query.
+export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getArticles();
