@@ -32,8 +32,8 @@
 .admin-form { display:grid; gap:18px; }
 .admin-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
 .admin-field label,.admin-field .admin-label { display:block; font-size:13px; font-weight:700; color:var(--navy); margin-bottom:6px; }
-.admin-field input[type=text],.admin-field input[type=date],.admin-field input[type=url],.admin-field input[type=password],.admin-field textarea { width:100%; padding:11px 12px; border:1px solid var(--border); border-radius:6px; font:inherit; font-size:15px; color:var(--text); background:#fff; }
-.admin-field input:focus,.admin-field textarea:focus { outline:2px solid #bfdbfe; border-color:var(--blue); }
+.admin-field input[type=text],.admin-field input[type=date],.admin-field input[type=url],.admin-field input[type=password],.admin-field select,.admin-field textarea { width:100%; padding:11px 12px; border:1px solid var(--border); border-radius:6px; font:inherit; font-size:15px; color:var(--text); background:#fff; }
+.admin-field input:focus,.admin-field select:focus,.admin-field textarea:focus { outline:2px solid #bfdbfe; border-color:var(--blue); }
 .admin-field textarea { resize:vertical; line-height:1.6; }
 .admin-field .body-input { min-height:480px; font-family:ui-monospace,Consolas,monospace; font-size:14px; }
 .admin-hint { color:var(--muted); font-size:12px; margin-top:6px; line-height:1.5; }

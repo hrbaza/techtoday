@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getArticles } from "@/content/articles";
 import { SITE_URL } from "@/content/site";
+import { topicPath, TOPICS } from "@/content/topics";
 
 // Build the sitemap from the database on every request. Caching it has failed
 // twice on Vercel: neither the admin panel's on-demand refresh (revalidatePath
@@ -17,6 +18,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages = [
     { path: "", priority: 1.0, changeFrequency: "daily" as const, lastModified: latestArticle },
     { path: "/blog", priority: 0.9, changeFrequency: "daily" as const, lastModified: latestArticle },
+    { path: "/topics", priority: 0.7, changeFrequency: "weekly" as const, lastModified: latestArticle },
     { path: "/about", priority: 0.5, changeFrequency: "monthly" as const },
     { path: "/author", priority: 0.5, changeFrequency: "weekly" as const },
     { path: "/contact", priority: 0.5, changeFrequency: "monthly" as const },
@@ -36,6 +38,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: page.priority,
   }));
 
+  // Topic hubs change whenever an article in the topic is published.
+  const topicEntries: MetadataRoute.Sitemap = TOPICS.map((topic) => {
+    const newest = articles.find((article) => article.topic.slug === topic.slug);
+    return {
+      url: `${SITE_URL}${topicPath(topic)}`,
+      ...(newest ? { lastModified: new Date(newest.date) } : {}),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    };
+  });
+
   const articleEntries: MetadataRoute.Sitemap = articles.map((article) => ({
     url: `${SITE_URL}/blog/${article.slug}`,
     lastModified: new Date(article.date),
@@ -43,5 +56,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticEntries, ...articleEntries];
+  return [...staticEntries, ...topicEntries, ...articleEntries];
 }

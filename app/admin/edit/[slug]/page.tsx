@@ -1,4 +1,5 @@
 import { notFound, redirect } from "next/navigation";
+import { topicFor, TOPIC_NAMES } from "@/content/topics";
 import { isAdmin } from "@/lib/admin/auth";
 import { listPosts } from "@/lib/posts";
 import { savedMessage } from "@/lib/admin/format";
@@ -19,16 +20,18 @@ export default async function EditPost({
   const posts = await listPosts({ includeDrafts: true });
   const post = posts.find((item) => item.slug === slug);
   if (!post) notFound();
-  const categories = [...new Set(posts.map((item) => item.category))].sort();
   const { saved, mode: savedMode } = await searchParams;
+  // Older articles carry a free-text category; open them on their topic so the
+  // next save stores the topic name.
+  const initial = { ...post, category: topicFor(post).name };
 
   return (
     <>
       <StoreNotice />
       <PostEditor
         key={post.slug}
-        initial={post}
-        categories={categories}
+        initial={initial}
+        categories={TOPIC_NAMES}
         initialMessage={saved ? savedMessage(saved, savedMode) : ""}
       />
     </>

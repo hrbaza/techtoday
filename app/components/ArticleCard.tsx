@@ -15,7 +15,7 @@ export default function ArticleCard({ article }: { article: Article }) {
           height={500}
           loading="lazy"
         />
-        <span className="story-chip">{article.category}</span>
+        <span className="story-chip">{article.topic.name}</span>
       </div>
       <div className="story-content">
         <div className="story-meta">

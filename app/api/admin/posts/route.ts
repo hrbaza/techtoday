@@ -1,6 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import type { PostFile } from "@/content/articles/types";
+import { TOPIC_NAMES } from "@/content/topics";
 import { isAdmin } from "@/lib/admin/auth";
 import { SLUG_PATTERN } from "@/lib/admin/format";
 import { normalizeMarkdown } from "@/lib/markdown";
@@ -101,7 +102,8 @@ async function handleSave({
     return bad("URL slug may only use lowercase letters, numbers and dashes.");
   }
   if (!title) return bad("Title is required.");
-  if (!category) return bad("Category is required.");
+  if (!category) return bad("Topic is required.");
+  if (!TOPIC_NAMES.includes(category)) return bad("Choose one of the listed topics.");
   if (!excerpt) return bad("Short description is required.");
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return bad("Date is invalid.");
   if (!imageAlt) return bad("Image description (alt text) is required.");

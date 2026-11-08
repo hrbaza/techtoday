@@ -148,20 +148,25 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
             </p>
           </div>
           <div className="admin-field">
-            <label htmlFor="category">Category</label>
-            <input
+            <label htmlFor="category">Topic</label>
+            <select
               id="category"
-              type="text"
               required
-              list="category-options"
               value={category}
               onChange={(event) => setCategory(event.target.value)}
-            />
-            <datalist id="category-options">
+            >
+              <option value="" disabled>
+                Choose a topic…
+              </option>
               {categories.map((name) => (
-                <option key={name} value={name} />
+                <option key={name} value={name}>
+                  {name}
+                </option>
               ))}
-            </datalist>
+            </select>
+            <p className="admin-hint">
+              The article appears on this topic&apos;s page and links to its other articles.
+            </p>
           </div>
         </div>
 

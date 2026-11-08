@@ -5,9 +5,11 @@ import {
   getArticleBySlug,
   getArticles,
   getRelatedArticles,
+  getTopicArticles,
   wordCount,
 } from "@/content/articles";
 import { AUTHOR_NAME, AUTHOR_PATH, SITE_NAME, SITE_URL } from "@/content/site";
+import { topicPath } from "@/content/topics";
 import { tableOfContents } from "@/lib/markdown";
 import ArticleCard from "../../components/ArticleCard";
 import ArticleContent from "../../components/ArticleContent";
@@ -43,8 +45,8 @@ export async function generateMetadata({
     description: article.excerpt,
     alternates: { canonical: url },
     authors: [{ name: AUTHOR_NAME, url: `${SITE_URL}${AUTHOR_PATH}` }],
-    category: article.category,
-    keywords: [article.category, "technology", "explained", SITE_NAME],
+    category: article.topic.name,
+    keywords: [article.topic.name, "technology", "explained", SITE_NAME],
     openGraph: {
       type: "article",
       title: article.title,
@@ -80,9 +82,16 @@ export default async function ArticlePage({
   const related = (await getRelatedArticles(slug, 3 + trending.length))
     .filter((item) => !trendingSlugs.has(item.slug))
     .slice(0, 3);
+  // "More in <topic>": the rest of this article's topic (pillar first), so
+  // every article keeps linking to its topic after it leaves "Trending now".
+  const shown = new Set([slug, ...trendingSlugs, ...related.map((item) => item.slug)]);
+  const moreInTopic = (await getTopicArticles(article.topic.slug))
+    .filter((item) => !shown.has(item.slug))
+    .slice(0, 5);
+  const topicUrl = topicPath(article.topic);
   const canonical = `${SITE_URL}/blog/${article.slug}`;
   const toc = tableOfContents(article.markdown);
-  const hasSidebar = trending.length > 0 || toc.length > 1;
+  const hasSidebar = trending.length > 0 || moreInTopic.length > 0 || toc.length > 1;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -92,10 +101,10 @@ export default async function ArticlePage({
     image: article.image,
     datePublished: article.date,
     dateModified: article.date,
-    articleSection: article.category,
+    articleSection: article.topic.name,
     inLanguage: "en",
     wordCount: wordCount(article.markdown),
-    keywords: [article.category, "technology", SITE_NAME].join(", "),
+    keywords: [article.topic.name, "technology", SITE_NAME].join(", "),
     url: canonical,
     author: {
       "@type": "Person",
@@ -124,8 +133,8 @@ export default async function ArticlePage({
       {
         "@type": "ListItem",
         position: 2,
-        name: "Articles",
-        item: `${SITE_URL}/blog`,
+        name: article.topic.name,
+        item: `${SITE_URL}${topicUrl}`,
       },
       { "@type": "ListItem", position: 3, name: article.title, item: canonical },
     ],
@@ -160,9 +169,11 @@ export default async function ArticlePage({
               <nav className="breadcrumb" aria-label="Breadcrumb">
                 <Link href="/">Home</Link>
                 <span className="sep" aria-hidden="true">/</span>
-                <Link href="/blog">Articles</Link>
+                <Link href={topicUrl}>{article.topic.name}</Link>
               </nav>
-              <span className="pill">{article.category}</span>
+              <Link className="pill" href={topicUrl}>
+                {article.topic.name}
+              </Link>
               <h1 className="article-title">{article.title}</h1>
               <p className="article-dek">{article.excerpt}</p>
               <div className="byline">
@@ -197,6 +208,13 @@ export default async function ArticlePage({
           {hasSidebar && (
             <aside className="sidebar">
               <TrendingList articles={trending} variant="sidebar" />
+              <TrendingList
+                articles={moreInTopic}
+                variant="sidebar"
+                title={`More in ${article.topic.name}`}
+                headingId="topic-more-title"
+                moreHref={topicUrl}
+              />
               {toc.length > 1 && <TableOfContents items={toc} />}
             </aside>
           )}

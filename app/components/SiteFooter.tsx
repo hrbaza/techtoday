@@ -93,7 +93,7 @@ export default async function SiteFooter() {
                 <Link key={article.slug} href={`/blog/${article.slug}`}>
                   <span className="footer-latest-title">{article.title}</span>
                   <span className="footer-latest-meta">
-                    {article.category} · {article.readTime}
+                    {article.topic.name} · {article.readTime}
                   </span>
                 </Link>
               ))}

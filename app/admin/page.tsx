@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { formatDateLabel, type PostFile } from "@/content/articles/types";
+import { topicFor } from "@/content/topics";
 import { isAdmin } from "@/lib/admin/auth";
 import { listPosts } from "@/lib/posts";
 import DeleteButton from "./_components/DeleteButton";
@@ -52,7 +53,7 @@ export default async function AdminHome() {
             <thead>
               <tr>
                 <th>Title</th>
-                <th>Category</th>
+                <th>Topic</th>
                 <th>Date</th>
                 <th>Status</th>
                 <th />
@@ -65,7 +66,7 @@ export default async function AdminHome() {
                     <div className="post-title">{post.title}</div>
                     <div className="post-slug">/blog/{post.slug}</div>
                   </td>
-                  <td>{post.category}</td>
+                  <td>{topicFor(post).name}</td>
                   <td>{formatDateLabel(post.date)}</td>
                   <td>
                     <span className={`admin-badge ${post.draft ? "draft" : "live"}`}>

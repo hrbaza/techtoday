@@ -4,23 +4,29 @@ import type { Article } from "@/content/articles";
 // "Trending now": a numbered list of articles. On the home page it is a
 // full-width section under the hero (two columns); on article pages it sits
 // at the top of the sidebar (one column). On phones both become a swipeable
-// row of cards.
+// row of cards. Article pages also reuse it for "More in <topic>".
 export default function TrendingList({
   articles,
   variant = "section",
+  title = "Trending now",
+  headingId = "trending-title",
+  moreHref = "/blog",
 }: {
   articles: Article[];
   variant?: "section" | "sidebar";
+  title?: string;
+  headingId?: string;
+  moreHref?: string;
 }) {
   if (!articles.length) return null;
 
   const box = (
     <div className={variant === "sidebar" ? "trending trending-side" : "trending"}>
       <div className="trending-head">
-        <h2 id="trending-title" className="trending-title">
-          Trending now
+        <h2 id={headingId} className="trending-title">
+          {title}
         </h2>
-        <Link className="section-link" href="/blog">
+        <Link className="section-link" href={moreHref}>
           View all <span className="arrow">→</span>
         </Link>
       </div>
@@ -31,7 +37,7 @@ export default function TrendingList({
               {String(index + 1).padStart(2, "0")}
             </span>
             <div>
-              <span className="trend-cat">{article.category}</span>
+              <span className="trend-cat">{article.topic.name}</span>
               <h3>
                 <Link href={`/blog/${article.slug}`}>{article.title}</Link>
               </h3>
@@ -52,10 +58,10 @@ export default function TrendingList({
   );
 
   if (variant === "sidebar") {
-    return <section aria-labelledby="trending-title">{box}</section>;
+    return <section aria-labelledby={headingId}>{box}</section>;
   }
   return (
-    <section className="trending-section" aria-labelledby="trending-title">
+    <section className="trending-section" aria-labelledby={headingId}>
       <div className="container">{box}</div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { blocksToMarkdown, markdownWordCount } from "@/lib/markdown";
+import { topicFor, type Topic } from "@/content/topics";
 
 // The format articles were stored in before the Markdown editor. Articles
 // saved since then use `markdown` instead; old ones are converted when read.
@@ -35,6 +36,7 @@ export type Article = PostFile & {
   markdown: string;
   dateLabel: string; // human-friendly display date
   readTime: string;
+  topic: Topic; // the topic cluster shown on the site (see content/topics.ts)
 };
 
 // Words a reader sees in an article body — used to confirm the 800+ word
@@ -60,5 +62,6 @@ export function toArticle(post: PostFile): Article {
     markdown,
     dateLabel: formatDateLabel(post.date),
     readTime: `${minutes} min read`,
+    topic: topicFor(post),
   };
 }

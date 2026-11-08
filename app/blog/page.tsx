@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getArticles } from "@/content/articles";
+import { topicPath, TOPICS } from "@/content/topics";
 import ArticleCard from "../components/ArticleCard";
 
 export const metadata: Metadata = {
@@ -21,6 +23,16 @@ export default async function BlogIndex() {
             {articles.length} in-depth guides to the technology shaping our
             world — written in plain language, with no hype.
           </p>
+          <nav className="blog-topics" aria-label="Browse by topic">
+            <span className="blog-topics-label">Browse by topic</span>
+            <div className="topic-chips">
+              {TOPICS.map((topic) => (
+                <Link key={topic.slug} className="tag" href={topicPath(topic)}>
+                  {topic.name}
+                </Link>
+              ))}
+            </div>
+          </nav>
         </div>
       </section>
 

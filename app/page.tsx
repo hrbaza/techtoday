@@ -81,7 +81,7 @@ export default async function Home() {
           <div className="feature-body">
             <div className="hero-eyebrow">
               <span className="pill pill-live">Featured story</span>
-              <span className="hero-cat">{featured.category}</span>
+              <span className="hero-cat">{featured.topic.name}</span>
             </div>
             <h1>
               <Link href={featuredHref}>{featured.title}</Link>
