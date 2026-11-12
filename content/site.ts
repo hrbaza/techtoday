@@ -37,3 +37,9 @@ export const GOOGLE_SITE_VERIFICATION =
 export const ADSENSE_CLIENT = (
   process.env.NEXT_PUBLIC_ADSENSE_CLIENT || ""
 ).trim();
+
+// Google tag (Google Analytics through Google Tag Manager), added to the
+// <head> of every page. Override with NEXT_PUBLIC_GOOGLE_TAG_ID in Vercel; an
+// empty or malformed value turns the tag off.
+const googleTagId = (process.env.NEXT_PUBLIC_GOOGLE_TAG_ID ?? "GTM-568D485T").trim();
+export const GOOGLE_TAG_ID = /^(GTM|G|AW)-[A-Z0-9]+$/.test(googleTagId) ? googleTagId : "";

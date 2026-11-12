@@ -109,6 +109,24 @@ export default function PrivacyPolicyPage() {
             </a>
             .
           </p>
+
+          <h2>Analytics</h2>
+          <p>
+            We use Google Analytics to understand how visitors use {SITE_NAME}:
+            which pages are read, how people arrive, and roughly where they are
+            in the world. Google Analytics uses cookies and reports this
+            information to us in aggregate; it does not tell us who you are. You
+            can stop Google Analytics from collecting your visits by installing
+            the{" "}
+            <a
+              href="https://tools.google.com/dlpage/gaoptout"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google Analytics opt-out browser add-on
+            </a>
+            .
+          </p>
           <p>
             Visitors from the European Economic Area, the United Kingdom, and
             Switzerland are asked for consent before personalised advertising

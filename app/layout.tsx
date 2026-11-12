@@ -6,6 +6,7 @@ import SiteFooter from "./components/SiteFooter";
 import {
   ADSENSE_CLIENT,
   GOOGLE_SITE_VERIFICATION,
+  GOOGLE_TAG_ID,
   SITE_DESCRIPTION,
   SITE_NAME,
   SITE_URL,
@@ -82,6 +83,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       suppressHydrationWarning
     >
       <head>
+        {/* Google tag, first in <head> as Google asks (see GOOGLE_TAG_ID). */}
+        {GOOGLE_TAG_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtm.js?id=${GOOGLE_TAG_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html:
+                  "window.dataLayer = window.dataLayer || [];" +
+                  "function gtag(){dataLayer.push(arguments);}" +
+                  "gtag('js', new Date());",
+              }}
+            />
+          </>
+        )}
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         {ADSENSE_CLIENT && (
           <script
