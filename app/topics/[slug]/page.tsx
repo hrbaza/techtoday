@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getTopicArticles } from "@/content/articles";
+import { getArticleBySlug, getTopicArticles } from "@/content/articles";
 import { SITE_NAME, SITE_URL } from "@/content/site";
 import { getTopic, topicPath, TOPICS } from "@/content/topics";
+import { absoluteUrl } from "@/lib/images";
 import ArticleCard from "../../components/ArticleCard";
 
 type Params = { slug: string };
@@ -24,15 +25,29 @@ export async function generateMetadata({
   const { slug } = await params;
   const topic = getTopic(slug);
   if (!topic) return { title: "Topic not found" };
+  // Setting openGraph here replaces the site-wide one, image included, so the
+  // share image must be given again: the pillar's cover, else the site image.
+  const pillar = await getArticleBySlug(topic.pillar);
+  const image = pillar
+    ? { url: absoluteUrl(pillar.image), alt: pillar.imageAlt }
+    : { url: absoluteUrl("/og.png"), width: 1536, height: 1024, alt: SITE_NAME };
   return {
     title: `${topic.name} Explained`,
-    description: topic.description,
+    description: topic.metaDescription,
     alternates: { canonical: topicPath(topic) },
     openGraph: {
       type: "website",
+      siteName: SITE_NAME,
       title: `${topic.name} Explained · ${SITE_NAME}`,
-      description: topic.description,
+      description: topic.metaDescription,
       url: topicPath(topic),
+      images: [image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${topic.name} Explained · ${SITE_NAME}`,
+      description: topic.metaDescription,
+      images: [image.url],
     },
   };
 }

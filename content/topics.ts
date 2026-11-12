@@ -10,7 +10,8 @@
 export type Topic = {
   slug: string;
   name: string;
-  description: string;
+  description: string; // intro shown on the topic page
+  metaDescription: string; // search-result snippet, 155 characters or fewer
   pillar: string; // slug of the topic's pillar article
 };
 
@@ -20,6 +21,8 @@ export const TOPICS: Topic[] = [
     name: "Artificial Intelligence",
     description:
       "How large language models, chatbots and AI agents actually work, and what each new model means for you. Start with the plain-English guide to LLMs, then follow the latest releases, risks and debates.",
+    metaDescription:
+      "How large language models, chatbots and AI agents work, plus clear explainers on every major new AI model, risk and debate.",
     pillar: "large-language-models-explained",
   },
   {
@@ -27,6 +30,8 @@ export const TOPICS: Topic[] = [
     name: "Chips & Data Centers",
     description:
       "The semiconductors, GPUs and memory chips behind the AI boom, and the data centers that run them. Learn how chips are made and why the companies building them move the whole market.",
+    metaDescription:
+      "How semiconductors, GPUs and memory chips work, why AI needs huge data centers, and what chip deals mean for the tech market.",
     pillar: "semiconductors-explained",
   },
   {
@@ -34,6 +39,8 @@ export const TOPICS: Topic[] = [
     name: "Computing & Gaming",
     description:
       "What happens inside your computer, from the CPU and RAM to storage and binary, plus the laptops and consoles built on them. Clear answers to everyday questions like why restarting fixes things.",
+    metaDescription:
+      "What happens inside your computer, from CPU, RAM and storage to binary, plus the laptops and game consoles built on them.",
     pillar: "how-cpus-actually-work",
   },
   {
@@ -41,6 +48,8 @@ export const TOPICS: Topic[] = [
     name: "Internet & Cloud",
     description:
       "Follow a single click from your browser to a server and back. DNS, email, streaming, fibre, undersea cables and the cloud, each explained in plain language.",
+    metaDescription:
+      "Follow a single click across the internet: DNS, email, streaming, fibre, undersea cables and the cloud, explained simply.",
     pillar: "how-does-the-internet-actually-work",
   },
   {
@@ -48,6 +57,8 @@ export const TOPICS: Topic[] = [
     name: "Wi-Fi, 5G & Wireless",
     description:
       "The radio technology that keeps you connected: Wi-Fi, 5G, Bluetooth, eSIM, NFC, GPS and satellite internet. How each one works, and why it sometimes doesn't.",
+    metaDescription:
+      "How Wi-Fi, 5G, Bluetooth, eSIM, NFC, GPS and satellite internet work, and why your connection sometimes doesn't.",
     pillar: "how-wifi-actually-works",
   },
   {
@@ -55,6 +66,8 @@ export const TOPICS: Topic[] = [
     name: "Cybersecurity & Privacy",
     description:
       "Practical guides to staying safe online, from passwords, passkeys and two-factor authentication to VPNs and firewalls, plus the biggest hacks, leaks and privacy cases explained.",
+    metaDescription:
+      "Practical guides to staying safe online: passwords, passkeys, 2FA, VPNs and firewalls, plus the biggest hacks explained.",
     pillar: "cybersecurity-basics-everyone-should-know",
   },
   {
@@ -62,6 +75,8 @@ export const TOPICS: Topic[] = [
     name: "Smartphones & Cameras",
     description:
       "How the screen, camera and chips inside your phone work, and what the newest phones and foldables actually change. Explained without the spec-sheet jargon.",
+    metaDescription:
+      "How the screen, camera and chips in your phone work, and what the newest phones and foldables really change.",
     pillar: "how-oled-displays-work",
   },
   {
@@ -69,6 +84,8 @@ export const TOPICS: Topic[] = [
     name: "Batteries & Charging",
     description:
       "How lithium-ion batteries store energy, why phones get hot, how wireless and fast charging work, and what solid-state batteries could change for phones and electric cars.",
+    metaDescription:
+      "How lithium-ion batteries work, why phones get hot, how fast and wireless charging work, and what solid-state batteries promise.",
     pillar: "lithium-ion-batteries-explained",
   },
   {
@@ -76,6 +93,8 @@ export const TOPICS: Topic[] = [
     name: "Clean Energy",
     description:
       "Solar panels, wind turbines, nuclear and fusion: how each one turns a natural force into electricity, and how close they are to powering the grid.",
+    metaDescription:
+      "How solar panels, wind turbines, nuclear and fusion turn natural forces into electricity, and how close each is to the grid.",
     pillar: "renewable-energy-technology",
   },
   {
@@ -83,12 +102,16 @@ export const TOPICS: Topic[] = [
     name: "Wearables, VR & Audio",
     description:
       "Smartwatches, VR headsets, smart glasses and headphones: the sensors, screens and sound tricks that make wearable tech work, and what it can tell you about your health.",
+    metaDescription:
+      "How smartwatches, VR headsets, smart glasses and headphones work, and what wearable tech can tell you about your health.",
     pillar: "wearable-technology-and-health",
   },
   {
     slug: "robots-and-self-driving",
     name: "Robots & Self-Driving",
     description:
+      "How self-driving cars see the road, how robots learn to work alongside people, and how drones keep themselves in the air.",
+    metaDescription:
       "How self-driving cars see the road, how robots learn to work alongside people, and how drones keep themselves in the air.",
     pillar: "how-self-driving-cars-work",
   },
@@ -97,6 +120,8 @@ export const TOPICS: Topic[] = [
     name: "Space Tech",
     description:
       "Reusable rockets, space debris and the telescopes watching the universe. How the technology of spaceflight works, explained for curious readers.",
+    metaDescription:
+      "How reusable rockets land, why space debris is a growing threat, and how telescopes like Hubble are kept working.",
     pillar: "how-rockets-land-themselves-explained",
   },
   {
@@ -104,6 +129,8 @@ export const TOPICS: Topic[] = [
     name: "Health & Biotech",
     description:
       "AI in medicine, gene editing, mRNA vaccines and brain-computer interfaces: how technology is changing the way we diagnose and treat disease.",
+    metaDescription:
+      "How AI helps doctors, how gene editing and mRNA vaccines work, and what brain-computer interfaces can already do.",
     pillar: "ai-in-healthcare",
   },
 ];

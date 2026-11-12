@@ -10,6 +10,7 @@ import {
 } from "@/content/articles";
 import { AUTHOR_NAME, AUTHOR_PATH, SITE_NAME, SITE_URL } from "@/content/site";
 import { topicPath } from "@/content/topics";
+import { absoluteUrl, responsiveImage } from "@/lib/images";
 import { tableOfContents } from "@/lib/markdown";
 import ArticleCard from "../../components/ArticleCard";
 import ArticleContent from "../../components/ArticleContent";
@@ -40,8 +41,11 @@ export async function generateMetadata({
   if (!article) return { title: "Article not found" };
 
   const url = `/blog/${article.slug}`;
+  const image = absoluteUrl(article.image);
   return {
-    title: article.title,
+    // A set SEO title is used as the whole <title>, without the site-name
+    // suffix, so the editor controls exactly what search results show.
+    title: article.seoTitle ? { absolute: article.seoTitle } : article.title,
     description: article.excerpt,
     alternates: { canonical: url },
     authors: [{ name: AUTHOR_NAME, url: `${SITE_URL}${AUTHOR_PATH}` }],
@@ -53,14 +57,15 @@ export async function generateMetadata({
       description: article.excerpt,
       url,
       publishedTime: article.date,
+      modifiedTime: article.modifiedDate,
       authors: [`${SITE_URL}${AUTHOR_PATH}`],
-      images: [{ url: article.image, alt: article.imageAlt }],
+      images: [{ url: image, alt: article.imageAlt }],
     },
     twitter: {
       card: "summary_large_image",
       title: article.title,
       description: article.excerpt,
-      images: [article.image],
+      images: [image],
     },
   };
 }
@@ -98,9 +103,9 @@ export default async function ArticlePage({
     "@type": "BlogPosting",
     headline: article.title,
     description: article.excerpt,
-    image: article.image,
+    image: absoluteUrl(article.image),
     datePublished: article.date,
-    dateModified: article.date,
+    dateModified: article.modifiedDate,
     articleSection: article.topic.name,
     inLanguage: "en",
     wordCount: wordCount(article.markdown),
@@ -158,7 +163,7 @@ export default async function ArticlePage({
           <div className="article-cover-hero">
             <div className="cover-media">
               <img
-                src={article.image}
+                {...responsiveImage(article.image, "(max-width: 860px) 100vw, 52vw")}
                 alt={article.imageAlt}
                 width={1200}
                 height={900}
@@ -183,6 +188,14 @@ export default async function ArticlePage({
                 </span>
                 <span className="byline-sep" aria-hidden="true">·</span>
                 <time dateTime={article.date}>{article.dateLabel}</time>
+                {article.updatedLabel && (
+                  <>
+                    <span className="byline-sep" aria-hidden="true">·</span>
+                    <span>
+                      Updated <time dateTime={article.modifiedDate}>{article.updatedLabel}</time>
+                    </span>
+                  </>
+                )}
                 <span className="byline-sep" aria-hidden="true">·</span>
                 <span>{article.readTime}</span>
               </div>

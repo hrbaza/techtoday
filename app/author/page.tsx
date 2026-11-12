@@ -12,11 +12,21 @@ import {
 import ArticleCard from "../components/ArticleCard";
 import AuthorBio from "../components/AuthorBio";
 
+const AUTHOR_SUMMARY = `${AUTHOR_NAME} is the founder and editor of ${SITE_NAME}, writing plain-English explainers on AI, computing, security and everyday technology.`;
+
 export const metadata: Metadata = {
   title: `${AUTHOR_NAME}, Founder & Editor`,
-  description: AUTHOR_BIO,
+  description: AUTHOR_SUMMARY,
   alternates: { canonical: AUTHOR_PATH },
-  openGraph: { type: "profile", url: AUTHOR_PATH },
+  // openGraph here replaces the site-wide one, so the share image is repeated.
+  openGraph: {
+    type: "profile",
+    url: AUTHOR_PATH,
+    siteName: SITE_NAME,
+    title: `${AUTHOR_NAME}, Founder & Editor · ${SITE_NAME}`,
+    description: AUTHOR_SUMMARY,
+    images: [{ url: "/og.png", width: 1536, height: 1024, alt: SITE_NAME }],
+  },
 };
 
 export default async function AuthorPage() {

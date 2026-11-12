@@ -59,6 +59,10 @@ function stripDoc<T extends PostFile>(doc: T): PostFile {
     post.midImage = doc.midImage;
     post.midImageAlt = doc.midImageAlt ?? "";
   }
+  if (doc.seoTitle) post.seoTitle = doc.seoTitle;
+  // Database documents carry updatedAt (set on every save); JSON files don't.
+  const updatedAt = (doc as { updatedAt?: unknown }).updatedAt;
+  if (updatedAt instanceof Date) post.modified = updatedAt.toISOString();
   return post;
 }
 
@@ -106,8 +110,11 @@ function assertWritable() {
   }
 }
 
-export async function savePost(post: PostFile, { isNew }: { isNew: boolean }) {
+export async function savePost(input: PostFile, { isNew }: { isNew: boolean }) {
   assertWritable();
+  // `modified` is derived from updatedAt when reading; never store it.
+  const { modified: _modified, ...post } = input;
+  void _modified;
   if (backend() === "mongo") {
     const posts = await postsCollection();
     const now = new Date();
@@ -123,6 +130,7 @@ export async function savePost(post: PostFile, { isNew }: { isNew: boolean }) {
       // taken away, and the old-format body once Markdown replaces it.
       const unset: Record<string, ""> = {};
       if (!post.midImage) Object.assign(unset, { midImage: "", midImageAlt: "" });
+      if (!post.seoTitle) unset.seoTitle = "";
       if (post.markdown !== undefined) unset.body = "";
       await posts.updateOne(
         { slug: post.slug },

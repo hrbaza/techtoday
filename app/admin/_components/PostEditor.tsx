@@ -26,6 +26,7 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
   const isNew = !initial;
 
   const [title, setTitle] = useState(initial?.title ?? "");
+  const [seoTitle, setSeoTitle] = useState(initial?.seoTitle ?? "");
   const [slug, setSlug] = useState(initial?.slug ?? "");
   const [slugEdited, setSlugEdited] = useState(!isNew);
   const [category, setCategory] = useState(initial?.category ?? "");
@@ -65,6 +66,7 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
         post: {
           slug,
           title,
+          seoTitle,
           category,
           excerpt,
           date,
@@ -105,6 +107,10 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
   }
 
   const slugValid = SLUG_PATTERN.test(slug);
+  // What Google shows as the title: the SEO title as written, otherwise the
+  // headline plus the site name. Past about 60 characters it gets cut off.
+  const searchTitle = seoTitle.trim() || `${title.trim()} — TechToday`;
+  const searchTitleTooLong = searchTitle.length > 60;
 
   return (
     <form className="admin-form" onSubmit={handleSave}>
@@ -125,6 +131,23 @@ export default function PostEditor({ initial, categories, initialMessage = "" }:
             value={title}
             onChange={(event) => handleTitle(event.target.value)}
           />
+        </div>
+
+        <div className="admin-field">
+          <label htmlFor="seo-title">SEO title (optional)</label>
+          <input
+            id="seo-title"
+            type="text"
+            maxLength={70}
+            placeholder="Shorter title for Google, main keyword first"
+            value={seoTitle}
+            onChange={(event) => setSeoTitle(event.target.value)}
+          />
+          <p className={`admin-hint${searchTitleTooLong ? " bad" : ""}`}>
+            Google will show: “{searchTitle}” ({searchTitle.length} characters
+            {searchTitleTooLong ? ", over 60 so it will be cut off" : ""}). The
+            page headline stays as the title above.
+          </p>
         </div>
 
         <div className="admin-grid">

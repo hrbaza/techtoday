@@ -1,5 +1,9 @@
 import Link from "next/link";
 import type { Article } from "@/content/articles";
+import { responsiveImage } from "@/lib/images";
+
+// Cards are 3 across on desktop, 2 on tablets and full width on phones.
+const CARD_SIZES = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px";
 
 // The title link is stretched over the whole card, so the card is one click
 // target and one tab stop.
@@ -9,7 +13,7 @@ export default function ArticleCard({ article }: { article: Article }) {
     <article className="story-card">
       <div className="story-media">
         <img
-          src={article.image}
+          {...responsiveImage(article.image, CARD_SIZES)}
           alt={article.imageAlt}
           width={800}
           height={500}

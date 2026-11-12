@@ -18,7 +18,8 @@
     "next": "16.2.6",
     "react": "19.2.6",
     "react-dom": "19.2.6",
-    "sanitize-html": "2.18.0"
+    "sanitize-html": "2.18.0",
+    "sharp": "0.34.5"
   },
   "devDependencies": {
     "@eslint/js": "9.39.4",

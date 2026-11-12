@@ -49,9 +49,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     };
   });
 
+  // The last time the article was saved, so edits (new links, corrections)
+  // tell Google the page changed, not just the day it was published.
   const articleEntries: MetadataRoute.Sitemap = articles.map((article) => ({
     url: `${SITE_URL}/blog/${article.slug}`,
-    lastModified: new Date(article.date),
+    lastModified: new Date(article.modifiedDate),
     changeFrequency: "monthly",
     priority: 0.8,
   }));

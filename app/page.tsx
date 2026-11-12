@@ -7,6 +7,7 @@ import {
   SITE_NAME,
   SITE_URL,
 } from "@/content/site";
+import { responsiveImage } from "@/lib/images";
 import ArticleCard from "./components/ArticleCard";
 import Avatar from "./components/Avatar";
 import TrendingList from "./components/TrendingList";
@@ -71,7 +72,7 @@ export default async function Home() {
         <article className="feature-card">
           <div className="feature-media">
             <img
-              src={featured.image}
+              {...responsiveImage(featured.image, "(max-width: 860px) 100vw, 55vw")}
               alt={featured.imageAlt}
               width={1200}
               height={900}

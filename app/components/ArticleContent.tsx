@@ -1,3 +1,4 @@
+import { responsiveImage } from "@/lib/images";
 import { renderMarkdown, renderMarkdownSplit } from "@/lib/markdown";
 
 // An article's body with its optional middle image placed halfway through.
@@ -26,7 +27,7 @@ export default function ArticleContent({
       <div className="article-prose" dangerouslySetInnerHTML={{ __html: before }} />
       <img
         className="article-image article-image-mid"
-        src={midImage}
+        {...responsiveImage(midImage, "(max-width: 860px) 100vw, 740px")}
         alt={midImageAlt ?? ""}
         width={1600}
         height={900}

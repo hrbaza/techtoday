@@ -6,7 +6,7 @@ import { topicPath, TOPICS } from "@/content/topics";
 export const metadata: Metadata = {
   title: "Topics",
   description:
-    "Browse TechToday by topic: AI, chips, computing, the internet, wireless, cybersecurity, smartphones, batteries, clean energy, wearables, robots, space and health tech.",
+    "Browse TechToday by topic: AI, chips, computing, internet, wireless, security, phones, batteries, energy, wearables, robots, space and health.",
   alternates: { canonical: "/topics" },
 };
 

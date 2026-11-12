@@ -24,6 +24,10 @@ export type PostFile = {
   draft?: boolean; // drafts are saved but not shown on the site
   markdown?: string; // article body (see lib/markdown.ts)
   body?: Block[]; // article body in the old format, until it is next saved
+  seoTitle?: string; // optional shorter title for search results (<title>)
+  // Read-only: when the article was last saved (ISO timestamp), from the
+  // database's updatedAt. Never written back.
+  modified?: string;
 };
 
 // An article's body as Markdown, whichever format it is stored in.
@@ -37,6 +41,8 @@ export type Article = PostFile & {
   dateLabel: string; // human-friendly display date
   readTime: string;
   topic: Topic; // the topic cluster shown on the site (see content/topics.ts)
+  modifiedDate: string; // YYYY-MM-DD of the last edit, never before `date`
+  updatedLabel?: string; // display date, only when edited on a later day
 };
 
 // Words a reader sees in an article body — used to confirm the 800+ word
@@ -57,11 +63,15 @@ export function formatDateLabel(isoDate: string): string {
 export function toArticle(post: PostFile): Article {
   const markdown = postMarkdown(post);
   const minutes = Math.max(1, Math.round(wordCount(markdown) / 200));
+  const editedDay = post.modified?.slice(0, 10);
+  const modifiedDate = editedDay && editedDay > post.date ? editedDay : post.date;
   return {
     ...post,
     markdown,
     dateLabel: formatDateLabel(post.date),
     readTime: `${minutes} min read`,
     topic: topicFor(post),
+    modifiedDate,
+    ...(modifiedDate > post.date ? { updatedLabel: formatDateLabel(modifiedDate) } : {}),
   };
 }

@@ -90,6 +90,7 @@ async function handleSave({
 }: SaveRequest) {
   const slug = String(post.slug ?? "").trim();
   const title = String(post.title ?? "").trim();
+  const seoTitle = String(post.seoTitle ?? "").trim();
   const category = String(post.category ?? "").trim();
   const excerpt = String(post.excerpt ?? "").trim();
   const date = String(post.date ?? "").trim();
@@ -102,6 +103,7 @@ async function handleSave({
     return bad("URL slug may only use lowercase letters, numbers and dashes.");
   }
   if (!title) return bad("Title is required.");
+  if (seoTitle.length > 70) return bad("SEO title must be 70 characters or fewer.");
   if (!category) return bad("Topic is required.");
   if (!TOPIC_NAMES.includes(category)) return bad("Choose one of the listed topics.");
   if (!excerpt) return bad("Short description is required.");
@@ -153,6 +155,7 @@ async function handleSave({
     saved.midImage = midImage;
     saved.midImageAlt = midImageAlt;
   }
+  if (seoTitle) saved.seoTitle = seoTitle;
   try {
     await savePost(saved, { isNew });
   } catch (error) {

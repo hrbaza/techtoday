@@ -1,5 +1,9 @@
 import Link from "next/link";
 import type { Article } from "@/content/articles";
+import { responsiveImage } from "@/lib/images";
+
+// Thumbnails are 84px wide, but become wide cards in the phone swipe row.
+const THUMB_SIZES = "(max-width: 860px) 320px, 84px";
 
 // "Trending now": a numbered list of articles. On the home page it is a
 // full-width section under the hero (two columns); on article pages it sits
@@ -45,7 +49,7 @@ export default function TrendingList({
             </div>
             <img
               className="trend-thumb"
-              src={article.image}
+              {...responsiveImage(article.image, THUMB_SIZES)}
               alt=""
               width={168}
               height={128}
