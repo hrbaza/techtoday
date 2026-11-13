@@ -139,14 +139,6 @@ export default function PrivacyPolicyPage() {
             instructions about how to opt out of certain options.
           </p>
 
-          <h2>Analytics</h2>
-          <p>
-            We may use analytics services to understand how visitors use our
-            site — for example, which articles are most popular. These services
-            may collect information such as pages viewed and general location,
-            in an aggregated and anonymous form, to help us improve our content.
-          </p>
-
           <h2>Your choices</h2>
           <p>
             You can manage or disable cookies through your browser settings, opt
