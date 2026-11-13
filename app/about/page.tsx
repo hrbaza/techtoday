@@ -55,20 +55,48 @@ export default function AboutPage() {
             its promise, because that balanced view is what helps people make
             good decisions.
           </p>
+
+          <h2 id="editorial-policy">Editorial policy</h2>
           <p>
-            Our articles are researched and written to be clear and accurate. We
-            aim to explain concepts rather than chase every passing rumour, so
-            the guides you read here should remain useful well beyond the news
-            cycle.
+            These are the rules every article on {SITE_NAME} follows.
           </p>
+          <ul className="article-list">
+            <li>
+              <strong>Sources.</strong> News articles link to the original
+              announcement, court or regulatory filing, or report behind each
+              key fact and figure. Explainers link to the standards, official
+              documentation or research they rely on.
+            </li>
+            <li>
+              <strong>Confirmed versus reported.</strong> When something is a
+              leak, rumour or unconfirmed report, we say so plainly and keep it
+              separate from what a company or authority has confirmed.
+            </li>
+            <li>
+              <strong>Corrections.</strong> If you spot an error, tell us through
+              the <Link href="/contact">contact page</Link>. We check it, fix the
+              article, and the article then shows an &ldquo;Updated&rdquo; date so
+              readers can see it changed.
+            </li>
+            <li>
+              <strong>Updates.</strong> News moves on. When a story develops, we
+              update the article rather than leave outdated details in place.
+            </li>
+            <li>
+              <strong>Independence.</strong> We do not accept payment to cover a
+              product or company, and no company reviews our articles before
+              they are published. Ads on the site are served by Google AdSense
+              and have no influence on what we write.
+            </li>
+          </ul>
 
           <h2>Who writes {SITE_NAME}</h2>
           <p>
             {SITE_NAME} is an independent technology blog founded and edited
-            by <Link href={AUTHOR_PATH}>{AUTHOR_NAME}</Link>. Every article is
-            researched and written with care — we are not affiliated with any of
-            the companies or products we cover, and we write about technology
-            strictly on its merits.
+            by <Link href={AUTHOR_PATH}>{AUTHOR_NAME}</Link>. It launched in
+            August 2026. We are not affiliated with any of the companies or
+            products we cover, and we write about technology strictly on its
+            merits.
           </p>
           <AuthorBio />
 

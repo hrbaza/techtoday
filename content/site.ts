@@ -23,6 +23,12 @@ export const AUTHOR_BIO =
   "artificial intelligence, computing, security and the technology shaping " +
   "everyday life, with a focus on explaining complex ideas in plain, honest " +
   "language — clear answers for curious readers, without the hype.";
+// Optional author photo: put a square image in /public (e.g. public/author.jpg)
+// and set its path here, like "/author.jpg". Empty shows the initials instead.
+export const AUTHOR_IMAGE = "";
+// Optional profiles that confirm who the author is (LinkedIn, X, GitHub…).
+// Shown under the author bio and added to structured data as sameAs.
+export const AUTHOR_LINKS: { label: string; url: string }[] = [];
 
 // Optional: paste the code from Google Search Console's "HTML tag" verification
 // method here, or set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel. Leave

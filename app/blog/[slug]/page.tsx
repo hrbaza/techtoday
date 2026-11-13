@@ -8,7 +8,7 @@ import {
   getTopicArticles,
   wordCount,
 } from "@/content/articles";
-import { AUTHOR_NAME, AUTHOR_PATH, SITE_NAME, SITE_URL } from "@/content/site";
+import { AUTHOR_LINKS, AUTHOR_NAME, AUTHOR_PATH, SITE_NAME, SITE_URL } from "@/content/site";
 import { topicPath } from "@/content/topics";
 import { absoluteUrl, responsiveImage } from "@/lib/images";
 import { tableOfContents } from "@/lib/markdown";
@@ -115,6 +115,7 @@ export default async function ArticlePage({
       "@type": "Person",
       name: AUTHOR_NAME,
       url: `${SITE_URL}${AUTHOR_PATH}`,
+      ...(AUTHOR_LINKS.length ? { sameAs: AUTHOR_LINKS.map((link) => link.url) } : {}),
     },
     publisher: {
       "@type": "Organization",

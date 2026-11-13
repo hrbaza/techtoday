@@ -3,6 +3,8 @@ import Link from "next/link";
 import { getArticles } from "@/content/articles";
 import {
   AUTHOR_BIO,
+  AUTHOR_IMAGE,
+  AUTHOR_LINKS,
   AUTHOR_NAME,
   AUTHOR_PATH,
   AUTHOR_ROLE,
@@ -43,6 +45,8 @@ export default async function AuthorPage() {
       description: AUTHOR_BIO,
       url: `${SITE_URL}${AUTHOR_PATH}`,
       worksFor: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      ...(AUTHOR_IMAGE ? { image: `${SITE_URL}${AUTHOR_IMAGE}` } : {}),
+      ...(AUTHOR_LINKS.length ? { sameAs: AUTHOR_LINKS.map((link) => link.url) } : {}),
     },
   };
 
